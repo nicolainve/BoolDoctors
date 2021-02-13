@@ -13,10 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//rotta per home
+//Route::get('/', 'HomeController@index')->name('home');
+
+//rotta privata
+Route::prefix('admin')
+    ->namespace('Admin')
+    ->name('admin.')
+    ->middleware('auth')
+    ->group(function() {
+        //home Admin
+        Route::get('/', 'HomeController@index')->name('home');
+
+        //rotte info CRUD
+        Route::resource('infos', 'InfoController');
+    });
