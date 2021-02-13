@@ -44,6 +44,8 @@ class InfoController extends Controller
     {
         $data = $request->all();
 
+        //inserire validazione
+
 
         $data['user_id'] = Auth::id();  //cerchiamo la user_id dell'utente loggato
 
