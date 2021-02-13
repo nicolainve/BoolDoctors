@@ -22,8 +22,9 @@ class CreateInfosTable extends Migration
             $table->string('address', 30);
             $table->text('CV');
             $table->text('photo')->nullable();
-            $table->string('phone', 12);
-            $table->decimal('price', 6, 2);
+            // $table->integer('phone');
+            $table->string('phone',12);
+            $table->float('price', 6, 2);
             $table->timestamps();
 
             // Relation One-To-One

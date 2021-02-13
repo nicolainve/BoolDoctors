@@ -6,6 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Info extends Model
 {   
+    // Fillable
+    protected $fillable = [
+        'user_id',
+        'name',
+        'surname',
+        'address',
+        'slug',
+        'CV',
+        'photo',
+        'phone',
+        'price'
+    ];
 
     /**
      * DB RELATIONS
