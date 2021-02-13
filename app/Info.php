@@ -5,8 +5,13 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Info extends Model
-{
-    // Relation User One-To-One
+{   
+
+    /**
+     * DB RELATIONS
+     */
+    
+     // Relation User One-To-One
     public function user() {
         return $this->belongsTo('App\User');
     }
