@@ -15,6 +15,9 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+                    <h1 class="text-center">HOME PAGE PRIVATA</h1>
+
                 </div>
             </div>
         </div>

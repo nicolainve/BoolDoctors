@@ -52,6 +52,18 @@
         <input class="form-control" type="number" name="price" id="price" value="{{ old('price') }}">   
      </div>
 
+     <div class="form-group">
+      @foreach ($specializations as $specialization)
+          <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="specializations[]" id="specialization-{{ $specialization->id }}" value="{{ $specialization->id }}">
+              <label for="specialization-{{ $specialization->id }}">
+                  {{ $specialization->type }}
+              </label>
+          </div>
+      @endforeach
+
+      </div>
+
      <input class="btn btn-primary" value="Crea le tue info" type="submit">
     </form>
 </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Info;
+use App\Specialization;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
@@ -31,7 +32,9 @@ class InfoController extends Controller
      */
     public function create()
     {
-        return view('admin.infos.create');
+        $specializations = Specialization::all();
+
+        return view('admin.infos.create', compact('specializations'));
     }
 
     /**
@@ -58,6 +61,7 @@ class InfoController extends Controller
         $saved = $newInfo->save();
 
         if ($saved) {
+            $newInfo->specializations()->attach($data['specializations']);
             return redirect()->route('admin.home');
         }
     }
