@@ -4,6 +4,8 @@
 @section('content')
 <div class="container">
 
+    <a class="btn btn-primary"href="{{ route('admin.infos.edit', Auth::user()->info['id']) }}">Edit</a>
+
     <small>Nome e Cognome</small>
     <h2>{{ $info->name }} {{ $info->surname }}</h2>
 
@@ -18,6 +20,13 @@
 
     <small>Prezzo</small>
     <p>{{ $info->price }}</p>
+
+    <section class="specialization">
+        <h4>Specializzazioni</h4>
+        @foreach ($info->specializations as $specialization)
+            <span class="badge badge-primary">{{ $specialization->type }}</span>
+        @endforeach
+    </section>
 
 
     @if(!empty($info->photo))

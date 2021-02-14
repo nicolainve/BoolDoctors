@@ -95,7 +95,13 @@ class InfoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $info = Info::find($id);
+
+        $specializations = Specialization::all();
+
+        $this->errorPages($info);
+
+        return view('admin.infos.edit', compact('info', 'specializations'));
     }
 
     /**
@@ -107,7 +113,33 @@ class InfoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $info = Info::find($id);
+
+        $slug = $data['name'] . ' ' .  $data['surname'];
+        $data['slug'] = Str::slug($slug, '-');
+
+        if(!empty($data['photo'])) {
+            if (!empty($info->photo)) {
+                Storage::disk('public')->delete($info->photo);
+            }
+            $data['photo'] = Storage::disk('public')->put('images', $data['photo']);
+        }
+
+        $updated = $info->update($data);
+
+        if($updated) {
+            if (!empty($data['specializations'])) {
+                $info->specializations()->sync($data['specializations']);
+            } else {
+                $info->specializations()->detach();
+            }
+            return redirect()->route('admin.infos.show', $info->id);
+        } else {
+            return redirect()->route('home');
+        }
+
     }
 
     /**
@@ -119,5 +151,15 @@ class InfoController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    // FUNCTIONS
+
+    private function errorPages($var)
+    {
+        if (empty($var)) {
+            abort(404);
+        }
     }
 }
