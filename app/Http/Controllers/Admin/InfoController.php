@@ -74,7 +74,9 @@ class InfoController extends Controller
      */
     public function show($id)
     {
-        //
+        $info = Info::find($id);
+
+        return view('admin.infos.show', compact('info'));
     }
 
     /**

@@ -52,9 +52,17 @@
                             <li class="nav-item dropdown">
                                 <a href="{{ route('admin.home') }}" class="nav-link">Dashboard</a>
                             </li>
+                            
+                            @if (!Auth::user()->info)
                             <li class="nav-item dropdown">
                                 <a href="{{ route('admin.infos.create') }}" class="nav-link">Crea Profilo</a>
                             </li>
+                            @else
+                            <li class="nav-item dropdown">
+                                <a href="{{ route('admin.infos.show', Auth::user()->info['id']) }}" class="nav-link">Mostra Profilo</a>
+                            </li>
+                            @endif
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
