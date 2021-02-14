@@ -5,6 +5,12 @@
 <div class="container">
 
     <a class="btn btn-primary"href="{{ route('admin.infos.edit', Auth::user()->info['id']) }}">Edit</a>
+    <form class="d-inline" action="{{ route('admin.infos.destroy', Auth::user()->info['id']) }}" method="POST">
+        @csrf
+        @method('DELETE')
+
+        <input class="btn btn-danger" type="submit" value="Delete">
+    </form>
 
     <small>Nome e Cognome</small>
     <h2>{{ $info->name }} {{ $info->surname }}</h2>

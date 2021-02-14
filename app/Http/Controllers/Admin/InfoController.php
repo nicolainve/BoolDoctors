@@ -148,9 +148,22 @@ class InfoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Info $info)
     {
-        //
+        $name = $info->name;
+        $image = $info->photo;
+
+        $info->specializations()->detach();
+        $deleted = $info->delete();
+
+        if($deleted) {
+            if (!empty($info->$image)) {
+                Storage::disk('public')->delete($info->$image);
+            }
+            return redirect()->route('admin.home')->with('info-delete', $name);
+        } else {
+            return redirect()->route('home');
+        }
     }
 
 
