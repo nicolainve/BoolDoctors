@@ -20,6 +20,11 @@
     <p>{{ $info->price }}</p>
 
 
+    @if(!empty($info->photo))
+        <img width="300" src="{{ asset('storage/' . $info->photo) }}" alt="{{ $info->name }}">
+    @else
+        <img src="{{ asset('img/no-image.png') }}" alt="{{ $info->name }}">
+    @endif
 
 </div>
 @endsection

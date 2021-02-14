@@ -8,6 +8,7 @@ use App\Info;
 use App\Specialization;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class InfoController extends Controller
 {
@@ -55,8 +56,15 @@ class InfoController extends Controller
         $slug = $data['name'] . ' ' .  $data['surname'];
         $data['slug'] = Str::slug($slug, '-');
 
+        if(!empty($data['photo'])) {
+            $data['photo'] = Storage::disk('public')->put('images', $data['photo']);
+        }
+
+
         //per salvare un record creiamo un'istanza del modello
         $newInfo = new Info();
+
+
         $newInfo->fill($data); //fillable nel model!!
         $saved = $newInfo->save();
 

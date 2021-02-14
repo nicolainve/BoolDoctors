@@ -15,7 +15,7 @@
         </div>
     @endif
 
-    <form action="{{ route('admin.infos.store') }}" method="POST">
+    <form action="{{ route('admin.infos.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('POST')
 
@@ -39,10 +39,10 @@
         <label for="CV">Curriculum Vitae</label>
         <textarea class="form-control" name="CV" id="CV" cols="30" rows="10">{{ old('CV') }}</textarea>
      </div>
-     {{-- <div class="form-group">
-        <label for="image">Image: </label>
-        <input class="form-control" type="file" accept="image/*" name="image" value="{{ old('image') }}">
-    </div> --}}
+     <div class="form-group">
+        <label for="photo">Immagine: </label>
+        <input class="form-control" type="file" accept="image/*" name="photo" value="{{ old('photo') }}">
+      </div>
      <div class="form-group">
         <label for="phone">Numero di telefono</label>
         <input class="form-control" type="text" name="phone" id="phone" value="{{ old('phone') }}">   
