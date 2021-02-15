@@ -34,8 +34,9 @@ class InfoController extends Controller
     public function create()
     {
         $specializations = Specialization::all();
-
         return view('admin.infos.create', compact('specializations'));
+
+
     }
 
     /**
@@ -48,8 +49,8 @@ class InfoController extends Controller
     {
         $data = $request->all();
 
-        //inserire validazione
-
+        // validazione
+        $request->validate($this->ruleValidation());
 
         $data['user_id'] = Auth::id();  //cerchiamo la user_id dell'utente loggato
 
@@ -113,9 +114,11 @@ class InfoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
 
+        $data = $request->all();
         $info = Info::find($id);
+
+        $request->validate($this->ruleValidation());
 
         $slug = $data['name'] . ' ' .  $data['surname'];
         $data['slug'] = Str::slug($slug, '-');
@@ -174,5 +177,17 @@ class InfoController extends Controller
         if (empty($var)) {
             abort(404);
         }
+        
+        
+    }
+
+    private function ruleValidation(){
+        return [
+            'name' => 'required',
+            'surname' => 'required',
+            // 'photo' => 'mimes:jpeg,bmp,png,jpg',
+            'address'=> 'required',
+            'specializations' => 'required'
+        ];
     }
 }
