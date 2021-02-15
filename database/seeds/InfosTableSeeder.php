@@ -34,6 +34,9 @@ class InfosTableSeeder extends Seeder
             //! Specialization
             $specNumber = $faker->numberBetween(1,6);
             $newInfo->specializations()->attach($specNumber);
+            //! Votes
+            $vote = $faker->numberBetween(1, 5);
+            $newInfo->votes()->attach($vote);
         }
     }
 }
