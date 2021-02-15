@@ -55,11 +55,12 @@
                             
                             @if (!Auth::user()->info)
                             <li class="nav-item dropdown">
-                                <a href="{{ route('admin.infos.create') }}" class="nav-link">Crea Profilo</a>
+                                <a href="{{ route('admin.infos.create') }}" class="nav-link">{{ Auth::user()->email }}</a>
+
                             </li>
                             @else
                             <li class="nav-item dropdown">
-                                <a href="{{ route('admin.infos.show', Auth::user()->info['id']) }}" class="nav-link">Mostra Profilo</a>
+                                <a href="{{ route('admin.infos.show', Auth::user()->info['id']) }}" class="nav-link">{{ Auth::user()->email }}</a>
                             </li>
                             @endif
 
