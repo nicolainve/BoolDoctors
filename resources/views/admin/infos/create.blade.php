@@ -18,18 +18,19 @@
     <form action="{{ route('admin.infos.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('POST')
-
+    
+    
     <div class="form-group">
        <label for="name">Nome</label>
-       <input class="form-control" type="text" name="name" id="name" value="{{ old('name') }}">
+       <input class="form-control" type="text" name="name" id="name" value="{{ old('name') }}" required>
     </div>
     <div class="form-group">
         <label for="surname">Cognome</label>
-        <input class="form-control" type="text" name="surname" id="surname" value="{{ old('surname') }}">   
+        <input class="form-control" type="text" name="surname" id="surname" value="{{ old('surname') }}" required>   
      </div>
      <div class="form-group">
         <label for="address">Indirizzo</label>
-        <input class="form-control" type="text" name="address" id="address" value="{{ old('address') }}">   
+        <input class="form-control" type="text" name="address" id="address" value="{{ old('address') }}" required>   
      </div>
      {{-- <div class="form-group">
         <label for="exampleFormControlInput1">Indirizzo E-Mail</label>

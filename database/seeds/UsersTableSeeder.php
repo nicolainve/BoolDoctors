@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use Faker\Generator as Faker;
 use App\User;
 
@@ -16,8 +17,7 @@ class UsersTableSeeder extends Seeder
         for ($i=0; $i < 5; $i++) { 
             $newUser = new User();
             $newUser->email = $faker->email();
-            $newUser->password = $faker->password(10);
-
+            $newUser->password = Hash::make('123456789');
             $newUser->save();
         }
     }
