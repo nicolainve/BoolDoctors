@@ -160,8 +160,8 @@ class InfoController extends Controller
         $deleted = $info->delete();
 
         if($deleted) {
-            if (!empty($info->$image)) {
-                Storage::disk('public')->delete($info->$image);
+            if (!empty($info->photo)) {
+                Storage::disk('public')->delete($info->photo);
             }
             return redirect()->route('admin.home')->with('info-delete', $name);
         } else {
