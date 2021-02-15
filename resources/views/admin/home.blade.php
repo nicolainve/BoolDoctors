@@ -44,5 +44,9 @@
         <h4>Nessun messaggio</h4>
         @endforelse
 
+    @foreach ($info->votes as $vote)
+    <span class="badge badge-primary">{{ $vote->vote }}</span>
+    @endforeach
+
 </div>
 @endsection

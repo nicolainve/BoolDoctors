@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Message;
 use App\Review;
 use App\Vote;
+use App\Info;
 use App\Specialization;
 
 class HomeController extends Controller
@@ -21,8 +22,11 @@ class HomeController extends Controller
         } else {
             $messages = Message::where('info_id', Auth::user()->info['id'])->orderBy('created_at', 'desc')->get();
             $reviews = Review::where('info_id', Auth::user()->info['id'])->orderBy('created_at', 'desc')->get();
+            $info = Info::find(Auth::user()->info['id']);
+            // dd($info);
+
     
-            return view('admin.home', compact('messages', 'reviews'));
+            return view('admin.home', compact('messages', 'reviews', 'info'));
         
         }
         
