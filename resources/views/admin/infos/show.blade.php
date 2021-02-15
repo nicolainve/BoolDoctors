@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<div>ciao rega</div>
 
 @section('content')
 <div class="container">
