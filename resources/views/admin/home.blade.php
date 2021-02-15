@@ -29,7 +29,7 @@
         <h3>{{ $message->author }}</h3>
         <a href="mailto:{{ $message->mail }}">{{ $message->mail }}</a>
         <p>{{ $message->body }}</p>
-        <h4>{{ $message->created_at }}</h4>
+        <h4>{{ $message->created_at->diffForHumans() }}</h4>
         @empty
         <h4>Nessun messaggio</h4>
         @endforelse
@@ -39,7 +39,7 @@
 
         <h3>{{ $review->author }}</h3>
         <p>{{ $review->body }}</p>
-        <h4>{{ $review->created_at }}</h4>
+        <h4>{{ $review->created_at->diffForHumans() }}</h4>
         @empty
         <h4>Nessun messaggio</h4>
         @endforelse

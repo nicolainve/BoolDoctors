@@ -19,8 +19,8 @@ class HomeController extends Controller
 
             return view('admin.infos.create', compact('specializations'));
         } else {
-            $messages = Message::where('info_id', Auth::user()->info['id'])->get();
-            $reviews = Review::where('info_id', Auth::user()->info['id'])->get();
+            $messages = Message::where('info_id', Auth::user()->info['id'])->orderBy('created_at', 'desc')->get();
+            $reviews = Review::where('info_id', Auth::user()->info['id'])->orderBy('created_at', 'desc')->get();
     
             return view('admin.home', compact('messages', 'reviews'));
         
