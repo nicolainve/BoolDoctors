@@ -22,5 +22,24 @@
             </div>
         </div>
     </div>
+    <h2>My Message</h2>
+
+    
+
+        @forelse ($messages as $message)
+
+        <h3>{{ $message->author }}</h3>
+        <a href="mailto:{{ $message->mail }}">{{ $message->mail }}</a>
+        <p>{{ $message->body }}</p>
+        <h4>{{ $message->created_at }}</h4>
+
+        @empty
+        <h4>Nessun messaggio</h4>
+    
+        @endforelse
+
+    
+
+    
 </div>
 @endsection

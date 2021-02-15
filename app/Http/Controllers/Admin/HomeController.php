@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Message;
 use App\Review;
 use App\Vote;
+use App\Specialization;
 
 class HomeController extends Controller
 {
@@ -16,11 +17,23 @@ class HomeController extends Controller
         // $reviews = Review::all();
 
         // return view('admin.home');
-        $messages = Message::where('info_id', Auth::user()->info['id'])->get();
-        $reviews = Review::where('info_id', Auth::user()->info['id'])->get();
-        dd($messages, $reviews);
-        // dd($reviews);
-        return view('admin.home', compact('messages', 'reviews'));
+        if (!Auth::user()->info) {
+            $specializations = Specialization::all();
+
+            return view('admin.infos.create', compact('specializations'));
+        } else {
+            $messages = Message::where('info_id', Auth::user()->info['id'])->get();
+            $reviews = Review::where('info_id', Auth::user()->info['id'])->get();
+            //dd($messages, $reviews);
+            // dd($reviews);
+        
+            return view('admin.home', compact('messages', 'reviews'));
+        
+        }
+        
+        
+
+        
 
     }
 
