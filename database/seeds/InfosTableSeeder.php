@@ -31,6 +31,9 @@ class InfosTableSeeder extends Seeder
             $newInfo->price = $faker->randomFloat(2, 10, 100);
             // Save
             $newInfo->save();
+            //! Specialization
+            $specNumber = $faker->numberBetween(1,6);
+            $newInfo->specializations()->attach($specNumber);
         }
     }
 }
