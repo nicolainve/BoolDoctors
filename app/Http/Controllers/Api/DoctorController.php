@@ -9,12 +9,9 @@ use App\Info;
 class DoctorController extends Controller
 {
     public function index() {
-        // $doctors = Info::specializations()->all();
 
-        $doctors = Info::join('info_specialization', 'infos.id', '=', 'info_specialization.info_id')
-                            ->join('specializations', 'info_specialization.info_id', '=', 'specializations.id')
-                            ->get();
-        
+        $doctors = Info::with(['votes', 'specializations'])->get();
+
         return response()->json($doctors);
     }
 }
