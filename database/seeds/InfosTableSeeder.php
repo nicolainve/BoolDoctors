@@ -32,7 +32,15 @@ class InfosTableSeeder extends Seeder
             // Save
             $newInfo->save();
             //! Specialization
-            $specNumber = $faker->numberBetween(1,6);
+            $specNumber = [];
+            $start = rand(1,5);
+            for ($i = 0; $i < $start; $i++) {
+                $number = rand(1,6);
+
+                if (! in_array($number, $specNumber)) {
+                    $specNumber[] = $number;
+                }
+            }
             $newInfo->specializations()->attach($specNumber);
             //! Votes
             $vote = $faker->numberBetween(1, 5);
