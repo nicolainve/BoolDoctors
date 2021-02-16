@@ -43,8 +43,16 @@ class InfosTableSeeder extends Seeder
             }
             $newInfo->specializations()->attach($specNumber);
             //! Votes
-            $vote = $faker->numberBetween(1, 5);
-            $newInfo->votes()->attach($vote);
+            $voteNumber = [];
+            $start = rand(1,10);
+            for ($i = 0; $i < $start; $i++) {
+                $number = rand(1,5);
+
+                if (! in_array($number, $voteNumber)) {
+                    $voteNumber[] = $number;
+                }
+            }
+            $newInfo->votes()->attach($voteNumber);
         }
     }
 }
