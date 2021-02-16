@@ -4,14 +4,18 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Info;
+use App\Specialization;
 
 class DoctorController extends Controller
 {
     public function index() {
 
-        $doctors = Info::with(['votes', 'specializations'])->get();
-        // dd($doctors);
+       if (!empty($_GET['type'])){
+
+        $searchName = $_GET['type'];
+        $doctors = Specialization::where('type','like', "%$searchName%")->with('infos')->get();
+
+        };
 
         return response()->json($doctors);
     }
