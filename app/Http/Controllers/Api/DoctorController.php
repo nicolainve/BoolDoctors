@@ -11,6 +11,7 @@ class DoctorController extends Controller
     public function index() {
 
         $doctors = Info::with(['votes', 'specializations'])->get();
+        // dd($doctors);
 
         return response()->json($doctors);
     }
