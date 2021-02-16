@@ -33,8 +33,8 @@ class InfosTableSeeder extends Seeder
             $newInfo->save();
             //! Specialization
             $specNumber = [];
-            $start = rand(1,5);
-            for ($i = 0; $i < $start; $i++) {
+            $time = rand(1,5);
+            for ($i = 0; $i < $time; $i++) {
                 $number = rand(1,6);
 
                 if (! in_array($number, $specNumber)) {
@@ -44,13 +44,11 @@ class InfosTableSeeder extends Seeder
             $newInfo->specializations()->attach($specNumber);
             //! Votes
             $voteNumber = [];
-            $start = rand(1,10);
-            for ($i = 0; $i < $start; $i++) {
+            $time = rand(1,10);
+            for ($i = 0; $i < $time; $i++) {
                 $number = rand(1,5);
 
-                if (! in_array($number, $voteNumber)) {
-                    $voteNumber[] = $number;
-                }
+                $voteNumber[] = $number;
             }
             $newInfo->votes()->attach($voteNumber);
         }
