@@ -15,7 +15,7 @@ class DoctorController extends Controller
         //    get doctors who has specializations like query with Many-to-many relation
            $doctors = Info::whereHas('specializations', function($query) use($searchName){
                return $query->where('type', 'like', $searchName);
-            })->with('specializations', 'votes')->get();
+            })->with('specializations', 'votes', 'reviews')->get();
         };
         return response()->json($doctors);
     }

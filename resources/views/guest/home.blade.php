@@ -34,8 +34,11 @@
                     @{{ type.type }}
                 </li>
                 {{-- votes --}}
-                <li v-for="vote in result.votes">
+                {{-- <li v-for="vote in result.votes">
                     @{{ vote.vote }}
+                </li> --}}
+                <li>
+                    @{{ result.reviews.length }}
                 </li>
             </ul>
         </li>
