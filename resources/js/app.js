@@ -5,7 +5,8 @@ import Vue from 'vue';
 const app = new Vue({
     el: '#app',
     data: {
-        results : []
+        results : [],
+        modelSpec:""
     },
     created() {
         axios.get('http://127.0.0.1:8000/api/doctors')

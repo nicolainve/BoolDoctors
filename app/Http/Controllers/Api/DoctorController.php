@@ -4,19 +4,19 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Specialization;
+use App\Info;
 
 class DoctorController extends Controller
 {
     public function index() {
-
        if (!empty($_GET['type'])){
-
-        $searchName = $_GET['type'];
-        $doctors = Specialization::where('type','like', "%$searchName%")->with('infos')->get();
-
+        // get Data search from Axios
+           $searchName = '%'. $_GET['type'] . '%';
+        //    get doctors who has specializations like query with Many-to-many relation
+           $doctors = Info::whereHas('specializations', function($query) use($searchName){
+               return $query->where('type', 'like', $searchName);
+            })->with('specializations', 'votes')->get();
         };
-
         return response()->json($doctors);
     }
 }
