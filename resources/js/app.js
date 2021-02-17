@@ -42,6 +42,23 @@ const app = new Vue({
                 // handle error
                 console.log(error);
             });
+        },
+
+        inputSearch(){
+            axios.get('http://127.0.0.1:8000/api/doctors', {
+                params:{
+                    type: this.modelSpec
+                }
+            })
+            .then(response => {
+                // handle success
+                console.log(response.data);
+                this.results = response.data;
+            })
+            .catch(error => {
+                // handle error
+                console.log(error);
+            });
         }
     }
 });
