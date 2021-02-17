@@ -10,7 +10,7 @@
 
         <input class="btn btn-danger" type="submit" value="Delete">
     </form>
-
+    {{--  Infos Profile --}}
     <small>Nome e Cognome</small>
     <h2>{{ $info->name }} {{ $info->surname }}</h2>
 
@@ -33,7 +33,7 @@
         @endforeach
     </section>
 
-
+    {{-- Check photo --}}
     @if(!empty($info->photo))
         <img width="300" src="{{ asset('storage/' . $info->photo) }}" alt="{{ $info->name }}">
     @else

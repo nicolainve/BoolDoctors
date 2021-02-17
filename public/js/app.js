@@ -49612,6 +49612,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   created: function created() {
     var _this = this;
 
+    // Get specialization at start
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('http://127.0.0.1:8000/api/specializations').then(function (response) {
       // handle success
       console.log(response);
@@ -49623,6 +49624,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   },
   // metodi
   methods: {
+    // Search bar for guest by specialization
     search: function search(query) {
       var _this2 = this;
 
@@ -49723,8 +49725,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\BoolDoctors\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\BoolDoctors\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Booldoctor\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Booldoctor\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

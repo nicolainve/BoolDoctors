@@ -22,7 +22,6 @@ class CreateInfosTable extends Migration
             $table->string('address', 30);
             $table->text('CV')->nullable();
             $table->text('photo')->nullable();
-            // $table->integer('phone');
             $table->string('phone',12)->nullable();
             $table->float('price', 6, 2)->nullable();
             $table->timestamps();

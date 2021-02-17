@@ -51,20 +51,18 @@ class InfoController extends Controller
 
         // validazione
         $request->validate($this->ruleValidation());
-
-        $data['user_id'] = Auth::id();  //cerchiamo la user_id dell'utente loggato
-
-        $slug = $data['name'] . ' ' .  $data['surname'];
+        //cerchiamo la user_id dell'utente loggato
+        $data['user_id'] = Auth::id(); 
+         // slug
+        $slug = $data['name'] . ' ' .  $data['surname']; 
         $data['slug'] = Str::slug($slug, '-');
-
+        // check photo caricata
         if(!empty($data['photo'])) {
             $data['photo'] = Storage::disk('public')->put('images', $data['photo']);
         }
 
-
         //per salvare un record creiamo un'istanza del modello
         $newInfo = new Info();
-
 
         $newInfo->fill($data); //fillable nel model!!
         $saved = $newInfo->save();
@@ -117,12 +115,13 @@ class InfoController extends Controller
 
         $data = $request->all();
         $info = Info::find($id);
-
         $request->validate($this->ruleValidation());
 
+        // slug
         $slug = $data['name'] . ' ' .  $data['surname'];
         $data['slug'] = Str::slug($slug, '-');
 
+        // check photo
         if(!empty($data['photo'])) {
             if (!empty($info->photo)) {
                 Storage::disk('public')->delete($info->photo);
@@ -132,6 +131,7 @@ class InfoController extends Controller
 
         $updated = $info->update($data);
 
+        // check delle tag specializzazioni
         if($updated) {
             if (!empty($data['specializations'])) {
                 $info->specializations()->sync($data['specializations']);
@@ -159,6 +159,7 @@ class InfoController extends Controller
         $info->specializations()->detach();
         $deleted = $info->delete();
 
+        //check foto
         if($deleted) {
             if (!empty($info->photo)) {
                 Storage::disk('public')->delete($info->photo);
@@ -169,18 +170,19 @@ class InfoController extends Controller
         }
     }
 
+    /**
+     * FUNCTIONS
+     */
+    
 
-    // FUNCTIONS
-
+     // Error page
     private function errorPages($var)
     {
         if (empty($var)) {
             abort(404);
-        }
-        
-        
+        }   
     }
-
+    // Validation
     private function ruleValidation(){
         return [
             'name' => 'required',

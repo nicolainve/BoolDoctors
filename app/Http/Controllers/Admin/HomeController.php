@@ -14,27 +14,23 @@ use App\Specialization;
 class HomeController extends Controller
 {
     public function index() {
+        // No Profile
         if (!Auth::user()->info) {
             
             $specializations = Specialization::all();
 
             return view('admin.infos.create', compact('specializations'));
-        } else {
+        }
+        // Profile
+         else {
             $messages = Message::where('info_id', Auth::user()->info['id'])->orderBy('created_at', 'desc')->get();
             $reviews = Review::where('info_id', Auth::user()->info['id'])->orderBy('created_at', 'desc')->get();
             $info = Info::find(Auth::user()->info['id']);
-            // dd($info);
 
-    
             return view('admin.home', compact('messages', 'reviews', 'info'));
         
         }
-        
-        
-
-        
 
     }
-
 
 }

@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\Auth; // per Auth riga 20
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

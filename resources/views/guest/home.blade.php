@@ -7,7 +7,7 @@
 <div>
     <h1>Scegli la tipologia della visita:</h1>
 
-    {{-- opzione ricerca --}}
+    {{-- opzione ricerca per specializzazione --}}
     {{-- <input type="text" v-model="modelSpec" v-on:keyup.enter="inputSearch()"> --}}
 
     <ul class="boxes">
@@ -19,6 +19,7 @@
     </ul>
 </div>
 <div>
+    {{-- Risultati Ricerca by Specializzazione --}}
     <ul>
         <li v-for="result in results">
             <p>@{{ result.name }} @{{  result.surname}}</p>

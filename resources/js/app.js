@@ -12,7 +12,8 @@ const app = new Vue({
     },
     created() {
         
-            
+            // Get specialization at start
+
             axios.get('http://127.0.0.1:8000/api/specializations')
             .then(response => {
                 // handle success
@@ -27,6 +28,7 @@ const app = new Vue({
 
     // metodi
     methods:{
+        // Search bar for guest by specialization
         search(query){
             axios.get('http://127.0.0.1:8000/api/doctors', {
                 params:{
