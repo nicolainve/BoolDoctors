@@ -10,22 +10,6 @@ const app = new Vue({
         specs: [],
         modelSpec:""
     },
-    created() {
-        
-            // Get specialization at start
-
-            axios.get('http://127.0.0.1:8000/api/specializations')
-            .then(response => {
-                // handle success
-                console.log(response);
-                this.specs = response.data;
-            })
-            .catch(error => {
-                // handle error
-                console.log(error);
-            });
-    },
-
     // metodi
     methods:{
         // Search bar for guest by specialization
@@ -46,21 +30,5 @@ const app = new Vue({
             });
         },
 
-        inputSearch(){
-            axios.get('http://127.0.0.1:8000/api/doctors', {
-                params:{
-                    type: this.modelSpec
-                }
-            })
-            .then(response => {
-                // handle success
-                console.log(response.data);
-                this.results = response.data;
-            })
-            .catch(error => {
-                // handle error
-                console.log(error);
-            });
-        }
     }
 });

@@ -49609,24 +49609,11 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     specs: [],
     modelSpec: ""
   },
-  created: function created() {
-    var _this = this;
-
-    // Get specialization at start
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('http://127.0.0.1:8000/api/specializations').then(function (response) {
-      // handle success
-      console.log(response);
-      _this.specs = response.data;
-    })["catch"](function (error) {
-      // handle error
-      console.log(error);
-    });
-  },
   // metodi
   methods: {
     // Search bar for guest by specialization
     search: function search(query) {
-      var _this2 = this;
+      var _this = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('http://127.0.0.1:8000/api/doctors', {
         params: {
@@ -49635,23 +49622,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
       }).then(function (response) {
         // handle success
         console.log(response.data);
-        _this2.results = response.data;
-      })["catch"](function (error) {
-        // handle error
-        console.log(error);
-      });
-    },
-    inputSearch: function inputSearch() {
-      var _this3 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('http://127.0.0.1:8000/api/doctors', {
-        params: {
-          type: this.modelSpec
-        }
-      }).then(function (response) {
-        // handle success
-        console.log(response.data);
-        _this3.results = response.data;
+        _this.results = response.data;
       })["catch"](function (error) {
         // handle error
         console.log(error);

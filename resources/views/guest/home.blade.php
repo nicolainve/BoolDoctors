@@ -10,14 +10,20 @@
     {{-- opzione ricerca per specializzazione --}}
     {{-- <input type="text" v-model="modelSpec" v-on:keyup.enter="inputSearch()"> --}}
 
-    <ul class="boxes">
+    {{-- <ul class="boxes">
         <li v-for= "spec in specs" >
            <div class="btn btn-primary" v-on:click="search( spec.type )" >
                 @{{spec.type}}
            </div>
         </li>
-    </ul>
+    </ul> --}}
 </div>
+    @foreach ($specializations as $specialization)
+
+        <div class="btn btn-primary" v-on:click="search( '{{$specialization->type}}' )" >
+            {{$specialization->type}}
+        </div>
+    @endforeach
 <div>
     {{-- Risultati Ricerca by Specializzazione --}}
     <ul>
