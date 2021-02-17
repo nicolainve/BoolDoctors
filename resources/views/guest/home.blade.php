@@ -22,6 +22,10 @@
                 <li v-for="type in result.specializations">
                     @{{ type.type }}
                 </li>
+                {{-- votes --}}
+                <li v-for="vote in result.votes">
+                    @{{ vote.vote }}
+                </li>
             </ul>
         </li>
     </ul>
