@@ -22,8 +22,23 @@ class DoctorController extends Controller
                 ->join('info_vote', 'info_vote.vote_id', '=', 'votes.id')
                 ->where('info_vote.info_id', $doctor->id)
                 ->get();
+                // dump($average);
                 $doctor->vote_average = $average[0]->vote_average;
             }
+            foreach ($doctors as $doctor) {
+                $specs = DB::table('specializations')
+                ->select('specializations.type')
+                ->join('info_specialization', 'specializations.id', '=', 'info_specialization.specialization_id')
+                ->where('info_specialization.info_id', $doctor->id)
+                ->get();
+                // dump($spec);
+                foreach ($specs as $spec) {
+                    // dump($spec);
+                    $doctor->type[] = $spec;
+                }
+                // $doctor->spec_doc = $spec;
+            }
+            dd($doctors);
         return response()->json($doctors);
     }
 }
