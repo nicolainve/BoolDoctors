@@ -9,6 +9,7 @@ use App\Info;
 class DoctorController extends Controller
 {
     public function index() {
+        $doctors = info::all();
        if (!empty($_GET['type'])){
         // get Data search from Axios
            $searchName = '%'. $_GET['type'] . '%';
