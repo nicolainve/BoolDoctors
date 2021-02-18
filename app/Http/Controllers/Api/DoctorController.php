@@ -34,7 +34,7 @@ class DoctorController extends Controller
                 // dump($spec);
                 foreach ($specs as $spec) {
                     // dump($spec);
-                    $doctor->type[] = $spec;
+                    $doctor->specializations[] = $spec->type;
                 }
                 // $doctor->spec_doc = $spec;
             }
