@@ -7,16 +7,6 @@
 <div>
     <h1>Scegli la tipologia della visita:</h1>
 
-    {{-- opzione ricerca per specializzazione --}}
-    {{-- <input type="text" v-model="modelSpec" v-on:keyup.enter="inputSearch()"> --}}
-
-    {{-- <ul class="boxes">
-        <li v-for= "spec in specs" >
-           <div class="btn btn-primary" v-on:click="search( spec.type )" >
-                @{{spec.type}}
-           </div>
-        </li>
-    </ul> --}}
 </div>
     @foreach ($specializations as $specialization)
 

@@ -23,7 +23,6 @@ class HomeController extends Controller
 
     public function show($slug)
     {
-        // $info = Info::find($slug);
         $info = Info::where('slug', $slug)->first();
         $reviews = Review::where('info_id', $info->id )->orderBy('created_at', 'desc')->get();
         $average = DB::table('votes')
@@ -37,8 +36,6 @@ class HomeController extends Controller
         if (empty($info)){
             abort('404');
         }
-
-        // dd($info);
 
         return view('guest.infos.show', compact('info', 'reviews'));
     }

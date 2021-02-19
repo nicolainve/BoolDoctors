@@ -38,7 +38,7 @@
     <h2>Media Voti: {{ $info->average }}</h2>
 
     <hr>
-
+    {{--  Post Review --}}
     <h3>Lascia recensione</h3>
 
     <form action="{{ route('reviews.store') }}" method="POST">
@@ -58,7 +58,7 @@
     </form>
 
     <hr>
-
+    {{--  Send Private Message to Doctor --}}
     <h2>Scrivi un messaggio</h2>
 
     <form action="{{ route('messages.store') }}" method="POST">

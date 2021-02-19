@@ -39,13 +39,7 @@ class MessageController extends Controller
         $newMessage = new Message();
         $data = $request->all();
         $data['info_id'] = (int)$data['info_id'];
- 
-        // dd($data);
 
-
-        // validation
-        // $request->validate($this->ruleValidation());
-        
         $newMessage->fill($data);
 
         $created = $newMessage->save();

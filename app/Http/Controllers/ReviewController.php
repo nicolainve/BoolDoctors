@@ -39,12 +39,7 @@ class ReviewController extends Controller
         $newReview = new Review();
         $data = $request->all();
         $data['info_id'] = (int)$data['info_id'];
-        // dd($data);
 
-
-        // validation
-        // $request->validate($this->ruleValidation());
-        
         $newReview->fill($data);
 
         $created = $newReview->save();
