@@ -24,10 +24,8 @@ Route::name('guest.')
     });
 
 Route::resource('reviews', 'ReviewController');
-
 Route::resource('messages', 'MessageController');
 
-Route::resource('votes', 'VoteController');
 
 Auth::routes();
 
