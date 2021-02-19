@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Info;
-use App\Message;
 
-class MessageController extends Controller
+class VoteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,19 +34,7 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        $newMessage = new Message();
-        $data = $request->all();
-        $data['info_id'] = (int)$data['info_id'];
-        
-        $newMessage->fill($data);
-
-        $created = $newMessage->save();
-
-        if($created) {
-            $info = Info::where('id', $newMessage->info_id)->first();
-            $dottore = $info->surname;
-            return redirect()->route('guest.infos.show', $info->slug)->with('message-succesed', $dottore);
-        }
+        //
     }
 
     /**

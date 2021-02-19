@@ -2,7 +2,11 @@
 
 @section('content')
 <div class="container">
-
+    @if (session('message-succesed'))
+        <div class="alert alert-success">
+            <h3>Messaggio inviato al Dott. {{ session('message-succesed') }}</h3>
+        </div>
+    @endif
     Infos Profile
     <small>Nome e Cognome</small>
     <h2>{{ $info->name }} {{ $info->surname }}</h2>
