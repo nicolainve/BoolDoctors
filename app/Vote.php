@@ -8,6 +8,10 @@ class Vote extends Model
 {   
     public $timestamps = false;
 
+    protected $fillable = [
+        'vote',
+    ];
+
     /**
      * DB RELATIONS
      */

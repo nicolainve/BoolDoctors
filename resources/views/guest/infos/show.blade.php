@@ -56,7 +56,23 @@
         <div class="form-group">
             <label for="body">Commento</label>
             <textarea class="form-control" id="body" name="body">{{ old('body') }}</textarea>
-          </div>
+        </div>
+
+        {{-- inserimento voto --}}
+        <div class="form-row align-items-center">
+            <div class="col-auto my-1">
+              <label class="mr-sm-2 sr-only" for="vote">Inserisci il voto</label>
+              <select name="vote" class="custom-select mr-sm-2" id="vote">
+                <option selected>Scegli</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="3">4</option>
+                <option value="3">5</option>
+              </select>
+            </div>
+        </div>
+
         <input hidden type="number" name="info_id" value="{{ $info->id }}">
         <input type="submit" class="btn btn-primary" value="Invia">
     </form>
@@ -92,11 +108,11 @@
     <h2>Recensioni</h2>
     @forelse ($reviews as $review)
 
-    <h3>{{ $review->author }}</h3>
-    <p>{{ $review->body }}</p>
-    <h4>{{ $review->created_at->diffForHumans() }}</h4>
+        <h3>{{ $review->author }}</h3>
+        <p>{{ $review->body }}</p>
+        <h4>{{ $review->created_at->diffForHumans() }}</h4>
     @empty
-    <h4>Nessuna recensione</h4>
+        <h4>Nessuna recensione</h4>
     @endforelse
 
 </div>

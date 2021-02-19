@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Review;
 use App\Info;
+use App\Vote;
 
 class ReviewController extends Controller
 {
@@ -37,15 +38,20 @@ class ReviewController extends Controller
     public function store(Request $request)
     {
         $newReview = new Review();
+
         $data = $request->all();
+        // dd($data);
         $data['info_id'] = (int)$data['info_id'];
-
+        
         $newReview->fill($data);
-
+        // $newVote->fill($data);
+        
         $created = $newReview->save();
+        // $created = $newVote->save();
 
+        $info = Info::where('id', $newReview->info_id)->first();
+        $info->votes()->attach($data['vote']);
         if($created) {
-            $info = Info::where('id', $newReview->info_id)->first();
             return redirect()->route('guest.infos.show', $info->slug);
         }
     }
