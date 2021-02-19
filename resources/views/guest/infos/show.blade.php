@@ -41,13 +41,18 @@
 
     <h3>Lascia recensione</h3>
 
-    <form action="{{ route('guest.review.store') }}" method="POST">
+    <form action="{{ route('reviews.store') }}" method="POST">
         @csrf
         @method ('POST')
         <div class="form-group">
           <label for="author">Inserisci autore</label>
           <input type="text" class="form-control" id="author" name="author" value="{{ old('author') }}">
+          
         </div>
+        <div class="form-group">
+            <label for="body">Commento</label>
+            <textarea class="form-control" id="body" name="body">{{ old('body') }}</textarea>
+          </div>
         <input hidden type="number" name="info_id" value="{{ $info->id }}">
         <input type="submit" class="btn btn-primary" value="Modifica">
     </form>

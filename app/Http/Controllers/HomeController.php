@@ -43,24 +43,5 @@ class HomeController extends Controller
         return view('guest.infos.show', compact('info', 'reviews'));
     }
 
-    public function store(Request $request)
-    {
-        $newReview = new Review();
-        $data = $request->all();
-        $data['product_id'] = (int)$data['product_id'];
-        $data['rating'] = (int)$data['rating'];
 
-        // validation
-        $request->validate($this->ruleValidation());
-        
-        $newReview->fill($data);
-
-        $created = $newReview->save();
-
-        if($created) {
-            $product = Product::where('id', $newReview->product_id)->first();
-            return redirect()->route('products.show', $product->slug);
-        }
-        
-    }
 }

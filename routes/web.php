@@ -20,8 +20,10 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::name('guest.')
     ->group(function() {
         Route::get('/show/{slug}', 'HomeController@show')->name('infos.show');
-        Route::post('/show/{slug}', 'HomeController@store')->name('review.store');
+        // Route::post('/show/{slug}', 'HomeController@store')->name('review.store');
     });
+
+Route::resource('reviews', 'ReviewController');
 
 Auth::routes();
 

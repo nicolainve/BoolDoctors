@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Review extends Model
 {
+    protected $fillable = [
+        'info_id',
+        'author',
+        'body',
+    ];
     /**
      * DB RELATIONS
      */
