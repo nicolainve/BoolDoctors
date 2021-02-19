@@ -39,9 +39,8 @@ class ReviewController extends Controller
     {
         $data = $request->all();
         
-        $info = Info::where('id', $newReview->info_id)->first();
-        $info->votes()->attach($data['vote']);
-        
+        $request->validate($this->validationRules());
+               
 
         $newReview = new Review();
 
@@ -55,7 +54,9 @@ class ReviewController extends Controller
         $created = $newReview->save();
         // $created = $newVote->save();
 
-        
+        $info = Info::where('id', $newReview->info_id)->first();
+        $info->votes()->attach($data['vote']);
+
         if($created) {
             return redirect()->route('guest.infos.show', $info->slug);
         }
@@ -104,5 +105,15 @@ class ReviewController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    // FUNCTION VALIDATION
+    private function  validationRules(){
+        return [
+            'author'=> 'required',
+            'body' => 'required',
+            'vote' => 'required'
+        ];
     }
 }

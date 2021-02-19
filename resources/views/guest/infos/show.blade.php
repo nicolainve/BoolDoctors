@@ -44,7 +44,15 @@
     <hr>
     {{--  Post Review --}}
     <h3>Lascia recensione</h3>
-
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form action="{{ route('reviews.store') }}" method="POST">
         @csrf
         @method ('POST')
@@ -63,7 +71,8 @@
             <div class="col-auto my-1">
               <label class="mr-sm-2 sr-only" for="vote">Inserisci il voto</label>
               <select name="vote" class="custom-select mr-sm-2" id="vote">
-                <option value="1" selected>1</option>
+                <option disabled selected value>Scegli</option>
+                <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
