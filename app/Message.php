@@ -6,7 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Message extends Model
 {   
-    
+    protected $fillable = [
+        'info_id',
+        'author',
+        'mail',
+        'body',
+    ];
     /**
      * DB RELATIONS
      */

@@ -25,6 +25,9 @@ Route::name('guest.')
 
 Route::resource('reviews', 'ReviewController');
 
+Route::resource('messages', 'MessageController');
+
+
 Auth::routes();
 
 //rotta per home
