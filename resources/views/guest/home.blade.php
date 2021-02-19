@@ -29,18 +29,13 @@
     <ul>
         <li v-for="result in results">
             <p>@{{ result.name }} @{{  result.surname}}</p>
-            <ul>
-                <li v-for="type in result.specializations">
-                    @{{ type.type }}
-                </li>
-                {{-- votes --}}
-                {{-- <li v-for="vote in result.votes">
-                    @{{ vote.vote }}
-                </li> --}}
-                <li>
-                    @{{ result.reviews.length }}
-                </li>
-            </ul>
+
+            <a :href="routing(result.slug)">Mostra profilo</a>
+
+            <p>@{{ result.average }}</p>
+
+            <p>@{{ result.tot }}</p>
+
         </li>
     </ul>
 </div>

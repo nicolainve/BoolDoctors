@@ -11,34 +11,50 @@ use Illuminate\Support\Facades\DB;
 class DoctorController extends Controller
 {
     public function index() {
-        $doctors = DB::table('infos')
-            ->select('infos.surname', 'infos.name', 'infos.id', DB::raw('COUNT(reviews.info_id) as review_tot'))
-            ->join('reviews', 'infos.id', '=', 'reviews.info_id')
-            ->groupBy('infos.surname', 'infos.name', 'infos.id')
-            ->get();
-            foreach ($doctors as $doctor) {
-                $average = DB::table('votes')
-                ->select(DB::raw('avg(info_vote.vote_id) as vote_average'))
-                ->join('info_vote', 'info_vote.vote_id', '=', 'votes.id')
-                ->where('info_vote.info_id', $doctor->id)
+
+    $spec = '%' . $_GET['spec'] . '%';
+
+    /* INFOS - FILTER BY SPECIALIZATION */
+    $doctors = DB::table('infos')
+                ->join('info_specialization', 'infos.id', '=', 'info_specialization.info_id')
+                ->join('specializations', 'info_specialization.specialization_id', '=', 'specializations.id')
+                ->select('infos.id','infos.name', 'infos.surname', 'infos.slug')
+                ->where('specializations.type', 'like', $spec)
+                ->groupBy('infos.id', 'infos.name', 'infos.surname', 'infos.slug')
                 ->get();
-                // dump($average);
-                $doctor->vote_average = $average[0]->vote_average;
-            }
-            foreach ($doctors as $doctor) {
-                $specs = DB::table('specializations')
-                ->select('specializations.type')
-                ->join('info_specialization', 'specializations.id', '=', 'info_specialization.specialization_id')
-                ->where('info_specialization.info_id', $doctor->id)
-                ->get();
-                // dump($spec);
-                foreach ($specs as $spec) {
-                    // dump($spec);
-                    $doctor->specializations[] = $spec->type;
-                }
-                // $doctor->spec_doc = $spec;
-            }
-            dd($doctors);
-        return response()->json($doctors);
+
+    /* ADD REVIEWS */
+    foreach ($doctors as $doctor) {
+        $tot = DB::table('reviews')
+                    ->select('reviews.info_id', DB::raw('count(reviews.info_id) as tot'))
+                    ->where('reviews.info_id', $doctor->id)
+                    ->groupBy('reviews.info_id')
+                    ->get();
+        $doctor->tot = $tot[0]->tot;
+    }
+
+    /* ADD AVERAGE */
+    foreach ($doctors as $doctor) {
+        $average = DB::table('votes')
+                        ->select(DB::raw('round(avg(info_vote.vote_id), 1) as average'))
+                        ->join('info_vote', 'info_vote.vote_id', '=', 'votes.id')
+                        ->where('info_vote.info_id', $doctor->id)
+                        ->get();
+        $doctor->average = $average[0]->average;
+    }
+
+    /* ADD SPECIALIZATIONS */
+    foreach ($doctors as $doctor) {
+        $specs = DB::table('specializations')
+                    ->select('specializations.type')
+                    ->join('info_specialization', 'specializations.id', '=', 'info_specialization.specialization_id')
+                    ->where('info_specialization.info_id', $doctor->id)
+                    ->get();
+        foreach ($specs as $spec) {
+            $doctor->specializations[] = $spec->type;
+        }
+    }
+
+    return response()->json($doctors);
     }
 }

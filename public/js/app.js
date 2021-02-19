@@ -49605,28 +49605,27 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   el: '#app',
   data: {
-    results: [],
-    specs: [],
-    modelSpec: ""
+    results: []
   },
   // metodi
   methods: {
     // Search bar for guest by specialization
-    search: function search(query) {
+    search: function search(spec) {
       var _this = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('http://127.0.0.1:8000/api/doctors', {
         params: {
-          type: query
+          spec: spec
         }
       }).then(function (response) {
-        // handle success
-        console.log(response.data);
         _this.results = response.data;
+        console.log(response.data);
       })["catch"](function (error) {
-        // handle error
         console.log(error);
       });
+    },
+    routing: function routing(slug) {
+      return window.location + 'show/' + slug;
     }
   }
 });
@@ -49696,8 +49695,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Booldoctor\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Booldoctor\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/nicola/BoolDoctors/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/nicola/BoolDoctors/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

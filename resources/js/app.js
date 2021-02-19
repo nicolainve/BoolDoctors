@@ -7,28 +7,27 @@ const app = new Vue({
     el: '#app',
     data: {
         results : [],
-        specs: [],
-        modelSpec:""
     },
     // metodi
     methods:{
         // Search bar for guest by specialization
-        search(query){
+        search(spec){
             axios.get('http://127.0.0.1:8000/api/doctors', {
                 params:{
-                    type: query
+                    spec: spec
                 }
             })
             .then(response => {
-                // handle success
-                console.log(response.data);
                 this.results = response.data;
+                console.log(response.data);
             })
             .catch(error => {
-                // handle error
                 console.log(error);
             });
         },
+        routing(slug){
+            return window.location + 'show/' + slug ;
+        }
 
     }
 });
