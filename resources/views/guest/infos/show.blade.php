@@ -63,12 +63,11 @@
             <div class="col-auto my-1">
               <label class="mr-sm-2 sr-only" for="vote">Inserisci il voto</label>
               <select name="vote" class="custom-select mr-sm-2" id="vote">
-                <option selected>Scegli</option>
-                <option value="1">1</option>
+                <option value="1" selected>1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
-                <option value="3">4</option>
-                <option value="3">5</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
               </select>
             </div>
         </div>

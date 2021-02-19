@@ -37,6 +37,12 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
+        $data = $request->all();
+        
+        $info = Info::where('id', $newReview->info_id)->first();
+        $info->votes()->attach($data['vote']);
+        
+
         $newReview = new Review();
 
         $data = $request->all();
@@ -49,8 +55,7 @@ class ReviewController extends Controller
         $created = $newReview->save();
         // $created = $newVote->save();
 
-        $info = Info::where('id', $newReview->info_id)->first();
-        $info->votes()->attach($data['vote']);
+        
         if($created) {
             return redirect()->route('guest.infos.show', $info->slug);
         }
