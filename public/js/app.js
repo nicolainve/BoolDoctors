@@ -49605,7 +49605,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   el: '#app',
   data: {
-    results: []
+    results: [],
+    specialization: ''
   },
   // metodi
   methods: {
@@ -49615,7 +49616,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('http://127.0.0.1:8000/api/doctors', {
         params: {
-          spec: spec
+          spec: spec,
+          voteaverage: '',
+          review: ''
         }
       }).then(function (response) {
         _this.results = response.data;
@@ -49623,9 +49626,43 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
       })["catch"](function (error) {
         console.log(error);
       });
+      this.specialization = spec;
     },
     routing: function routing(slug) {
       return window.location + 'show/' + slug;
+    },
+    // Filtraggio Voti max
+    maxVote: function maxVote() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('http://127.0.0.1:8000/api/doctors', {
+        params: {
+          spec: this.specialization,
+          voteaverage: 'true',
+          review: ''
+        }
+      }).then(function (response) {
+        _this2.results = response.data;
+        console.log(response.data);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    maxReview: function maxReview() {
+      var _this3 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('http://127.0.0.1:8000/api/doctors', {
+        params: {
+          spec: this.specialization,
+          voteaverage: '',
+          review: 'true'
+        }
+      }).then(function (response) {
+        _this3.results = response.data;
+        console.log(response.data);
+      })["catch"](function (error) {
+        console.log(error);
+      });
     }
   }
 });

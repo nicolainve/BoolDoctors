@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Info;
-use App\Vote;
 use Illuminate\Support\Facades\DB;
 
 class DoctorController extends Controller
@@ -14,6 +12,7 @@ class DoctorController extends Controller
         
         /* ENDPOINT = spec */
         $spec = $_GET['spec'];
+        
 
         if($spec !== ''){
          /* INFOS - FILTER BY SPECIALIZATION */
@@ -67,6 +66,26 @@ class DoctorController extends Controller
             }
         }
 
-        return response()->json($doctors);
+        /* ENDPOINT = voteaverage */
+        $voteDesc = $_GET['voteaverage'];
+        $review =   $_GET['review'];
+
+        // Return review by number from high to low
+        if ($voteDesc === 'true' && $review === '') {
+            $doctors = collect($doctors)->sortByDesc('average')->values();
+            return response()->json($doctors);
+           
+        } 
+        //Return review by total number
+        elseif ($review === 'true' && $voteDesc === '') {
+            $doctors = collect($doctors)->sortByDesc('tot')->values();
+            return response()->json($doctors);
+        }
+        //Return all data
+        else {
+            return response()->json($doctors);
+        }
+        
+  
     }
 }

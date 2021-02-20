@@ -14,6 +14,12 @@
             {{$specialization->type}}
         </div>
     @endforeach
+    <div class="btn btn-danger" v-on:click="maxVote" >
+            ordina per media voto maggiore
+    </div>
+    <div class="btn btn-danger" v-on:click="maxReview" >
+            ordina per numero maggiore recensioni
+    </div>
 <div>
     {{-- Risultati Ricerca by Specializzazione --}}
     <ul>
@@ -22,9 +28,9 @@
 
             <a :href="routing(result.slug)">Mostra profilo</a>
 
-            <p>@{{ result.average }}</p>
+            <p>Voto medio @{{ result.average }}</p>
 
-            <p>@{{ result.tot }}</p>
+            <p>Numero di recensioni @{{ result.tot }}</p>
 
         </li>
     </ul>
