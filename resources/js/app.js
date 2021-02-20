@@ -16,8 +16,6 @@ const app = new Vue({
             axios.get('http://127.0.0.1:8000/api/doctors', {
                 params:{
                     spec: spec,
-                    voteaverage: '',
-                    review: ''
                 }
             })
             .then(response => {
@@ -40,7 +38,6 @@ const app = new Vue({
                  params: {
                      spec: this.specialization,
                      voteaverage: 'true',
-                     review: ''
                  }
              })
             .then(response => {
@@ -56,7 +53,6 @@ const app = new Vue({
              axios.get('http://127.0.0.1:8000/api/doctors', {
                  params: {
                      spec: this.specialization,
-                     voteaverage: '',
                      review: 'true'
                  }
              })

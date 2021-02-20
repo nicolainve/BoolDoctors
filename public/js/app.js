@@ -49616,9 +49616,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('http://127.0.0.1:8000/api/doctors', {
         params: {
-          spec: spec,
-          voteaverage: '',
-          review: ''
+          spec: spec
         }
       }).then(function (response) {
         _this.results = response.data;
@@ -49638,8 +49636,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('http://127.0.0.1:8000/api/doctors', {
         params: {
           spec: this.specialization,
-          voteaverage: 'true',
-          review: ''
+          voteaverage: 'true'
         }
       }).then(function (response) {
         _this2.results = response.data;
@@ -49654,7 +49651,6 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('http://127.0.0.1:8000/api/doctors', {
         params: {
           spec: this.specialization,
-          voteaverage: '',
           review: 'true'
         }
       }).then(function (response) {
