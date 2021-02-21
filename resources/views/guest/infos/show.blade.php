@@ -58,7 +58,12 @@
         @method ('POST')
         <div class="form-group">
           <label for="author">Inserisci autore</label>
+          @auth
+          <input type="text" class="form-control" id="author" name="author" value="{{ Auth::user()->info['name'] }} {{ Auth::user()->info['surname'] }}">
+          @endauth
+          @guest
           <input type="text" class="form-control" id="author" name="author" value="{{ old('author') }}">
+          @endguest
           
         </div>
         <div class="form-group">
@@ -94,7 +99,14 @@
         @method ('POST')
         <div class="form-group">
           <label for="author">Inserisci autore</label>
+          {{-- If Authenticated --}}
+          @auth
+          <input type="text" class="form-control" id="author" name="author" value="{{ Auth::user()->info['name'] }} {{ Auth::user()->info['surname'] }}">
+          @endauth
+          {{-- If Guest --}}
+          @guest
           <input type="text" class="form-control" id="author" name="author" value="{{ old('author') }}">
+          @endguest
           
         </div>
         <div class="form-group">

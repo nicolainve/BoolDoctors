@@ -49606,7 +49606,10 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   el: '#app',
   data: {
     results: [],
-    specialization: ''
+    tools: false,
+    specialization: '',
+    avg: '',
+    tot: ''
   },
   // metodi
   methods: {
@@ -49619,46 +49622,30 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
           spec: spec
         }
       }).then(function (response) {
+        _this.tools = true;
         _this.results = response.data;
-        console.log(response.data);
       })["catch"](function (error) {
         console.log(error);
       });
       this.specialization = spec;
     },
-    routing: function routing(slug) {
-      return window.location + 'show/' + slug;
-    },
-    // Filtraggio Voti max
-    maxVote: function maxVote() {
+    filter: function filter() {
       var _this2 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('http://127.0.0.1:8000/api/doctors', {
         params: {
           spec: this.specialization,
-          voteaverage: 'true'
+          avg: this.avg,
+          tot: this.tot
         }
       }).then(function (response) {
         _this2.results = response.data;
-        console.log(response.data);
       })["catch"](function (error) {
         console.log(error);
       });
     },
-    maxReview: function maxReview() {
-      var _this3 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('http://127.0.0.1:8000/api/doctors', {
-        params: {
-          spec: this.specialization,
-          review: 'true'
-        }
-      }).then(function (response) {
-        _this3.results = response.data;
-        console.log(response.data);
-      })["catch"](function (error) {
-        console.log(error);
-      });
+    routing: function routing(slug) {
+      return window.location + 'show/' + slug;
     }
   }
 });
@@ -49728,8 +49715,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Booldoctor\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Booldoctor\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/nicola/BoolDoctors/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/nicola/BoolDoctors/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -21,9 +21,8 @@ class HomeController extends Controller
         return view('guest.home', compact('specializations'));
     }
 
-    public function show($slug)
+    public function show(Info $info)
     {
-        $info = Info::where('slug', $slug)->first();
         $reviews = Review::where('info_id', $info->id )->orderBy('created_at', 'desc')->get();
         $average = DB::table('votes')
                         ->select(DB::raw('round(avg(info_vote.vote_id), 1) as average'))
