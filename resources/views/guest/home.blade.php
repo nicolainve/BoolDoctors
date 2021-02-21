@@ -18,7 +18,7 @@
 
     <div class="tools" v-if="tools">
         <p>Filtra per:</p>
-        <label for="avg">Voto</label>
+        <label for="avg">Media Voto</label>
         <select v-on:change="filter" v-model="avg" name="avg" id="avg">
             <option value="">Scegli</option>
             <option value="1">1</option>
@@ -27,7 +27,7 @@
             <option value="4">4</option>
             <option value="5">5</option>
         </select>
-        <label for="tot">Num. Voti</label>
+        <label for="tot">Num. Recensioni</label>
         <input type="number" name="tot" id="tot" placeholder="Scegli" v-on:input="filter" v-model="tot">
     </div>
 
