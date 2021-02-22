@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-<title>BoolDoctors</title>
+<title>BoolDoctors - {{ $info->name }} {{ $info->surname }}</title>
 @endsection
 
 @section('content')
