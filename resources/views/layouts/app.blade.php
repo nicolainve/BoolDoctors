@@ -18,6 +18,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <script src="https://js.braintreegateway.com/web/dropin/1.26.0/js/dropin.min.js"></script>
+
 </head>
 <body>
     <div id="app">

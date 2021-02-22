@@ -41,6 +41,8 @@ Route::prefix('admin')
         //home Admin
         Route::get('/', 'HomeController@index')->name('home');
 
+        Route::get('/sponsor', 'HomeController@sponsor')->name('sponsor');
+
         //rotte info CRUD
         Route::resource('infos', 'InfoController');
     });
