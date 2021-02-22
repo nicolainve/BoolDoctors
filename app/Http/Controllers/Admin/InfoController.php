@@ -154,7 +154,7 @@ class InfoController extends Controller
     public function destroy(Info $info)
     {
         $name = $info->name;
-        $image = $info->photo;
+        $image = $info->photo; //TODO Fai check
 
         $info->specializations()->detach();
         $deleted = $info->delete();

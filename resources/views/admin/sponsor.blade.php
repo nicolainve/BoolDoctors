@@ -23,6 +23,7 @@
             <div id="dropin-container"></div>
             <input type="submit" />
             <input type="hidden" id="nonce" name="payment_method_nonce"/>
+            <input hidden type="number" name="info_id" value="{{Auth::user()->info['id'] }}">
         </form>
 
         <script type="text/javascript">

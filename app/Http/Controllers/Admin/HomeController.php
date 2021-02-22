@@ -46,7 +46,6 @@ class HomeController extends Controller
         ]);
 
         $clientToken = $gateway->clientToken()->generate();
-
         return view('admin.sponsor', compact( 'clientToken'));
 
     }
