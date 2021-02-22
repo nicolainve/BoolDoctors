@@ -7,3 +7,12 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+//utilities
+@import 'partials/utilities';
+//header
+@import 'partials/header';
+//main
+@import 'partials/main';
+//footer
+@import 'partials/footer';
+

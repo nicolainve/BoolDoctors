@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+<title>BoolDoctors</title>
+@endsection
+
 @section('content')
 <div class="container">
     @if (session('message-succesed'))

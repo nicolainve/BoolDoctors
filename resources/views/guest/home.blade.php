@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title')
+<title>BoolDoctors</title>
+@endsection
 @section('content')
 
 <h1 class="text-center">HOME PAGE PUBBLICA</h1>

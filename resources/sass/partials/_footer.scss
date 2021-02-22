@@ -1,0 +1,55 @@
+footer {
+    flex-grow: 1;
+}
+
+.footer-top {
+    background-image: url(../img/logo-nav.png);
+    background-repeat: no-repeat;
+    background-position-x: 950px;
+    background-position-y: 150px;
+    background-size: 500px;
+    background-color: rgb(25, 103, 182);
+    .info {
+        padding-top: 30px;
+
+        ul li {
+            line-height: 30px;
+        }
+        a {
+            color: #fff;
+            font-size: 12px;
+        }
+    }
+
+    .logo-footer img {
+        width: 600px;
+    }
+}
+
+.footer-bottom {
+    padding: 20px 5px 10px 5px;
+    background-color: rgb(59, 59, 59);
+    
+
+    .button-footer button {
+        padding: 10px;
+        background-color: rgb(59, 59, 59);
+        border-color: dodgerblue;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+
+    .social {
+        span {
+            font-weight: bold;
+            color: rgb(25, 103, 182);
+        }
+        i {
+            padding: 5px;
+            border: 1px solid rgb(223, 219, 219);
+            border-radius: 15px;
+            background-color: rgb(223, 219, 219);
+            color: #373737;
+        }
+    }
+}
