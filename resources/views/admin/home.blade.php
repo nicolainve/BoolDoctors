@@ -22,6 +22,9 @@
             </div>
         </div>
     </div>
+    {{--  Request Sponsor --}}
+     <h4>Clicka qui per una sponsorizzazione del profilo</h4>
+    <a href="{{route('admin.sponsor')}}">clicka qui</a>
     {{-- MESSAGES RECEIVED --}}
     <h2>My Message</h2>
         @forelse ($messages as $message)

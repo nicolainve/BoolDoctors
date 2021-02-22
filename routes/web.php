@@ -40,7 +40,7 @@ Route::prefix('admin')
     ->group(function() {
         //home Admin
         Route::get('/', 'HomeController@index')->name('home');
-
+        // route Sponsor
         Route::get('/sponsor', 'HomeController@sponsor')->name('sponsor');
 
         //rotte info CRUD
