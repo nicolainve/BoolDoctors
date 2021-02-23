@@ -44,8 +44,7 @@ class InfosTableSeeder extends Seeder
             $newInfo->specializations()->attach($specNumber);
             //! Votes
             $voteNumber = [];
-            $time = rand(1,10);
-            for ($i = 0; $i < $time; $i++) {
+            for ($i = 0; $i < 3; $i++) {
                 $number = rand(1,5);
 
                 $voteNumber[] = $number;

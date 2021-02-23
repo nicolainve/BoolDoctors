@@ -52,4 +52,9 @@ class Info extends Model
     public function sponsors() {
         return $this->belongsToMany('App\Sponsor');
     }
+
+    protected $casts = [
+        'average' => 'float',
+        'count' => 'integer'
+    ];
 }

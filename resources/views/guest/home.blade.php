@@ -13,7 +13,7 @@
 </div>
     @foreach ($specializations as $specialization)
 
-        <div class="btn btn-primary" v-on:click="search( '{{$specialization->type}}' )" >
+        <div class="btn btn-primary" v-on:click="search( '{{$specialization->id}}' )" >
             {{$specialization->type}}
         </div>
     @endforeach
@@ -30,8 +30,8 @@
             <option value="4">4</option>
             <option value="5">5</option>
         </select>
-        <label for="tot">Num. Recensioni</label>
-        <input type="number" name="tot" id="tot" placeholder="Scegli" v-on:input="filter" v-model="tot">
+        <label for="count">Num. Recensioni</label>
+        <input type="number" name="count" id="count" placeholder="Scegli" v-on:input="filter" v-model="count">
     </div>
 
     {{-- Risultati Ricerca by Specializzazione --}}
@@ -43,7 +43,7 @@
 
             <p>Voto medio @{{ result.average }}</p>
 
-            <p>Numero di recensioni @{{ result.tot }}</p>
+            <p>Numero di recensioni @{{ result.count }}</p>
 
         </li>
     </ul>

@@ -10,7 +10,7 @@ const app = new Vue({
         tools: false,
         specialization: '',
         avg: '',
-        tot: '',
+        count: ''
     },
     // metodi
     methods:{
@@ -35,7 +35,7 @@ const app = new Vue({
                 params:{
                     spec: this.specialization,
                     avg: this.avg,
-                    tot: this.tot,
+                    count: this.count,
                 }
             })
             .then(response => {

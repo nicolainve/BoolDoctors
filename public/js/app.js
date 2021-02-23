@@ -49609,7 +49609,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     tools: false,
     specialization: '',
     avg: '',
-    tot: ''
+    count: ''
   },
   // metodi
   methods: {
@@ -49636,7 +49636,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
         params: {
           spec: this.specialization,
           avg: this.avg,
-          tot: this.tot
+          count: this.count
         }
       }).then(function (response) {
         _this2.results = response.data;
