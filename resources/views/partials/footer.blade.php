@@ -110,7 +110,7 @@
                     <button class="bw">SIGN-UP NOW!</button>
                 </div>
                 <div class="bw">
-                    Created my free logo at <a href="https://logomakr.com/7cU81S">LogoMakr.com</a>
+                    Created my free logo at <a href="https://logomakr.com">LogoMakr.com</a>
                 </div>
                 <div class="social">
                     <span class="mr">FOLLOW US</span>

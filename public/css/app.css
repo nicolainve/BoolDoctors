@@ -10079,6 +10079,10 @@ a {
   color: #fff;
 }
 
+.white {
+  color: #fff;
+}
+
 header {
   flex-grow: 1;
   background: #124691;
@@ -10087,9 +10091,51 @@ header a {
   text-decoration: none;
   color: #fff;
 }
+header a img {
+  width: 200px;
+}
+header li.login a {
+  text-decoration: none;
+  color: #fff;
+}
+header li.login i {
+  margin-right: 5px;
+}
+header li.register {
+  border: 1px solid #fff;
+  border-radius: 5px;
+}
+header li.register:hover {
+  background: #c82b60;
+}
+header li.register a:hover {
+  color: #fff;
+}
 
 main {
   flex-grow: 2;
+}
+main .jumbotron {
+  background-image: url(../img/jumbo2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: -23px;
+  height: 700px;
+  position: relative;
+}
+main .jumbotron .titles {
+  position: absolute;
+  top: 200px;
+  left: 180px;
+}
+main .box-spec {
+  display: flex;
+  justify-content: space-between;
+}
+main .box-spec .btn-spec {
+  flex-basis: calc(100% / 6 - 10px);
+  height: 200px;
+  border-radius: 20px;
 }
 
 footer {

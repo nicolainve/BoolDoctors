@@ -1,3 +1,30 @@
 main {
     flex-grow: 2;
+
+    .jumbotron {
+        background-image: url(../img/jumbo2.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-y: -23px;
+        height: 700px;
+        position: relative;
+
+        .titles {
+            position: absolute;
+            top: 200px;
+            left: 180px;
+        }
+    }
+    .box-spec {
+        display: flex;
+        justify-content: space-between;
+        
+        .btn-spec {
+            flex-basis: calc(100% / 6 - 10px);
+            height: 200px;
+            border-radius: 20px;
+        }
+    }
+    
+
 }

@@ -5,18 +5,29 @@
 @endsection
 @section('content')
 
-<h1 class="text-center">HOME PAGE PUBBLICA</h1>
 
-<div>
-    <h1>Scegli la tipologia della visita:</h1>
-
+<div class="jumbotron">
+    <div class="titles">
+        <h1 class="white">Prenota la tua visita online!</h1>
+        <h3 class="white mb">Più del 90% dei pazienti consiglia BoolDoctor</h3>
+        <h5 class="white mt">Cerca lo specialista e la prestazione di cui hai bisogno</h5>
+        <h5 class="white">Seleziona la modalità a te più comoda</h5>
+        <h5 class="white">Gestisci la tua prenotazione in completa autonomia</h5>
+    </div>
 </div>
-    @foreach ($specializations as $specialization)
 
-        <div class="btn btn-primary" v-on:click="search( '{{$specialization->id}}' )" >
-            {{$specialization->type}}
+    <div class="container spec">
+        <h1>Scegli la tipologia della visita:</h1>
+        <div class="box-spec">
+            @foreach ($specializations as $specialization)
+
+                <div class="btn btn-spec btn-primary" v-on:click="search( '{{$specialization->id}}' )" >
+                    {{$specialization->type}}
+                </div>
+            @endforeach
         </div>
-    @endforeach
+        
+    </div>
 <div>
 
     <div class="tools" v-if="tools">
