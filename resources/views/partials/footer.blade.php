@@ -27,7 +27,7 @@
                         </li>
                         <li class="mb bw">
                             <ul>
-                                <li class=" mt mb bw">
+                                <li class="mt mb bw">
                                     <span>CREATO DA:</span>
                                 </li>
                                 <li>
@@ -99,9 +99,9 @@
                     </ul>   
                 </div>
             </div>
-            {{-- <div class="logo-footer">
-                <img src="./img/logo-nav.png" alt="">
-            </div> --}}
+            <div class="logo-footer">
+                <img src="./img/logo3.png" alt="">
+            </div>
         </div>
     
         <div class="footer-bottom">

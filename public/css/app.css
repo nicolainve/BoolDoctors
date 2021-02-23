@@ -10081,7 +10081,11 @@ a {
 
 header {
   flex-grow: 1;
-  background-color: #1967b6;
+  background: #124691;
+}
+header a {
+  text-decoration: none;
+  color: #fff;
 }
 
 main {
@@ -10091,48 +10095,49 @@ main {
 footer {
   flex-grow: 1;
 }
-
-.footer-top {
-  background-image: url(../img/logo-nav.png);
-  background-repeat: no-repeat;
-  background-position-x: 950px;
-  background-position-y: 150px;
-  background-size: 500px;
-  background-color: #1967b6;
+footer .footer-top {
+  position: relative;
+  background: linear-gradient(180deg, #22c1c3 0%, #0a0979 100%);
 }
-.footer-top .info {
+footer .footer-top .info {
   padding-top: 30px;
 }
-.footer-top .info ul li {
+footer .footer-top .info ul li {
   line-height: 30px;
 }
-.footer-top .info a {
+footer .footer-top .info a {
   color: #fff;
   font-size: 12px;
 }
-.footer-top .logo-footer img {
-  width: 600px;
+footer .footer-top .logo-footer {
+  position: absolute;
+  top: 40%;
+  right: 36%;
 }
-
-.footer-bottom {
+footer .footer-bottom {
   padding: 20px 5px 10px 5px;
   background-color: #3b3b3b;
 }
-.footer-bottom .button-footer button {
+footer .footer-bottom .button-footer button {
   padding: 10px;
   background-color: #3b3b3b;
   border-color: dodgerblue;
   border-radius: 20px;
   cursor: pointer;
 }
-.footer-bottom .social span {
+footer .footer-bottom .social span {
   font-weight: bold;
   color: #1967b6;
 }
-.footer-bottom .social i {
+footer .footer-bottom .social i {
   padding: 5px;
   border: 1px solid #dfdbdb;
   border-radius: 15px;
   background-color: #dfdbdb;
   color: #373737;
+}
+@media screen and (max-width: 992px) {
+  footer .footer-top {
+    background-size: 40%;
+  }
 }
