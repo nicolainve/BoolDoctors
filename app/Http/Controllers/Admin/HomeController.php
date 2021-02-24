@@ -50,4 +50,11 @@ class HomeController extends Controller
 
     }
 
+    //stats
+    public function stats() {
+        $info = Info::find(Auth::user()->info['id']);
+        //dd($info);
+        return view('admin.stats', compact('info'));
+    }
+
 }

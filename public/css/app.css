@@ -10083,6 +10083,10 @@ a {
   color: #fff;
 }
 
+.canvas-chart {
+  width: 500px;
+}
+
 header {
   flex-grow: 1;
   background: #124691;
@@ -10136,6 +10140,10 @@ main .box-spec .btn-spec {
   flex-basis: calc(100% / 6 - 10px);
   height: 200px;
   border-radius: 20px;
+}
+main .box-spec .box-spec:hover {
+  background-color: #124691;
+  border-color: #124691;
 }
 
 footer {

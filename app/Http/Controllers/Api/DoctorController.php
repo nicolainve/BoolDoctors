@@ -35,6 +35,30 @@ class DoctorController extends Controller
 
         return response()->json($doctors);
     }
+
+    //reviews
+    public function reviews(Request $request) {
+        $id = $request->id;
+        $reviewNumber = Info::join('reviews', 'infos.id', '=', 'reviews.info_id')
+                    ->select('infos.id', 'infos.name', DB::raw('count(reviews.info_id) as count'))
+                    ->where('infos.id', '=', $id)
+                    ->groupBy('infos.id', 'infos.name')
+                    ->with('reviews')
+                    ->get();
+        return response()->json($reviewNumber);
+    }
+
+    //messages
+    public function messages(Request $request) {
+        $id = $request->id;
+        $messagesNumber = Info::join('messages', 'infos.id', '=', 'messages.info_id')
+                    ->select('infos.id', 'infos.name', DB::raw('count(messages.info_id) as count'))
+                    ->where('infos.id', '=', $id)
+                    ->groupBy('infos.id', 'infos.name')
+                    ->with('messages')
+                    ->get();
+        return response()->json($messagesNumber);
+    }
 }
 
 // $doctors = DB::table('infos')

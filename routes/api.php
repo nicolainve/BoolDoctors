@@ -20,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::namespace('Api')->group( function() {
     Route::get('/doctors', 'DoctorController@index');
+    Route::get('/reviews', 'DoctorController@reviews');
+    Route::get('/messages', 'DoctorController@messages');
+
 });
 
 Route::post('/payment', 'Api\PayController@pay')->name('pay');
