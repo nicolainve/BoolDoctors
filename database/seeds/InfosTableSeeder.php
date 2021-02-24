@@ -27,7 +27,7 @@ class InfosTableSeeder extends Seeder
             $newInfo->slug = Str::slug($slug, '-');
             $newInfo->address = $faker->sentence(1);
             $newInfo->CV = $faker->text(100);
-            $newInfo->phone = $faker->randomElement(['111', '222', '333', '444', '555',]);
+            $newInfo->phone = $faker->randomElement(['111', '222', '333', '444', '555','666','777','888','999']);
             $newInfo->price = $faker->randomFloat(2, 10, 100);
             // Save
             $newInfo->save();
