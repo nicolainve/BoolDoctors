@@ -50,7 +50,7 @@ class Info extends Model
 
     // Relation Sponsor Many-To-Many
     public function sponsors() {
-        return $this->belongsToMany('App\Sponsor');
+        return $this->belongsToMany('App\Sponsor')->withTimestamps();
     }
 
     protected $casts = [

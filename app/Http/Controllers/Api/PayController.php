@@ -12,7 +12,25 @@ use Illuminate\Support\Facades\Storage;
 class PayController extends Controller
 {
     public function pay(Request $request) {
-        dd($request->all());
+       
+        $data = $request->all();
+
+        // Check type of Sponsorship selected
+        switch ($data['amount']) {
+            case '2.99':
+                $sponsor['sponsor_id'] = '1';
+                $expire = date(('Y-m-d H:i:s'), strtotime("+1 day"));
+                break;
+            case '5.99':
+                $sponsor['sponsor_id'] = '2';
+                $expire = date(('Y-m-d H:i:s'), strtotime("+3 day"));
+                break;
+            case '9.99':
+                $sponsor['sponsor_id'] = '3';
+                $expire = date(('Y-m-d H:i:s'), strtotime("+6 day"));
+                break;
+        }
+        
         $gateway = new Gateway([
             'environment' => config('services.braintree.environment'),
             'merchantId' => config('services.braintree.merchantId'),
@@ -23,6 +41,8 @@ class PayController extends Controller
         $nonceFromTheClient = $request->payment_method_nonce;
         $amount = (float)$request->amount;
         $id = (int)$request->info_id;
+
+
         $result = $gateway->transaction()->sale([
             'amount' => $amount,
             'paymentMethodNonce' => $nonceFromTheClient,
@@ -31,13 +51,13 @@ class PayController extends Controller
                 ]
                 ]);
 
-        //TODO Da sistemare il many to many dello sponsor
-        // if ($result){
+        if ($result){
             
-        //     $info = Info::find($id);
-        //     // dd($info);
-        //     $info->sponsors()->attach($amount);
-        // }
+            $info = Info::find($id);
+
+            $info->sponsors()->attach($sponsor['sponsor_id'],  ['expired_at' => $expire]);
+            
+        }
         return response()->json($result);
     }
 }
