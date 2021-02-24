@@ -39945,30 +39945,44 @@ __webpack_require__.r(__webpack_exports__);
 
 var ctx = document.getElementById('myChart').getContext('2d');
 var id = document.getElementById('id').value;
-console.log(id);
-var myChart = new chart_js__WEBPACK_IMPORTED_MODULE_0___default.a(ctx, {
-  type: 'bar',
-  data: {
-    labels: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
-    datasets: [{
-      label: '# of Votes',
-      miniBarThickness: 2,
-      data: [12, 29, 3, 8, 6],
-      backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
-      borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
-      borderWidth: 1
-    }]
-  },
-  options: {
-    scales: {
-      yAxes: [{
-        ticks: {
-          beginAtZero: true
-        }
-      }]
-    }
+var reviews = []; //console.log(id);
+
+axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://127.0.0.1:8000/api/reviews', {
+  params: {
+    id: document.getElementById('id').value
   }
+}).then(function (response) {
+  //console.log(reviews);
+  reviews = response.data;
+})["catch"](function (error) {
+  console.log(error);
 });
+setTimeout(function () {
+  var myChart = new chart_js__WEBPACK_IMPORTED_MODULE_0___default.a(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
+      datasets: [{
+        label: '# of Votes',
+        miniBarThickness: 2,
+        data: [12, 29, 3, 8, 6],
+        backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
+        borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+  console.log(reviews);
+}, 500);
 
 /***/ }),
 
