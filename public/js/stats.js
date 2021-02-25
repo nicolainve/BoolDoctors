@@ -40721,6 +40721,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+var id = document.getElementById('id').value;
 
 function getData() {
   return _getData.apply(this, arguments);
@@ -40728,7 +40729,7 @@ function getData() {
 
 function _getData() {
   _getData = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-    var res;
+    var rev, mes;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -40736,40 +40737,125 @@ function _getData() {
             _context.prev = 0;
             _context.next = 3;
             return axios__WEBPACK_IMPORTED_MODULE_2___default()({
-              url: 'http://127.0.0.1:8000/api/reviews?id=1',
+              url: 'http://127.0.0.1:8000/api/reviews?',
+              params: {
+                id: id
+              },
               method: 'get'
             });
 
           case 3:
-            res = _context.sent;
-            return _context.abrupt("return", res.data);
+            rev = _context.sent;
+            _context.next = 6;
+            return axios__WEBPACK_IMPORTED_MODULE_2___default()({
+              url: 'http://127.0.0.1:8000/api/messages?',
+              params: {
+                id: id
+              },
+              method: 'get'
+            });
 
-          case 7:
-            _context.prev = 7;
+          case 6:
+            mes = _context.sent;
+            return _context.abrupt("return", [rev.data, mes.data]);
+
+          case 10:
+            _context.prev = 10;
             _context.t0 = _context["catch"](0);
             console.error(_context.t0);
 
-          case 10:
+          case 13:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 7]]);
+    }, _callee, null, [[0, 10]]);
   }));
   return _getData.apply(this, arguments);
 }
 
 getData().then(function (results) {
-  var ctx = document.getElementById('myChart');
-  var id = document.getElementById('id').value;
-  var myChart = new chart_js__WEBPACK_IMPORTED_MODULE_1___default.a(ctx, {
+  var revMonth = document.getElementById('revMonth');
+  var revMonthGraph = new chart_js__WEBPACK_IMPORTED_MODULE_1___default.a(revMonth, {
     type: 'bar',
     data: {
       labels: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
       datasets: [{
         label: '# of Votes',
         miniBarThickness: 2,
-        data: results,
+        data: results[0][0],
+        backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
+        borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+  var revYear = document.getElementById('revYear');
+  var revYearGraph = new chart_js__WEBPACK_IMPORTED_MODULE_1___default.a(revYear, {
+    type: 'bar',
+    data: {
+      labels: ['2018', '2019', '2020', '2021'],
+      datasets: [{
+        label: '# of Votes',
+        miniBarThickness: 2,
+        data: results[0][1],
+        backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
+        borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+  var mesMonth = document.getElementById('mesMonth');
+  var mesMonthGraph = new chart_js__WEBPACK_IMPORTED_MODULE_1___default.a(mesMonth, {
+    type: 'bar',
+    data: {
+      labels: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
+      datasets: [{
+        label: '# of Votes',
+        miniBarThickness: 2,
+        data: results[0][0],
+        backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
+        borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+  var mesYear = document.getElementById('mesYear');
+  var mesYearGraph = new chart_js__WEBPACK_IMPORTED_MODULE_1___default.a(mesYear, {
+    type: 'bar',
+    data: {
+      labels: ['2018', '2019', '2020', '2021'],
+      datasets: [{
+        label: '# of Votes',
+        miniBarThickness: 2,
+        data: results[0][1],
         backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
         borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
         borderWidth: 1

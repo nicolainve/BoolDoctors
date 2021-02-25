@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Info;
+use Carbon\Carbon;
 
 class DoctorController extends Controller
 {
@@ -39,74 +40,92 @@ class DoctorController extends Controller
     public function reviews(Request $request) {
         $id = $request->id;
 
+        $now = Carbon::now();
+
         for ($i = 1; $i < 13; $i++) {
             $reviews = DB::table('reviews')
                     ->select('reviews.info_id', DB::raw('count(reviews.info_id) as count'))
                     ->where('reviews.info_id', '=', $id)
-                    ->whereYear('created_at', '=', 2021)
+                    ->whereYear('created_at', '=', $now->year)
                     ->whereMonth('created_at', '=', $i)
                     ->groupBy('reviews.info_id')
                     ->get();
 
             if(!sizeof($reviews)) {
                 $reviews = 0;
-                $tot[] = $reviews;
+                $tot1[] = $reviews;
             } else {
-                $tot[] = $reviews[0]->count;
+                $tot1[] = $reviews[0]->count;
             }
         }
-        // for ($i = 2018; $i < 2022; $i++) {
-        //     $reviews = DB::table('reviews')
-        //             ->select('reviews.info_id', DB::raw('count(reviews.info_id) as count'))
-        //             ->where('reviews.info_id', '=', 1)
-        //             ->whereYear('created_at', '=', $i)
-        //             ->groupBy('reviews.info_id')
-        //             ->get();
 
-        //     if(!sizeof($reviews)) {
-        //         $reviews = 0;
-        //         $tot[] = $reviews;
-        //     } else {
-        //         $tot[] = $reviews[0]->count;
-        //     }
-        // }
-        return response()->json($tot);
+        $totale[] = $tot1;
+        $years = ($now->year) - 3;
+
+        for ($i = $years; $i <= $now->year; $i++) {
+            $reviews = DB::table('reviews')
+                    ->select('reviews.info_id', DB::raw('count(reviews.info_id) as count'))
+                    ->where('reviews.info_id', '=', $id)
+                    ->whereYear('created_at', '=', $i)
+                    ->groupBy('reviews.info_id')
+                    ->get();
+
+            if(!sizeof($reviews)) {
+                $reviews = 0;
+                $tot2[] = $reviews;
+            } else {
+                $tot2[] = $reviews[0]->count;
+            }
+        }
+
+        $totale[] = $tot2;
+        
+        return response()->json($totale);
     }
 
     public function messages(Request $request) {
         $id = $request->id;
 
+        $now = Carbon::now();
+
         for ($i = 1; $i < 13; $i++) {
             $messages = DB::table('messages')
                     ->select('messages.info_id', DB::raw('count(messages.info_id) as count'))
                     ->where('messages.info_id', '=', $id)
-                    ->whereYear('created_at', '=', 2021)
+                    ->whereYear('created_at', '=', $now->year)
                     ->whereMonth('created_at', '=', $i)
                     ->groupBy('messages.info_id')
                     ->get();
 
             if(!sizeof($messages)) {
                 $messages = 0;
-                $tot[] = $messages;
+                $tot1[] = $messages;
             } else {
-                $tot[] = $messages[0]->count;
+                $tot1[] = $messages[0]->count;
             }
         }
-        // for ($i = 2018; $i < 2022; $i++) {
-        //     $messages = DB::table('messages')
-        //             ->select('messages.info_id', DB::raw('count(messages.info_id) as count'))
-        //             ->where('messages.info_id', '=', 1)
-        //             ->whereYear('created_at', '=', $i)
-        //             ->groupBy('messages.info_id')
-        //             ->get();
 
-        //     if(!sizeof($messages)) {
-        //         $messages = 0;
-        //         $tot[] = $messages;
-        //     } else {
-        //         $tot[] = $messages[0]->count;
-        //     }
-        // }
-        return response()->json($tot);
+        $totale[] = $tot1;
+        $years = ($now->year) - 3;
+
+        for ($i = $years; $i <= $now->year; $i++) {
+            $messages = DB::table('messages')
+                    ->select('messages.info_id', DB::raw('count(messages.info_id) as count'))
+                    ->where('messages.info_id', '=', $id)
+                    ->whereYear('created_at', '=', $i)
+                    ->groupBy('messages.info_id')
+                    ->get();
+
+            if(!sizeof($messages)) {
+                $messages = 0;
+                $tot2[] = $messages;
+            } else {
+                $tot2[] = $messages[0]->count;
+            }
+        }
+
+        $totale[] = $tot2;
+        
+        return response()->json($totale);
     }
 }
