@@ -17,9 +17,12 @@ class DoctorController extends Controller
         $avg = $request->avg;
         $count = $request->count;
 
+        $now = Carbon::now();
+
         $doctors = Info::join('info_vote', 'infos.id', '=', 'info_vote.info_id')
                     ->join('reviews', 'infos.id', '=', 'reviews.info_id')
                     ->join('info_specialization', 'infos.id', '=', 'info_specialization.info_id')
+                    ->join('info_sponsor', 'infos.id', '=', 'info_sponsor.info_id')
                     ->select('infos.id', 'infos.name', 'infos.surname', 'infos.slug',
                             DB::raw('round(avg(info_vote.vote_id), 1) as average'),
                             DB::raw('count(reviews.info_id) / 3 as count'))
@@ -31,6 +34,9 @@ class DoctorController extends Controller
                         return $query->having('count', '>=', $count);
                     })
                     ->groupBy('infos.id', 'infos.name', 'infos.surname', 'infos.slug')
+                    ->when('info_sponsor.expired_at' > $now, function ($query) {
+                        return $query->orderBy('info_sponsor.expired_at', 'desc');
+                    })
                     ->with('specializations')
                     ->get();
 

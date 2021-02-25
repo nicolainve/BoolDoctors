@@ -7,6 +7,7 @@ use App\Specialization;
 use App\Info;
 use App\Review;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -18,10 +19,14 @@ class HomeController extends Controller
     public function index()
     {   
         $specializations = Specialization::all();
-        $doctors = Info::whereHas('sponsors')
-                    ->with('specializations')
-                    ->get();
 
+        $now = Carbon::now();
+
+        $doctors = Info::whereHas('sponsors')
+                    ->join('info_sponsor', 'infos.id', '=', 'info_sponsor.info_id')
+                    ->with('specializations')
+                    ->whereDate('info_sponsor.expired_at', '>', $now)
+                    ->get();
 
         return view('guest.home', compact('specializations', 'doctors'));
     }
