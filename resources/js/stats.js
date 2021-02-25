@@ -1,38 +1,23 @@
 import Chart from 'chart.js';
 import axios from 'axios';
 
-var ctx = document.getElementById('myChart');
-var id = document.getElementById('id').value;
-var reviews = [];
-
-axios.get('http://127.0.0.1:8000/api/reviews',{
-    params: {
-        id: id
+async function getData() {
+    try {
+        let res = await axios({
+            url: 'http://127.0.0.1:8000/api/reviews?id=1',
+            method: 'get',
+        })
+        return res.data
     }
-    })
-    .then(response => {
-        reviews = response.data;
-        console.log(reviews);
-    })
-    .catch(error => {
-        console.log(error);
-    });
+    catch (err) {
+        console.error(err);
+    }
+}
 
-// async function asyncFunc() {
-//     try {
-//         // fetch data from a url endpoint
-//         const response = await axios.get("http://127.0.0.1:8000/api/reviews?id=" + id);
-//         return console.log(response.data);
-//     } catch(error) {
-//         console.log("error", error);
-//         // appropriately handle the error
-//     }
-// }
-
-// asyncFunc()
-    
-setTimeout(() => {
-
+getData()
+.then(results => {
+    var ctx = document.getElementById('myChart');
+    var id = document.getElementById('id').value;
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
@@ -40,7 +25,7 @@ setTimeout(() => {
             datasets: [{
                 label: '# of Votes',
                 miniBarThickness: 2,
-                data: reviews,
+                data: results,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -70,7 +55,8 @@ setTimeout(() => {
             }
         }
     });
-}, 2000);
+})
+
 
 
 
