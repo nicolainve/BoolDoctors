@@ -60,5 +60,25 @@
     </ul>
 </div>
 
+<div class="doctors-sponsor container">
+    <ul class="d-flex">
+        @foreach ($doctors as $doctor)
+
+        <li>
+            {{ $doctor->name }} {{ $doctor->surname }}
+    
+            <ul>
+                @foreach ($doctor->specializations as $specialization)
+                <li>
+                    {{ $specialization->type }}
+                </li>
+                @endforeach
+            </ul>
+        </li>
+    
+        @endforeach
+    </ul>
+</div>
+
 
 @endsection
