@@ -36,128 +36,77 @@ class DoctorController extends Controller
         return response()->json($doctors);
     }
 
-    //reviews
     public function reviews(Request $request) {
         $id = $request->id;
-        $reviewNumber = Info::join('reviews', 'infos.id', '=', 'reviews.info_id')
-                    ->select('infos.id', 'infos.name', DB::raw('count(reviews.info_id) as count'))
-                    ->where('infos.id', '=', $id)
-                    ->groupBy('infos.id', 'infos.name')
-                    ->with('reviews')
+
+        for ($i = 1; $i < 13; $i++) {
+            $reviews = DB::table('reviews')
+                    ->select('reviews.info_id', DB::raw('count(reviews.info_id) as count'))
+                    ->where('reviews.info_id', '=', 1)
+                    ->whereYear('created_at', '=', 2021)
+                    ->whereMonth('created_at', '=', $i)
+                    ->groupBy('reviews.info_id')
                     ->get();
-        return response()->json($reviewNumber);
+
+            if(!sizeof($reviews)) {
+                $reviews = 0;
+                $tot[] = $reviews;
+            } else {
+                $tot[] = $reviews[0]->count;
+            }
+        }
+        // for ($i = 2018; $i < 2022; $i++) {
+        //     $reviews = DB::table('reviews')
+        //             ->select('reviews.info_id', DB::raw('count(reviews.info_id) as count'))
+        //             ->where('reviews.info_id', '=', 1)
+        //             ->whereYear('created_at', '=', $i)
+        //             ->groupBy('reviews.info_id')
+        //             ->get();
+
+        //     if(!sizeof($reviews)) {
+        //         $reviews = 0;
+        //         $tot[] = $reviews;
+        //     } else {
+        //         $tot[] = $reviews[0]->count;
+        //     }
+        // }
+        // return response()->json($tot);
     }
 
-    //messages
     public function messages(Request $request) {
         $id = $request->id;
-        $messagesNumber = Info::join('messages', 'infos.id', '=', 'messages.info_id')
-                    ->select('infos.id', 'infos.name', DB::raw('count(messages.info_id) as count'))
-                    ->where('infos.id', '=', $id)
-                    ->groupBy('infos.id', 'infos.name')
-                    ->with('messages')
+
+        for ($i = 1; $i < 13; $i++) {
+            $messages = DB::table('messages')
+                    ->select('messages.info_id', DB::raw('count(messages.info_id) as count'))
+                    ->where('messages.info_id', '=', 1)
+                    ->whereYear('created_at', '=', 2021)
+                    ->whereMonth('created_at', '=', $i)
+                    ->groupBy('messages.info_id')
                     ->get();
-        return response()->json($messagesNumber);
+
+            if(!sizeof($messages)) {
+                $messages = 0;
+                $tot[] = $messages;
+            } else {
+                $tot[] = $messages[0]->count;
+            }
+        }
+        // for ($i = 2018; $i < 2022; $i++) {
+        //     $messages = DB::table('messages')
+        //             ->select('messages.info_id', DB::raw('count(messages.info_id) as count'))
+        //             ->where('messages.info_id', '=', 1)
+        //             ->whereYear('created_at', '=', $i)
+        //             ->groupBy('messages.info_id')
+        //             ->get();
+
+        //     if(!sizeof($messages)) {
+        //         $messages = 0;
+        //         $tot[] = $messages;
+        //     } else {
+        //         $tot[] = $messages[0]->count;
+        //     }
+        // }
+        return response()->json($tot);
     }
 }
-
-// $doctors = DB::table('infos')
-//         ->join('info_vote', 'infos.id', '=', 'info_vote.info_id')
-//         ->join('reviews', 'infos.id', '=', 'reviews.info_id')
-//         ->join('info_specialization', 'infos.id', '=', 'info_specialization.info_id')
-//         ->select('infos.id', 'infos.name', 'infos.surname', 'infos.slug',
-//                 DB::raw('round(avg(info_vote.vote_id), 1) as average'),
-//                 DB::raw('count(reviews.info_id) / 3 as count'))
-//         ->where('info_specialization.specialization_id', '=', $spec)
-//         ->when($avg, function ($query) use ($avg) {
-//             return $query->having('average', '>=', $avg);
-//         })
-//         ->when($count, function ($query) use ($count) {
-//             return $query->having('count', '>=', $count);
-//         })
-//         ->groupBy('infos.id', 'infos.name', 'infos.surname', 'infos.slug')
-//         ->get();
-
-// /* ADD SPECIALIZATIONS */
-// foreach ($doctors as $doctor) {
-//     $specs = DB::table('specializations')
-//                 ->select('specializations.type')
-//                 ->join('info_specialization', 'specializations.id', '=', 'info_specialization.specialization_id')
-//                 ->where('info_specialization.info_id', $doctor->id)
-//                 ->get();
-//     foreach ($specs as $spec) {
-//         $doctor->specializations[] = $spec->type;
-//     }
-// }
-
-// /* ADD REVIEWS */
-// foreach ($doctors as $doctor) {
-//     $countInt = DB::table('reviews')
-//                 ->select('reviews.info_id', DB::raw('count(reviews.info_id) as countInt'))
-//                 ->where('reviews.info_id', $doctor->id)
-//                 ->groupBy('reviews.info_id')
-//                 ->get();
-//     $doctor->countInt = $countInt[0]->countInt;
-// }
-
-// /* ADD VOTES */
-// foreach ($doctors as $doctor) {
-//     $averageInt = DB::table('votes')
-//                     ->select(DB::raw('round(avg(info_vote.vote_id), 1) as averageInt'))
-//                     ->join('info_vote', 'info_vote.vote_id', '=', 'votes.id')
-//                     ->where('info_vote.info_id', $doctor->id)
-//                     ->get();
-//     $doctor->averageInt = (float)$averageInt[0]->averageInt;
-// }
-
-/* OLD METHOD */
-
-// $spec = $request->spec;
-// $doctors = DB::table('infos')
-// ->join('info_specialization', 'infos.id', '=', 'info_specialization.info_id')
-// ->join('specializations', 'info_specialization.specialization_id', '=', 'specializations.id')
-// ->select('infos.id','infos.name', 'infos.surname', 'infos.slug')
-// ->where('specializations.type', 'like', $spec)
-// ->groupBy('infos.id', 'infos.name', 'infos.surname', 'infos.slug')
-// ->get();
-
-// /* ADD REVIEWS */
-// foreach ($doctors as $doctor) {
-//     $tot = DB::table('reviews')
-//                 ->select('reviews.info_id', DB::raw('count(reviews.info_id) as tot'))
-//                 ->where('reviews.info_id', $doctor->id)
-//                 ->groupBy('reviews.info_id')
-//                 ->get();
-//     $doctor->tot = $tot[0]->tot;
-// }
-
-// /* ADD VOTES */
-// foreach ($doctors as $doctor) {
-//     $average = DB::table('votes')
-//                     ->select(DB::raw('round(avg(info_vote.vote_id), 1) as average'))
-//                     ->join('info_vote', 'info_vote.vote_id', '=', 'votes.id')
-//                     ->where('info_vote.info_id', $doctor->id)
-//                     ->get();
-//     $doctor->average = (float)$average[0]->average;
-// }
-
-// /* ADD SPECIALIZATIONS */
-// foreach ($doctors as $doctor) {
-//     $specs = DB::table('specializations')
-//                 ->select('specializations.type')
-//                 ->join('info_specialization', 'specializations.id', '=', 'info_specialization.specialization_id')
-//                 ->where('info_specialization.info_id', $doctor->id)
-//                 ->get();
-//     foreach ($specs as $spec) {
-//         $doctor->specializations[] = $spec->type;
-//     }
-// }
-
-// /* FILTER BY AVERAGE AND/OR TOT */
-// $average = $request->avg;
-// $tot = $request->tot;
-
-// $doctors = collect($doctors)
-//         ->where('average', '>=', $average)
-//         ->where('tot', '>=', $tot)
-//         ->values();
