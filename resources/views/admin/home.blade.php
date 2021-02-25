@@ -6,29 +6,13 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-                
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
 
-                    {{ __('You are logged in!') }}
-
-                    <h1 class="text-center">HOME PAGE PRIVATA</h1>
-
-                </div>
-            </div>
-        </div>
-    </div>
     {{--  Request Sponsor --}}
      <h4>Clicka qui per una sponsorizzazione del profilo</h4>
     <a href="{{route('admin.sponsor')}}">clicka qui</a>
+    {{-- Check reviews&message stats --}}
+     <h4>Clicka qui per le tue stats</h4>
+    <a href="{{route('admin.stats')}}">clicka qui</a>
     {{-- MESSAGES RECEIVED --}}
     <h2>My Message</h2>
         @forelse ($messages as $message)

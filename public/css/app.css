@@ -10083,18 +10083,6 @@ a {
   color: #fff;
 }
 
-.cont {
-  width: 80%;
-  margin: 10px auto;
-}
-
-.charts-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 350px;
-  grid-gap: 50px;
-}
-
 header {
   flex-grow: 1;
   background: #124691;
@@ -10202,4 +10190,20 @@ footer .footer-bottom .social i {
   footer .footer-top {
     background-size: 40%;
   }
+}
+
+.cont {
+  width: 80%;
+  margin: 10px auto;
+  padding: 20px 0;
+}
+.cont h2 {
+  margin: 0.5rem 0;
+  text-align: center;
+}
+.cont .container-chart {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  margin-bottom: 15px;
 }

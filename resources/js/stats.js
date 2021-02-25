@@ -30,14 +30,14 @@ async function getData() {
 
 getData()
 .then(results => {
+    // console.log(results);
     var revMonth = document.getElementById('revMonth');
     var revMonthGraph = new Chart(revMonth, {
         type: 'bar',
         data: {
             labels: ['Gen','Feb','Mar','Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
             datasets: [{
-                label: '# of Votes',
-                miniBarThickness: 2,
+                label: '# Reviews Mensili',
                 data: results[0][0],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
@@ -58,15 +58,6 @@ getData()
                 borderWidth: 1
             }]
         },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
     });
 
     var revYear = document.getElementById('revYear');
@@ -75,8 +66,7 @@ getData()
         data: {
             labels: ['2018', '2019', '2020', '2021'],
             datasets: [{
-                label: '# of Votes',
-                miniBarThickness: 2,
+                label: '# Reviews Annuali',
                 data: results[0][1],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
@@ -97,15 +87,6 @@ getData()
                 borderWidth: 1
             }]
         },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
     });
 
     var mesMonth = document.getElementById('mesMonth');
@@ -114,9 +95,8 @@ getData()
         data: {
             labels: ['Gen','Feb','Mar','Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
             datasets: [{
-                label: '# of Votes',
-                miniBarThickness: 2,
-                data: results[0][0],
+                label: '# Messaggi privati mensili',
+                data: results[1][0],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -136,15 +116,6 @@ getData()
                 borderWidth: 1
             }]
         },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
     });
 
     var mesYear = document.getElementById('mesYear');
@@ -153,9 +124,8 @@ getData()
         data: {
             labels: ['2018', '2019', '2020', '2021'],
             datasets: [{
-                label: '# of Votes',
-                miniBarThickness: 2,
-                data: results[0][1],
+                label: '# Messaggi privati annuali',
+                data: results[1][1],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -175,15 +145,6 @@ getData()
                 borderWidth: 1
             }]
         },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
     });
 })
 

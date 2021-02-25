@@ -3,32 +3,44 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
         <link rel="stylesheet" href="{{ asset ('css/app.css')}}">
         <title>Laravel</title>
 
     </head>
     <body>
-        
-        <input type="hidden" value="{{ $info->id }}" id="id">
-        <div class="cont">
-            <div class="charts-container">
-                <div class="canvas-chart">
-                    <canvas id="revMonth" width="100" height="100"></canvas>
+
+         @include('partials.header')
+
+        <main>
+            <input type="hidden" value="{{ $info->id }}" id="id">
+            <div class="cont">
+                <h2> Recensioni ricevute</h2>
+                <div class="container-chart">         
+                    <div class="canvas-chart">
+                        <canvas id="revMonth"></canvas>
+                    </div>
+            
+                    <div class="canvas-chart">
+                        <canvas id="revYear"></canvas>
+                    </div>
                 </div>
-        
-                <div class="canvas-chart">
-                    <canvas id="revYear" width="100" height="100"></canvas>
-                </div>
-        
-                <div class="canvas-chart">
-                    <canvas id="mesMonth" width="100" height="100"></canvas>
-                </div>
-        
-                <div class="canvas-chart">
-                    <canvas id="mesYear" width="100" height="100"></canvas>
+                <h2> Messaggi ricevuti</h2>
+                <div class="container-chart">
+                    
+                    <div class="canvas-chart">
+                        <canvas id="mesMonth"></canvas>
+                    </div>
+            
+                    <div class="canvas-chart">
+                        <canvas id="mesYear"></canvas>
+                    </div>
                 </div>
             </div>
-        </div>
+            
+        </main>
+
+        @include('partials.footer')
 
        <script src="{{ asset('./js/stats.js') }}"></script>
     </body>

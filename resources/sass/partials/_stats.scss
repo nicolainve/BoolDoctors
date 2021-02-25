@@ -1,0 +1,16 @@
+.cont { 
+    width: 80%;
+    margin: 10px auto;
+    padding: 20px 0;
+    h2{
+        margin: 0.5rem 0;
+        text-align: center;
+    }
+    .container-chart{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
+        margin-bottom: 15px;
+    }
+}
+

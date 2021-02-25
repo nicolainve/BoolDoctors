@@ -40775,28 +40775,19 @@ function _getData() {
 }
 
 getData().then(function (results) {
+  // console.log(results);
   var revMonth = document.getElementById('revMonth');
   var revMonthGraph = new chart_js__WEBPACK_IMPORTED_MODULE_1___default.a(revMonth, {
     type: 'bar',
     data: {
       labels: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
       datasets: [{
-        label: '# of Votes',
-        miniBarThickness: 2,
+        label: '# Reviews Mensili',
         data: results[0][0],
         backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
         borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
         borderWidth: 1
       }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
-        }]
-      }
     }
   });
   var revYear = document.getElementById('revYear');
@@ -40805,22 +40796,12 @@ getData().then(function (results) {
     data: {
       labels: ['2018', '2019', '2020', '2021'],
       datasets: [{
-        label: '# of Votes',
-        miniBarThickness: 2,
+        label: '# Reviews Annuali',
         data: results[0][1],
         backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
         borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
         borderWidth: 1
       }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
-        }]
-      }
     }
   });
   var mesMonth = document.getElementById('mesMonth');
@@ -40829,22 +40810,12 @@ getData().then(function (results) {
     data: {
       labels: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
       datasets: [{
-        label: '# of Votes',
-        miniBarThickness: 2,
-        data: results[0][0],
+        label: '# Messaggi privati mensili',
+        data: results[1][0],
         backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
         borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
         borderWidth: 1
       }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
-        }]
-      }
     }
   });
   var mesYear = document.getElementById('mesYear');
@@ -40853,22 +40824,12 @@ getData().then(function (results) {
     data: {
       labels: ['2018', '2019', '2020', '2021'],
       datasets: [{
-        label: '# of Votes',
-        miniBarThickness: 2,
-        data: results[0][1],
+        label: '# Messaggi privati annuali',
+        data: results[1][1],
         backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
         borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
         borderWidth: 1
       }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
-        }]
-      }
     }
   });
 });
@@ -40882,7 +40843,7 @@ getData().then(function (results) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/nicola/BoolDoctors/resources/js/stats.js */"./resources/js/stats.js");
+module.exports = __webpack_require__(/*! C:\Booldoctor\resources\js\stats.js */"./resources/js/stats.js");
 
 
 /***/ })
