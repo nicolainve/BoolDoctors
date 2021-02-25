@@ -18,7 +18,12 @@ class HomeController extends Controller
     public function index()
     {   
         $specializations = Specialization::all();
-        return view('guest.home', compact('specializations'));
+        $doctors = Info::whereHas('sponsors')
+                    ->with('specializations')
+                    ->get();
+
+
+        return view('guest.home', compact('specializations', 'doctors'));
     }
 
     public function show($slug)
