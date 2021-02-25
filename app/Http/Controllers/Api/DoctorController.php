@@ -70,7 +70,7 @@ class DoctorController extends Controller
         //         $tot[] = $reviews[0]->count;
         //     }
         // }
-        // return response()->json($tot);
+        return response()->json($tot);
     }
 
     public function messages(Request $request) {
