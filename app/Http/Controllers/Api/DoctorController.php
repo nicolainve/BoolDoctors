@@ -42,7 +42,7 @@ class DoctorController extends Controller
         for ($i = 1; $i < 13; $i++) {
             $reviews = DB::table('reviews')
                     ->select('reviews.info_id', DB::raw('count(reviews.info_id) as count'))
-                    ->where('reviews.info_id', '=', 1)
+                    ->where('reviews.info_id', '=', $id)
                     ->whereYear('created_at', '=', 2021)
                     ->whereMonth('created_at', '=', $i)
                     ->groupBy('reviews.info_id')
@@ -79,7 +79,7 @@ class DoctorController extends Controller
         for ($i = 1; $i < 13; $i++) {
             $messages = DB::table('messages')
                     ->select('messages.info_id', DB::raw('count(messages.info_id) as count'))
-                    ->where('messages.info_id', '=', 1)
+                    ->where('messages.info_id', '=', $id)
                     ->whereYear('created_at', '=', 2021)
                     ->whereMonth('created_at', '=', $i)
                     ->groupBy('messages.info_id')
