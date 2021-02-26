@@ -1,10 +1,10 @@
 <footer>
     <div class="footer-top">
-        <div class="container flex jspace">
-            <div class="info flex">
-                <div class="dc-comics mr2">
+        <div class="text-log container d-flex flex-column">
+            <div class="info d-flex justify-content-between">
+                <div class="mr-5">
                     <ul>
-                        <li class="mb bw">
+                        <li class="mb-3 font-weight-bold ">
                             <span>BOOLDOCTOR.it</span>
                         </li>
                         <li>
@@ -25,30 +25,14 @@
                         <li>
                             <a href="">Dati societari</a>
                         </li>
-                        <li class="mb bw">
-                            <ul>
-                                <li class="mt mb bw">
-                                    <span>CREATO DA:</span>
-                                </li>
-                                <li>
-                                    <a href="https://github.com/AlbertoAbate"><i class="footer-icons fab fa-github mr"></i>Alberto Abate</a>
-                                </li>
-                                <li>
-                                    <a href="https://github.com/nicolainve"><i class="footer-icons fab fa-github mr"></i>Nicola Invernizzi</a>
-                                </li>
-                                <li>
-                                    <a href="https://github.com/SimonaCinti"><i class="footer-icons fab fa-github mr"></i>Simona Cinti</a>
-                                </li>
-                                <li>
-                                    <a href="https://github.com/RLuis-Silva"><i class="footer-icons fab fa-github mr"></i>Luis Silva</a>
-                                </li>
-                            </ul> 
+                        {{-- <li class="mb-3 font-weight-bold"> --}}
                             
+                    </ul>        
                 </div>
 
-                <div class="dc mr2">
+                <div class="dc mr-5">
                     <ul>
-                        <li class="mb bw">
+                        <li class="mb-3 font-weight-bold">
                             <span>CERCA MEDICO PER</span>
                         </li>
                         <li>
@@ -65,9 +49,9 @@
                         </li>
                     </ul>
                 </div>
-                <div class="dc mr2">
+                <div class="dc mr-5">
                     <ul>
-                        <li class="mb bw">
+                        <li class="mb-3 font-weight-bold">
                             <span>MEDICO O PROFESSIONISTA SANITARIO</span>
                         </li>
                         <li>
@@ -84,8 +68,8 @@
 
                 <div class="sites">
                     <ul>
-                        <li class="mb bw">
-                            <span>AREA LEGALE</span>
+                        <li class="mb-3 font-weight-bold">
+                            <span class="$white">AREA LEGALE</span>
                         </li>
                         <li>
                             <a href="">Cookies</a>
@@ -99,24 +83,43 @@
                     </ul>   
                 </div>
             </div>
-            <div class="logo-footer">
-                <img src={{ asset('img/logo3.png') }} alt="">
+            <div class="create">
+                <ul>
+                    <li class="mt-3 mb-3 font-weight-bold">
+                        <span>CREATO DA:</span>
+                    </li>
+                    <li>
+                        <a href="https://github.com/AlbertoAbate"><i class="footer-icons fab fa-github mr-3"></i>Alberto Abate</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/nicolainve"><i class="footer-icons fab fa-github mr-3"></i>Nicola Invernizzi</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/SimonaCinti"><i class="footer-icons fab fa-github mr-3"></i>Simona Cinti</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/RLuis-Silva"><i class="footer-icons fab fa-github mr-3"></i>Luis Silva</a>
+                    </li>
+                </ul> 
             </div>
         </div>
-    
+        
+        <div class="logo-footer">
+           <img src={{ asset('img/logo3.png') }} alt="">
+        </div> 
         <div class="footer-bottom">
-            <div class="container flex jspace align-items">
+            <div class="container d-flex justify-content-between align-items-center">
                 <div class="button-footer">
-                    <button class="bw">SIGN-UP NOW!</button>
+                    <button class="font-weight-bold"> SIGN-UP NOW!</button>
                 </div>
-                <div class="bw">
+                <div class="mb-3 font-weight-bold">
                     Created my free logo at <a href="https://logomakr.com">LogoMakr.com</a>
                 </div>
                 <div class="social">
-                    <span class="mr">FOLLOW US</span>
-                    <i class="fab fa-facebook mr"></i>
-                    <i class="fab fa-twitter mr"></i>
-                    <i class="fab fa-instagram mr"></i>
+                    <span class="mr-3">FOLLOW US</span>
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
                     <i class="fab fa-youtube"></i>
                     
                     {{-- <i class="fas fa-map-marker-alt mr"></i> --}}

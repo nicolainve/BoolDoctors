@@ -16,7 +16,7 @@ footer {
                 line-height: 30px;
             }
             a {
-                color: #fff;
+                color: $white;
                 font-size: 12px;
             }
         }
@@ -24,6 +24,9 @@ footer {
             position: absolute;
             top: 40%;
             right: 36%;
+        }
+        span {
+            color: $white;
         }
     }
 
@@ -35,11 +38,11 @@ footer {
         .button-footer button {
             padding: 10px;
             background-color: rgb(59, 59, 59);
+            color: $white;
             border-color: dodgerblue;
             border-radius: 20px;
             cursor: pointer;
         }
-
         .social {
             span {
                 font-weight: bold;
@@ -56,9 +59,12 @@ footer {
     }
     
 
-      @media screen and (max-width: 992px) {
-          .footer-top {
-             background-size: 40%;
+      @media screen and (max-width: 767px) {
+          .info {
+             flex-wrap: wrap;
+          }
+          .logo-footer {
+              display: none;
           }
         }
 }

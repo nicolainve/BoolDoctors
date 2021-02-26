@@ -20,7 +20,7 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                     @guest
-                        <li class="nav-item mr login">
+                        <li class="nav-item mr-3 login">
                             <a class="nav-link" href="{{ route('login') }}"><i class="far fa-user"></i>{{ __('Accedi') }}</a>
                         </li>
                         @if (Route::has('register'))

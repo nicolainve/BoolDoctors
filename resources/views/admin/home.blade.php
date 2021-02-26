@@ -7,12 +7,12 @@
 @section('content')
 <div class="container">
 
-    <div class="click flex jspace mt">
+    <div class="click d-flex justify-content-between mt-3">
         <div class="spons-prof">
             {{--  Request Sponsor --}}
         <h4>Clicca qui per una sponsorizzazione del profilo</h4>
         <button type="button" class="btn btn-primary btn-lg">
-            <a class="white" href="{{route('admin.sponsor')}}">Clicca qui</a>
+            <a href="{{route('admin.sponsor')}}">Clicca qui</a>
         </button>
         </div>
         
@@ -20,7 +20,7 @@
             {{-- Check reviews&message stats --}}
          <h4>Clicca qui per le tue statistiche</h4>
          <button type="button" class="btn btn-primary btn-lg">
-            <a class="white" href="{{route('admin.stats')}}">Clicca qui</a>
+            <a href="{{route('admin.stats')}}">Clicca qui</a>
          </button>
          
         </div>
@@ -35,7 +35,7 @@
 
         <h3>Autore del messaggio: {{ $message->author }}</h3>
         <div>Indirizzo mail: <a href="mailto:{{ $message->mail }}">{{ $message->mail }}</a></div>
-        <div class="text-area flex">
+        <div class="text-area d-flex">
             <div>Messaggio:</div>
             <textarea name="" id="" cols="30" rows="5">{{ $message->body }}</textarea>
         </div>
@@ -49,7 +49,7 @@
         <h2>My Reviews</h2>
         @forelse ($reviews as $review)
         <h3>Autore della recensione: {{ $review->author }}</h3>
-        <div class="text-area flex">
+        <div class="text-area d-flex">
             <div>Recensione:</div>
             <textarea name="" id="" cols="30" rows="5">{{ $review->body }}</textarea>
         </div>

@@ -10021,66 +10021,12 @@ body {
   font-family: sans-serif;
 }
 
-.container {
-  width: 1170px;
-  margin: 0 auto;
-}
-
-.flex {
-  display: flex;
-}
-
 ul {
   list-style: none;
 }
 
 a {
   text-decoration: none;
-}
-
-.mt {
-  margin-top: 15px;
-}
-
-.mr {
-  margin-right: 10px;
-}
-
-.mb {
-  margin-bottom: 10px;
-}
-
-.align-items {
-  align-items: center;
-}
-
-.justify {
-  justify-content: center;
-}
-
-.jspace {
-  justify-content: space-between;
-}
-
-.dodgerblue {
-  color: dodgerblue;
-}
-
-.mr2 {
-  margin-right: 30px;
-}
-
-.ml {
-  margin-left: 50px;
-}
-
-.bw {
-  font-weight: bold;
-  color: #fff;
-}
-
-.white {
-  color: #fff;
 }
 
 header {
@@ -10127,6 +10073,7 @@ main .jumbotron .titles {
   position: absolute;
   top: 200px;
   left: 180px;
+  color: #fff;
 }
 main .box-spec {
   display: flex;
@@ -10164,6 +10111,9 @@ footer .footer-top .logo-footer {
   top: 40%;
   right: 36%;
 }
+footer .footer-top span {
+  color: #fff;
+}
 footer .footer-bottom {
   padding: 20px 5px 10px 5px;
   background-color: #3b3b3b;
@@ -10171,6 +10121,7 @@ footer .footer-bottom {
 footer .footer-bottom .button-footer button {
   padding: 10px;
   background-color: #3b3b3b;
+  color: #fff;
   border-color: dodgerblue;
   border-radius: 20px;
   cursor: pointer;
@@ -10186,9 +10137,12 @@ footer .footer-bottom .social i {
   background-color: #dfdbdb;
   color: #373737;
 }
-@media screen and (max-width: 992px) {
-  footer .footer-top {
-    background-size: 40%;
+@media screen and (max-width: 767px) {
+  footer .info {
+    flex-wrap: wrap;
+  }
+  footer .logo-footer {
+    display: none;
   }
 }
 
@@ -10206,6 +10160,10 @@ footer .footer-bottom .social i {
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
   margin-bottom: 15px;
+}
+
+.click button a {
+  color: #fff;
 }
 
 .messages-received,
