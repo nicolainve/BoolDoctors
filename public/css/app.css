@@ -10070,6 +10070,9 @@ header button span i {
   header .register a {
     text-align: center;
   }
+  header .hamb {
+    align-items: end;
+  }
 }
 @media screen and (min-width: 768px) {
   header .register {
@@ -10206,4 +10209,25 @@ footer .footer-bottom .social i {
   margin-top: 20px;
   margin-left: 5px;
   margin-bottom: 20px;
+}
+
+.height {
+  height: 700px;
+}
+
+.register-main {
+  background-image: url(../img/nurse.jpg);
+  background-size: cover;
+}
+
+.card {
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+.card-header {
+  text-align: center;
+  background-color: #fff;
+  border: none;
 }
