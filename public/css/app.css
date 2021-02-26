@@ -10057,6 +10057,28 @@ header li.register:hover {
 header li.register a:hover {
   color: #fff;
 }
+header button span i {
+  color: #fff;
+  padding: 5px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+}
+@media screen and (max-width: 768px) {
+  header .register {
+    width: 160px;
+  }
+  header .register a {
+    text-align: center;
+  }
+}
+@media screen and (min-width: 768px) {
+  header .register {
+    width: 180px;
+  }
+  header .register a {
+    text-align: center;
+  }
+}
 
 main {
   flex-grow: 2;
@@ -10068,6 +10090,7 @@ main .jumbotron {
   background-position-y: -23px;
   height: 700px;
   position: relative;
+  border-radius: 0;
 }
 main .jumbotron .titles {
   position: absolute;
@@ -10143,6 +10166,9 @@ footer .footer-bottom .social i {
   }
   footer .logo-footer {
     display: none;
+  }
+  footer .social {
+    flex-direction: column;
   }
 }
 

@@ -116,11 +116,13 @@
                     Created my free logo at <a href="https://logomakr.com">LogoMakr.com</a>
                 </div>
                 <div class="social">
-                    <span class="mr-3">FOLLOW US</span>
-                    <i class="fab fa-facebook"></i>
-                    <i class="fab fa-twitter"></i>
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-youtube"></i>
+                    <div><span class="mr-3">FOLLOW US</span></div>
+                    <div class="social-icons d-flex">
+                        <i class="fab fa-facebook mr-1"></i>
+                        <i class="fab fa-twitter mr-1"></i>
+                        <i class="fab fa-instagram mr-1"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
                     
                     {{-- <i class="fas fa-map-marker-alt mr"></i> --}}
                 </div>
