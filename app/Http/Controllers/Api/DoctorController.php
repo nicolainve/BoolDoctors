@@ -33,11 +33,7 @@ class DoctorController extends Controller
                     ->when($count, function ($query) use ($count) {
                         return $query->having('count', '>=', $count);
                     })
-<<<<<<< HEAD
                     ->groupBy('infos.id', 'infos.name', 'infos.surname', 'infos.slug','info_sponsor.expired_at')
-=======
-                    ->groupBy('infos.id', 'infos.name', 'infos.surname', 'infos.slug', 'info_sponsor.expired_at')
->>>>>>> 5e26ca2d8917ec223ad2688a1fe2d99ac95c9e4e
                     ->when('info_sponsor.expired_at' > $now, function ($query) {
                         return $query->orderBy('info_sponsor.expired_at', 'desc');
                     })
