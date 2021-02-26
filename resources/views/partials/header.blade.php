@@ -13,7 +13,7 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto hamb">
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item mr-3 login">
