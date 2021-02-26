@@ -10207,3 +10207,19 @@ footer .footer-bottom .social i {
   grid-gap: 10px;
   margin-bottom: 15px;
 }
+
+.messages-received,
+.reviews-received {
+  margin-top: 30px;
+  line-height: 40px;
+}
+.messages-received h5,
+.reviews-received h5 {
+  margin-bottom: 60px;
+}
+.messages-received textarea,
+.reviews-received textarea {
+  margin-top: 20px;
+  margin-left: 5px;
+  margin-bottom: 20px;
+}

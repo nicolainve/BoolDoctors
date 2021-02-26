@@ -7,33 +7,57 @@
 @section('content')
 <div class="container">
 
-    {{--  Request Sponsor --}}
-     <h4>Clicka qui per una sponsorizzazione del profilo</h4>
-    <a href="{{route('admin.sponsor')}}">clicka qui</a>
-    {{-- Check reviews&message stats --}}
-     <h4>Clicka qui per le tue stats</h4>
-    <a href="{{route('admin.stats')}}">clicka qui</a>
+    <div class="click flex jspace mt">
+        <div class="spons-prof">
+            {{--  Request Sponsor --}}
+        <h4>Clicca qui per una sponsorizzazione del profilo</h4>
+        <button type="button" class="btn btn-primary btn-lg">
+            <a class="white" href="{{route('admin.sponsor')}}">Clicca qui</a>
+        </button>
+        </div>
+        
+        <div class="statistiche">
+            {{-- Check reviews&message stats --}}
+         <h4>Clicca qui per le tue statistiche</h4>
+         <button type="button" class="btn btn-primary btn-lg">
+            <a class="white" href="{{route('admin.stats')}}">Clicca qui</a>
+         </button>
+         
+        </div>
+    </div>
+
     {{-- MESSAGES RECEIVED --}}
-    <h2>My Message</h2>
+    <div class="messages-received">
+        <h2>I miei Messaggi:</h2>
+
+        
         @forelse ($messages as $message)
 
-        <h3>{{ $message->author }}</h3>
-        <a href="mailto:{{ $message->mail }}">{{ $message->mail }}</a>
-        <p>{{ $message->body }}</p>
-        <h4>{{ $message->created_at->diffForHumans() }}</h4>
+        <h3>Autore del messaggio: {{ $message->author }}</h3>
+        <div>Indirizzo mail: <a href="mailto:{{ $message->mail }}">{{ $message->mail }}</a></div>
+        <div class="text-area flex">
+            <div>Messaggio:</div>
+            <textarea name="" id="" cols="30" rows="5">{{ $message->body }}</textarea>
+        </div>
+        <h5>Il messaggio è stato inviato {{ $message->created_at->diffForHumans() }}.</h5>
         @empty
         <h4>Nessun messaggio</h4>
         @endforelse
+    </div>
     {{-- REVIEWS --}}
-    <h2>My Reviews</h2>
+    <div class="reviews-received">
+        <h2>My Reviews</h2>
         @forelse ($reviews as $review)
-
-        <h3>{{ $review->author }}</h3>
-        <p>{{ $review->body }}</p>
-        <h4>{{ $review->created_at->diffForHumans() }}</h4>
+        <h3>Autore della recensione: {{ $review->author }}</h3>
+        <div class="text-area flex">
+            <div>Recensione:</div>
+            <textarea name="" id="" cols="30" rows="5">{{ $review->body }}</textarea>
+        </div>
+        <h5>La recensione è stata inviata {{ $review->created_at->diffForHumans() }}.</h5>
         @empty
         <h4>Nessun messaggio</h4>
         @endforelse
+    </div>
 
     @foreach ($info->votes as $vote)
     <span class="badge badge-primary">{{ $vote->vote }}</span>
