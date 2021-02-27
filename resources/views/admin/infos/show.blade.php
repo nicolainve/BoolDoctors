@@ -1,44 +1,49 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container p-4">
 
-    <a class="btn btn-primary"href="{{ route('admin.infos.edit', Auth::user()->info['id']) }}">Edit</a>
+    <a class="btn btn-primary"href="{{ route('admin.infos.edit', Auth::user()->info['id']) }}">Modifica Profilo</a>
     <form class="d-inline" action="{{ route('admin.infos.destroy', Auth::user()->info['id']) }}" method="POST">
         @csrf
         @method('DELETE')
 
-        <input class="btn btn-danger" type="submit" value="Delete">
+        <input class="btn btn-danger" type="submit" value="Cancella Profilo">
     </form>
     {{--  Infos Profile --}}
-    <small>Nome e Cognome</small>
-    <h2>{{ $info->name }} {{ $info->surname }}</h2>
-
-    <small>Indirizzo</small>
-    <p>{{ $info->address }}</p>
-
-    <small>CV</small>
-    <p>{{ $info->CV }}</p>
-
-    <small>Telefono</small>
-    <p>{{ $info->phone }}</p>
-
-    <small>Prezzo</small>
-    <p>{{ $info->price }}</p>
-
-    <section class="specialization">
-        <h4>Specializzazioni</h4>
-        @foreach ($info->specializations as $specialization)
-            <span class="badge badge-primary">{{ $specialization->type }}</span>
-        @endforeach
-    </section>
-
-    {{-- Check photo --}}
-    @if(!empty($info->photo))
-        <img width="300" src="{{ asset('storage/' . $info->photo) }}" alt="{{ $info->name }}">
-    @else
-        <img src="{{ asset('img/no-image.png') }}" alt="{{ $info->name }}">
-    @endif
-
+    <div class="profile d-flex p-3 ">
+        <div class="photo">
+            {{-- Check photo --}}
+            @if(!empty($info->photo))
+                <img width="300" src="{{ asset('storage/' . $info->photo) }}" alt="{{ $info->name }}">
+            @else
+                <img width="300" src="{{ asset('img/no-image.png') }}" alt="{{ $info->name }}">
+            @endif
+        </div>
+        <div class="info p-4 ">
+            <h2>Dott.{{ $info->name }} {{ $info->surname }}</h2>
+            <div class="specializzazione mt-3">
+                <section class="specialization">
+                    <span class="font-weight-bold">Le tue specializzazioni </span>
+                    @foreach ($info->specializations as $specialization)
+                        <span class="badge badge-primary p-2">{{ $specialization->type }}</span>
+                    @endforeach
+                </section>
+            </div>
+            <div class="indirizzo mt-3">        
+                <span class="font-weight-bold">Indirizzo: </span>{{ $info->address}}
+            </div>           
+            <div class="tel">
+                <span class="font-weight-bold">Telefono: </span>{{ $info->phone }}
+            </div>
+            <div class="prezzo">
+                <span class="font-weight-bold">Prezzo: </span>{{ $info->price }} €
+            </div>  
+        </div>
+    </div>
+    <div class="Curriculum">
+        <h3>Il tuo Curriculum Vitae</h3>
+        <p class="border border-secondary p-3">{{ $info->CV }}</p>
+    </div>
 </div>
 @endsection
