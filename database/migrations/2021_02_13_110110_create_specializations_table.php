@@ -16,6 +16,7 @@ class CreateSpecializationsTable extends Migration
         Schema::create('specializations', function (Blueprint $table) {
             $table->id();
             $table->string('type', 50);
+            $table->string('fontawesome', 50);
             // $table->timestamps();
         });
     }

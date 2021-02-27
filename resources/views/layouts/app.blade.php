@@ -23,7 +23,6 @@
 
     <script src="https://js.braintreegateway.com/web/dropin/1.26.0/js/dropin.min.js"></script>
     <link rel="stylesheet" href="{{ asset ('css/app.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 
 </head>
 <body>

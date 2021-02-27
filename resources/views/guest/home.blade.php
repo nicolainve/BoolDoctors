@@ -23,6 +23,7 @@
 
                 <div class="btn btn-spec btn-primary" v-on:click="search( '{{$specialization->id}}' )" >
                     {{$specialization->type}}
+                    {!! $specialization->fontawesome !!}
                 </div>
             @endforeach
         </div>

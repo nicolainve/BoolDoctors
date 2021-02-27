@@ -19,18 +19,18 @@ main {
     }
     .box-spec {
         display: flex;
-        justify-content: space-between;
-        
+        gap: 15px;
         .btn-spec {
-            flex-basis: calc(100% / 6 - 10px);
+            flex-basis: 200px;
             height: 200px;
-            border-radius: 20px;
+            border-radius: 30px;
+            .fas {
+                display: block;
+                font-size: 4rem;
+            }
+            &:hover {
+                background-color: #124691;
+            }
         }
-    .box-spec:hover {
-        background-color: #124691;
-        border-color: #124691;
     }
-    }
-    
-
 }

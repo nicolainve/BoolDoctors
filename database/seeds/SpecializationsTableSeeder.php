@@ -12,11 +12,37 @@ class SpecializationsTableSeeder extends Seeder
      */
     public function run()
     {
-        $specializations = ['Dentista', 'Ginecologo', 'Psicologo', 'Oculista', 'Dermatologo', 'Medico Dello Sport'];
+        $specializations = [
+            [
+                'type' => 'Dentista',
+                'fontawesome' => '<i class="fas fa-tooth"></i>'
+            ],
+            [
+                'type' => 'Ginecologo',
+                'fontawesome' => '<i class="fas fa-venus"></i>'
+            ],
+            [
+                'type' => 'Psicologo',
+                'fontawesome' => '<i class="fas fa-brain"></i>'
+            ],
+            [
+                'type' => 'Oculista',
+                'fontawesome' => '<i class="fas fa-glasses"></i>'
+            ],
+            [
+                'type' => 'Dermatologo',
+                'fontawesome' => '<i class="fas fa-allergies"></i>'
+            ],
+            [
+                'type' => 'Medico Dello Sport',
+                'fontawesome' => '<i class="fas fa-football-ball"></i>'
+            ],
+        ];
 
         foreach ($specializations as $specialization){
              $newSpecialization = new  Specialization();
-             $newSpecialization->type = $specialization;
+             $newSpecialization->type = $specialization['type'];
+             $newSpecialization->fontawesome = $specialization['fontawesome'];
              $newSpecialization->save();
         }
     }
