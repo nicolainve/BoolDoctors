@@ -21,19 +21,19 @@ class InfosTableSeeder extends Seeder
             $newInfo = new Info();
             // faker info 
             $newInfo->user_id = $user->id;
-            $newInfo->name = $faker->randomElement(['Paolo','Antonio','Riccardo','Laura','Roberta', 'Alfredo','Rosa','Luis','Simona','Nicola']);
-            $newInfo->surname = $faker->randomElement(['Rossi','Bianchi','Verdi','Conte','Esposito','Lamberti','Molinari', 'Cinti', 'Invernizzi']);
+            $newInfo->name = $faker->unique()->firstName;
+            $newInfo->surname = $faker->unique()->lastName;
             $slug = $newInfo->name . ' ' .  $newInfo->surname;
             $newInfo->slug = Str::slug($slug, '-');
             $newInfo->address = $faker->sentence(1);
             $newInfo->CV = $faker->text(100);
-            $newInfo->phone = $faker->randomElement(['111', '222', '333', '444', '555','666','777','888','999']);
+            $newInfo->phone = $faker->unique()->phoneNumber;
             $newInfo->price = $faker->randomFloat(2, 10, 100);
             // Save
             $newInfo->save();
             //! Specialization
             $specNumber = [];
-            $time = rand(1,10);
+            $time = rand(1,3);
             for ($i = 0; $i < $time; $i++) {
                 $number = rand(1,6);
 
@@ -42,9 +42,9 @@ class InfosTableSeeder extends Seeder
                 }
             }
             $newInfo->specializations()->attach($specNumber);
-            //! Votes
+            // ! Votes
             $voteNumber = [];
-            for ($i = 0; $i < 3; $i++) {
+            for ($i = 0; $i < 4; $i++) {
                 $number = rand(1,5);
 
                 $voteNumber[] = $number;
@@ -52,8 +52,6 @@ class InfosTableSeeder extends Seeder
             $newInfo->votes()->attach($voteNumber);
 
             //! sponsorship
-            // $sponsorship= rand(0,1);
-            // if ($sponsorship === 1) {
                 $sponsorType= rand(1,3);
 
                 // Check type of Sponsorship selected
@@ -73,8 +71,6 @@ class InfosTableSeeder extends Seeder
                 }
 
                 $newInfo->sponsors()->attach($sponsor['sponsor_id'],  ['expired_at' => $expire]);
-            //}
-
 
         }
     }

@@ -14,11 +14,12 @@ class UsersTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i=0; $i < 10; $i++) { 
-            $newUser = new User();
-            $newUser->email = $faker->email();
-            $newUser->password = Hash::make('123456789');
-            $newUser->save();
-        }
+        factory(App\User::class, 100)->create();
+        // for ($i=0; $i < 10; $i++) { 
+        //     $newUser = new User();
+        //     $newUser->email = $faker->email();
+        //     $newUser->password = Hash::make('123456789');
+        //     $newUser->save();
+        // }
     }
 }

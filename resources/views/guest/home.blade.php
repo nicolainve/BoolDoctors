@@ -22,10 +22,13 @@
         <div class="box-spec d-flex flex-wrap">
             {{-- flex-wrap --}}
             @foreach ($specializations as $specialization)
-    
-            <div class="btn btn-spec btn-primary" v-on:click="search( '{{$specialization->id}}' )" style="flex-basis: 170px" >
-                {{$specialization->type}}
-                {!! $specialization->fontawesome !!}
+            <div class="btn btn-spec btn-primary py-4" v-on:click="search( '{{$specialization->id}}' )" style="flex-basis: 170px" >
+                <div class="icona my-2">
+                    {!! $specialization->fontawesome !!}
+                </div>
+                <div class="tit_spec mt-3">
+                    <h4>{{$specialization->type}}</h4>
+                </div>
             </div>
             @endforeach
         </div>
