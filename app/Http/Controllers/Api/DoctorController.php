@@ -19,13 +19,12 @@ class DoctorController extends Controller
 
         $now = Carbon::now();
 
-        $doctors = Info::join('info_vote', 'infos.id', '=', 'info_vote.info_id')
-                    ->join('reviews', 'infos.id', '=', 'reviews.info_id')
+        $doctors = Info::leftJoin('info_vote', 'infos.id', '=', 'info_vote.info_id')
                     ->join('info_specialization', 'infos.id', '=', 'info_specialization.info_id')
-                    ->join('info_sponsor', 'infos.id', '=', 'info_sponsor.info_id')
+                    ->leftJoin('info_sponsor', 'infos.id', '=', 'info_sponsor.info_id')
                     ->select('infos.id', 'infos.name', 'infos.surname', 'infos.slug',
                             DB::raw('round(avg(info_vote.vote_id), 1) as average'),
-                            DB::raw('count(reviews.info_id) / 3 as count'))
+                            DB::raw('count(info_vote.info_id) as count'))
                     ->where('info_specialization.specialization_id', '=', $spec)
                     ->when($avg, function ($query) use ($avg) {
                         return $query->having('average', '>=', $avg);
