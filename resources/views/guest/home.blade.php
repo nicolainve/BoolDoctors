@@ -16,70 +16,80 @@
     </div>
 </div>
 
-    <div class="container spec">
-        <h1>Scegli la tipologia della visita:</h1>
-        <div class="box-spec">
+<div class="container spec py-4">
+    <h1>Scegli la tipologia della visita:</h1>
+    {{-- <div class="flex_box d-flex flex-wrap"> --}}
+        <div class="box-spec d-flex flex-wrap">
+            {{-- flex-wrap --}}
             @foreach ($specializations as $specialization)
-
-                <div class="btn btn-spec btn-primary" v-on:click="search( '{{$specialization->id}}' )" >
-                    {{$specialization->type}}
-                    {!! $specialization->fontawesome !!}
-                </div>
+    
+            <div class="btn btn-spec btn-primary" v-on:click="search( '{{$specialization->id}}' )" style="flex-basis: 170px" >
+                {{$specialization->type}}
+                {!! $specialization->fontawesome !!}
+            </div>
             @endforeach
         </div>
-        
-    </div>
-<div>
+    {{-- </div> --}}
+</div>
 
-    <div class="tools" v-if="tools">
-        <p>Filtra per:</p>
-        <label for="avg">Media Voto</label>
-        <select v-on:change="filter" v-model="avg" name="avg" id="avg">
-            <option value="">Scegli</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-        <label for="count">Num. Recensioni</label>
-        <input type="number" name="count" id="count" placeholder="Scegli" v-on:input="filter" v-model="count">
+<div class=" container tools py-4 " v-if="tools">
+    <div class="filter d-flex flex-wrap justify-content-center">
+        <div>
+            <span>Filtra la ricerca per: </span>
+            <label for="avg" class="font-weight-bold">voto</label>
+            <select v-on:change="filter" v-model="avg" name="avg" id="avg">
+                <option value="">Scegli</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+        <div>
+            <label for="count" class="font-weight-bold ml-2">numero recensioni</label>
+            <input type="number" name="count" id="count" placeholder="Scegli" v-on:input="filter" v-model="count">
+        </div>
     </div>
+
 
     {{-- Risultati Ricerca by Specializzazione --}}
-    <ul>
-        <li v-for="result in results">
-            <p>@{{ result.name }} @{{  result.surname}}</p>
-
-            <a :href="routing(result.slug)">Mostra profilo</a>
-
-            <p>Voto medio @{{ result.average }}</p>
-
-            <p>Numero di recensioni @{{ result.count }}</p>
-
-        </li>
-    </ul>
+    <h3 mt-4>Risultato della ricerca:</h3>
+    <div class="result_search d-flex flex-wrap">
+        <div class="box-profile rounded bg-info d-flex justify-content-around flex-wrap p-4 m-2" v-for="result in results" style="width: 350px;">
+            <div class="img mb-1">
+                {{-- Check photo --}}
+                @if(!empty($info->photo))
+                    <img width="100px" src="{{ asset('storage/' . $info->photo) }}" >
+                    {{-- alt="{{ $info->name }}" --}}
+                @else
+                    <img width="100px" src="{{ asset('img/no-image.png') }}" >
+                    {{-- alt="{{ $info->name }}" --}}
+                @endif
+            </div>
+            <div class="info">
+                <h5>Dott. @{{ result.name }} @{{  result.surname}}</h5>
+                <a class="text-danger" :href="routing(result.slug)">Mostra profilo</a>
+                <div>Voto @{{ result.average }}</div>
+                <div>Numero di recensioni: @{{ result.count }}</div>
+            </div>
+        </div>
+    </div>
 </div>
-
-<div class="doctors-sponsor container">
-    <ul class="d-flex">
-        @foreach ($doctors as $doctor)
-
-        <li>
-            {{ $doctor->name }} {{ $doctor->surname }}
-    
-            <ul>
-                @foreach ($doctor->specializations as $specialization)
-                <li>
-                    {{ $specialization->type }}
-                </li>
+<div class="container doctors-sponsor  p-5">
+    <h2>I dottori Premium di BoolDoctors!</h2>
+    <div class="premium d-flex flex-wrap">
+                @foreach ($doctors as $doctor)
+                    <div class="box border border-danger rounded mx-2 mb-4 px-4 pb-4" style="width: 300px;">
+                        <div class="text-right text-danger my-2">Account Premium</div>
+                            <h5>Dott. {{ $doctor->name }} {{ $doctor->surname }}</h5> 
+                        <div>
+                            @foreach ($doctor->specializations as $specialization)
+                                <div class="badge badge-primary p-2 my-1">{{ $specialization->type }}</div> 
+                            @endforeach
+                        </div>
+                    </div>
                 @endforeach
-            </ul>
-        </li>
-    
-        @endforeach
-    </ul>
+    </div>
 </div>
-
-
 @endsection

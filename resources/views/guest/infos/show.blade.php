@@ -13,7 +13,7 @@
     @endif
         
     {{-- Pagina Infos Photo Profile --}}
-    <div class="d-flex">
+    <div class="d-flex flex-wrap">
         {{-- Infos Photo --}}
         <div class="foto">
             {{-- Check photo --}}
@@ -27,15 +27,15 @@
         <div class="doc_profile p-4">
             <div class="name_vote d-flex">
                 <h2> Dott.{{ $info->name }} {{ $info->surname }}</h2>
-                <div class="ml-4">Media Voti: {{ $info->average }}</div> 
+                <div class="ml-4">Voto: {{ $info->average }}</div> 
             </div>
             
             {{-- Dott.{{ $info->name }} {{ $info->surname }} <span>Media Voti: {{ $info->average }}</span> --}}
             <div class="specializzazione mt-3">
                 <section class="specialization">
-                    <h4>Le sue specializzazioni:</h4>
+                    <h5>Le sue specializzazioni:</h5>
                     @foreach ($info->specializations as $specialization)
-                        <span class="badge badge-primary p-2">{{ $specialization->type }}</span>
+                        <div class="badge badge-primary p-2 my-1">{{ $specialization->type }}</div>
                     @endforeach
                 </section>
             </div>
@@ -44,20 +44,12 @@
             </div>           
             <div class="tel">
                 <span class="font-weight-bold">Telefono: </span>{{ $info->phone }}
-                {{-- <h5>Telefono:</h5> --}}
-                {{-- <p></p> --}}
             </div>
             <div class="prezzo">
                 <span class="font-weight-bold">Prezzo: </span>{{ $info->price }} €
-                {{-- <h5>Prezzo</h5> --}}
-                {{-- <p></p> --}}
             </div>
             <div class="CV mt-3">
-                {{-- <h5>CV</h5>
-                <p class="border border-secondary p-3">{{ $info->CV }}</p> --}}
-
                 <!-- Button modal -->
-                {{-- MODIFICARE data-target="#cv" --}}
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">
                     Curriculum Vitae
                 </button>
@@ -71,7 +63,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body">
+                            <div class="modal-body" style="white-space: pre-line;">
                                 {{ $info->CV }}
                             </div>
                             <div class="modal-footer">
@@ -123,7 +115,6 @@
         <div class="list border">
             @forelse ($reviews as $review)
             <div class="msg p-3">
-                {{-- <h3>Utente {{ $review->author }} ha scritto:</h3> --}}
                 <span>L'utente <span class="font-weight-bold">{{ $review->author }}</span> ha scritto:</span>
                 <p class="font-italic px-2">"{{ $review->body }}"</p>
                 <small>{{ $review->created_at->diffForHumans() }}</small>

@@ -10,9 +10,11 @@
 
         <input class="btn btn-danger" type="submit" value="Cancella Profilo">
     </form>
+
     {{--  Infos Profile --}}
-    <div class="profile d-flex p-3 ">
+    <div class="profile d-flex flex-wrap p-3 ">
         <div class="photo">
+            
             {{-- Check photo --}}
             @if(!empty($info->photo))
                 <img width="300" src="{{ asset('storage/' . $info->photo) }}" alt="{{ $info->name }}">
@@ -24,9 +26,9 @@
             <h2>Dott.{{ $info->name }} {{ $info->surname }}</h2>
             <div class="specializzazione mt-3">
                 <section class="specialization">
-                    <span class="font-weight-bold">Le tue specializzazioni </span>
+                    <div class="font-weight-bold">Le tue specializzazioni </div>
                     @foreach ($info->specializations as $specialization)
-                        <span class="badge badge-primary p-2">{{ $specialization->type }}</span>
+                        <div class="badge badge-primary p-2 my-1">{{ $specialization->type }}</div>
                     @endforeach
                 </section>
             </div>
@@ -43,7 +45,7 @@
     </div>
     <div class="Curriculum">
         <h3>Il tuo Curriculum Vitae</h3>
-        <p class="border border-secondary p-3">{{ $info->CV }}</p>
+        <p class="border border-secondary p-3" style="white-space: pre-line;">{{ $info->CV }}</p>
     </div>
 </div>
 @endsection

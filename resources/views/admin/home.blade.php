@@ -7,60 +7,56 @@
 @section('content')
 <div class="container">
 
-    <div class="click d-flex justify-content-between mt-3">
-        <div class="spons-prof">
+    <div class="click d-flex justify-content-between flex-wrap  mt-3 p-4 border">
+        <div class="spons-prof" style="flex-basis: 400px;">
             {{--  Request Sponsor --}}
-        <h4>Clicca qui per una sponsorizzazione del profilo</h4>
-        <button type="button" class="btn btn-primary btn-lg">
-            <a href="{{route('admin.sponsor')}}">Clicca qui</a>
-        </button>
+            <h4>Per ottenere una sponsorizzazione</h4>
+            <button type="button" class="btn btn-primary btn-md mb-2">
+                <a href="{{route('admin.sponsor')}}">Clicca qui</a>
+            </button>
         </div>
         
-        <div class="statistiche">
+        <div class="statistiche" style="flex-basis: 400px;">
             {{-- Check reviews&message stats --}}
-         <h4>Clicca qui per le tue statistiche</h4>
-         <button type="button" class="btn btn-primary btn-lg">
-            <a href="{{route('admin.stats')}}">Clicca qui</a>
-         </button>
-         
+            <h4>Per vedere le tue statistiche</h4>
+            <button type="button" class="btn btn-primary btn-md ">
+                <a href="{{route('admin.stats')}}">Clicca qui</a>
+            </button>
         </div>
     </div>
 
     {{-- MESSAGES RECEIVED --}}
-    <div class="messages-received">
-        <h2>I miei Messaggi:</h2>
-
+    <h2 class="mt-4">Messaggi ricevuti</h2>
+    <div class="messages-received border p-3">
         
         @forelse ($messages as $message)
-
-        <h3>Autore del messaggio: {{ $message->author }}</h3>
-        <div>Indirizzo mail: <a href="mailto:{{ $message->mail }}">{{ $message->mail }}</a></div>
-        <div class="text-area d-flex">
-            <div>Messaggio:</div>
-            <textarea name="" id="" cols="30" rows="5">{{ $message->body }}</textarea>
-        </div>
-        <h5>Il messaggio è stato inviato {{ $message->created_at->diffForHumans() }}.</h5>
+            <h4 class="m-0">Hai ricevuto un messaggio da: <span class="font-weight-bold">{{ $message->author }}</span></h4>
+            <p class="m-0 ml-2">{{ $message->created_at->diffForHumans() }}</p>
+            <p class="ml-2 mb-0">Indirizzo mail di {{ $message->author }}: <a href="mailto:{{ $message->mail }}">{{ $message->mail }}</a></p>
+                <div class="text-area d-flex flex-wrap">
+                    <div class="ml-2">Messaggio:</div>
+                    <div class="border px-2 pb-2 ml-3 mb-5 font-italic">{{ $message->body }}</div>
+                </div>
         @empty
-        <h4>Nessun messaggio</h4>
+            <h4>Nessun messaggio</h4>
         @endforelse
     </div>
     {{-- REVIEWS --}}
-    <div class="reviews-received">
-        <h2>My Reviews</h2>
+    <h2 class="mt-4">My Reviews</h2>
+    <div class="reviews-received border p-3">
         @forelse ($reviews as $review)
-        <h3>Autore della recensione: {{ $review->author }}</h3>
-        <div class="text-area d-flex">
-            <div>Recensione:</div>
-            <textarea name="" id="" cols="30" rows="5">{{ $review->body }}</textarea>
-        </div>
-        <h5>La recensione è stata inviata {{ $review->created_at->diffForHumans() }}.</h5>
+        <h4><span class="font-weight-bold">{{ $review->author }}</span> ha scritto:</h4>
+            <div class="d-flex border">
+                <div class="recensione font-italic">"{{ $review->body }}"</div>
+            </div>
+            <p class="mb-4">{{$review->created_at->diffForHumans()}}.</p>
         @empty
-        <h4>Nessun messaggio</h4>
+            <h4>Nessun messaggio</h4>
         @endforelse
     </div>
 
     @foreach ($info->votes as $vote)
-    <span class="badge badge-primary">{{ $vote->vote }}</span>
+        <span class="badge badge-primary">{{ $vote->vote }}</span>
     @endforeach
 
 </div>
