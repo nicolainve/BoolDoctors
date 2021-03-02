@@ -1,0 +1,26 @@
+.height {
+    height: 700px;
+}
+.login-main {
+    background-image: url(../img/doctor.jpg);
+    background-size: cover;
+}
+.card {
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 100px;
+    box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.6);
+}
+.card-header {
+    text-align: center;
+    background-color: $white;
+    border: none;
+}
+@media screen and (max-width: 767px) {
+    .card {
+        width: 250px;
+    }
+    .card-header img {
+        width: 160px;
+    }
+  }

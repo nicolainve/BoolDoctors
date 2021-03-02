@@ -26,10 +26,8 @@
                             <a href="">Dati societari</a>
                         </li>
                         {{-- <li class="mb-3 font-weight-bold"> --}}
-                            
                     </ul>        
                 </div>
-
                 <div class="dc mr-5">
                     <ul>
                         <li class="mb-3 font-weight-bold">
@@ -65,7 +63,6 @@
                         </li>
                     </ul>
                 </div>
-
                 <div class="sites">
                     <ul>
                         <li class="mb-3 font-weight-bold">
@@ -103,16 +100,15 @@
                 </ul> 
             </div>
         </div>
-        
         <div class="logo-footer">
            <img src={{ asset('img/logo3.png') }} alt="">
         </div> 
         <div class="footer-bottom">
-            <div class="container d-flex justify-content-between align-items-center">
+            <div class="container d-flex flex-wrap justify-content-between align-items-center">
                 <div class="button-footer">
                     <button class="font-weight-bold"> SIGN-UP NOW!</button>
                 </div>
-                <div class="mb-3 font-weight-bold">
+                <div class="my-3 font-weight-bold">
                     Created my free logo at <a href="https://logomakr.com">LogoMakr.com</a>
                 </div>
                 <div class="social">
@@ -123,7 +119,6 @@
                         <i class="fab fa-instagram mr-1"></i>
                         <i class="fab fa-youtube"></i>
                     </div>
-                    
                     {{-- <i class="fas fa-map-marker-alt mr"></i> --}}
                 </div>
             </div>

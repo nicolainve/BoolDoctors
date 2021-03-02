@@ -2,20 +2,9 @@ main {
     flex-grow: 2;
 
     .jumbotron {
-        background-image: url(../img/jumbo2.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position-y: -23px;
         height: 700px;
-        position: relative;
         border-radius: 0;
 
-        .titles {
-            position: absolute;
-            top: 200px;
-            left: 180px;
-            color: $white;
-        }
     }
     .box-spec {
         display: flex;

@@ -16216,19 +16216,8 @@ main {
   flex-grow: 2;
 }
 main .jumbotron {
-  background-image: url(../img/jumbo2.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position-y: -23px;
   height: 700px;
-  position: relative;
   border-radius: 0;
-}
-main .jumbotron .titles {
-  position: absolute;
-  top: 200px;
-  left: 180px;
-  color: #fff;
 }
 main .box-spec {
   display: flex;
@@ -16343,25 +16332,45 @@ footer .footer-bottom .social i {
   margin-bottom: 20px;
 }
 
-.height {
-  height: 700px;
-}
-
 .register-main {
   background-image: url(../img/nurse.jpg);
   background-size: cover;
 }
 
+.height {
+  height: 700px;
+}
+
+.login-main {
+  background-image: url(../img/doctor.jpg);
+  background-size: cover;
+}
+
 .card {
-  width: 400px;
+  width: 500px;
   margin: 0 auto;
   margin-top: 100px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
 
 .card-header {
   text-align: center;
   background-color: #fff;
   border: none;
+}
+
+@media screen and (max-width: 767px) {
+  .card {
+    width: 250px;
+  }
+
+  .card-header img {
+    width: 160px;
+  }
+}
+.email-main {
+  background-image: url(../img/empass.jpg);
+  background-size: cover;
 }
 
 .error-text p {
