@@ -47,11 +47,11 @@
       </div>
      <div class="form-group">
         <label for="phone">Numero di telefono</label>
-        <input class="form-control" type="text" name="phone" id="phone" value="{{ old('phone', $info->phone) }}" required minlength="8" maxlength="11">   
+        <input class="form-control" type="text" name="phone" id="phone" value="{{ old('phone', $info->phone) }}" required minlength="8" maxlength="13">   
      </div>
      <div class="form-group">
         <label for="price">Prezzo</label>
-        <input class="form-control" type="number" name="price" id="price" value="{{ old('price', $info->price) }}" required min="1" max="9999">   
+        <input class="form-control" type="number" name="price" id="price" value="{{ old('price', $info->price) }}" required min="1" max="9999" step="0.01">   
      </div>
 
      <div class="form-group">
