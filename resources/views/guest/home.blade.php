@@ -99,7 +99,7 @@
     </div>
     {{-- Risultati Ricerca by Specializzazione --}}
     <h3>Risultato della ricerca:</h3>
-    <div class="result_search d-flex flex-wrap" style="height: 400px; overflow: auto">
+    <div class="result_search d-flex flex-wrap justify-content-center" style="height: 400px; overflow: auto">
         <div class="box-profile rounded bg-info d-flex justify-content-around flex-wrap py-2 m-2" v-for="result in results" style="width: 320px;">
             <div class="img mb-1">
                 {{-- Check photo --}}
@@ -122,7 +122,7 @@
 </div>
 <div class="container doctors-sponsor p-4">
     <h2>I dottori Premium di BoolDoctors!</h2>
-    <div class="premium d-flex  p-3" style="height: 300px; overflow-y: auto">
+    <div class="premium d-flex p-3" style="height: 300px; height: 200px; overflow-y: auto">
         @foreach ($doctors as $doctor)
             <div class="box border border-danger rounded mx-2 mb-2 px-4 pb-4" style="width: 300px; flex-shrink: 0;">
                 <div class="text-right text-danger my-2">Account Premium</div>
