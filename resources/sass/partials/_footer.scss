@@ -70,4 +70,12 @@ footer {
               flex-direction: column;
           }
         }
+
+        @media screen and (max-width: 375px) {
+            .button-footer,
+            .credit,
+            .social {
+                margin: 0 auto;
+            }
+          }
 }

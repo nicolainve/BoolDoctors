@@ -106,9 +106,11 @@
         <div class="footer-bottom">
             <div class="container d-flex flex-wrap justify-content-between align-items-center">
                 <div class="button-footer">
-                    <button class="font-weight-bold"> SIGN-UP NOW!</button>
+                    <a href="{{ route('register') }}">
+                        <button class="font-weight-bold"> SIGN-UP NOW!</button>
+                    </a>
                 </div>
-                <div class="my-3 font-weight-bold">
+                <div class="my-3 font-weight-bold credit">
                     Created my free logo at <a href="https://logomakr.com">LogoMakr.com</a>
                 </div>
                 <div class="social">

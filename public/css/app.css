@@ -16295,6 +16295,13 @@ footer .footer-bottom .social i {
     flex-direction: column;
   }
 }
+@media screen and (max-width: 375px) {
+  footer .button-footer,
+footer .credit,
+footer .social {
+    margin: 0 auto;
+  }
+}
 
 .cont {
   width: 80%;
