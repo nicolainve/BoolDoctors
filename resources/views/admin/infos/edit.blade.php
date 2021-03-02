@@ -57,7 +57,7 @@
      <div class="form-group">
       @foreach ($specializations as $specialization)
           <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="specializations[]" id="specialization-{{ $specialization->id }}" value="{{ $specialization->id }}" @if ($info->specializations->contains($specialization->id)) checked @endif required>
+              <input class="form-check-input" type="checkbox" name="specializations[]" id="specialization-{{ $specialization->id }}" value="{{ $specialization->id }}" @if ($info->specializations->contains($specialization->id)) checked @endif>
               <label for="specialization-{{ $specialization->id }}">
                   {{ $specialization->type }}
               </label>

@@ -22,7 +22,7 @@
     
     <div class="form-group">
        <label for="name">Nome</label>
-       <input class="form-control" type="text" name="name" id="name" value="{{ old('name') }}" maxlength="150">
+       <input class="form-control" type="text" name="name" id="name" value="{{ old('name') }}" required maxlength="150">
     </div>
     <div class="form-group">
         <label for="surname">Cognome</label>
