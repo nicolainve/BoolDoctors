@@ -21,29 +21,25 @@
 
     <div class="form-group">
        <label for="name">Nome</label>
-       <input class="form-control" type="text" name="name" id="name" value="{{ old('name', $info->name) }}">
+       <input class="form-control" type="text" name="name" id="name" value="{{ old('name', $info->name) }}" required maxlength="150">
     </div>
     <div class="form-group">
         <label for="surname">Cognome</label>
-        <input class="form-control" type="text" name="surname" id="surname" value="{{ old('surname', $info->surname) }}">   
+        <input class="form-control" type="text" name="surname" id="surname" value="{{ old('surname', $info->surname) }}" required maxlength="150">   
      </div>
      <div class="form-group">
         <label for="address">Indirizzo</label>
-        <input class="form-control" type="text" name="address" id="address" value="{{ old('address', $info->address) }}">   
+        <input class="form-control" type="text" name="address" id="address" value="{{ old('address', $info->address) }}" required maxlength="30">   
      </div>
-     {{-- <div class="form-group">
-        <label for="exampleFormControlInput1">Indirizzo E-Mail</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-     </div> --}}
      <div class="form-group">
         <label for="CV">Curriculum Vitae</label>
-        <textarea class="form-control" name="CV" id="CV" cols="30" rows="10">{{ old('CV', $info->CV) }}</textarea>
+        <textarea class="form-control" name="CV" id="CV" cols="30" rows="10" required maxlength="1000">{{ old('CV', $info->CV) }}</textarea>
      </div>
      <div class="form-group">
         <label for="photo">Immagine: </label>
         @isset($info->photo)
         <div class="wrap-image">
-            <img width="200" src="{{ asset('storage/' . $info->photo) }}" alt="{{ $info->name }}">
+            <img width="200" src="{{ asset('storage/' . $info->photo) }}" alt="{{ $info->name }}" required maxlength="1000">
         </div>
         <h6>Cambia:</h6>
         @endisset
@@ -51,17 +47,17 @@
       </div>
      <div class="form-group">
         <label for="phone">Numero di telefono</label>
-        <input class="form-control" type="text" name="phone" id="phone" value="{{ old('phone', $info->phone) }}">   
+        <input class="form-control" type="text" name="phone" id="phone" value="{{ old('phone', $info->phone) }}" required minlength="8" maxlength="11">   
      </div>
      <div class="form-group">
         <label for="price">Prezzo</label>
-        <input class="form-control" type="number" name="price" id="price" value="{{ old('price', $info->price) }}">   
+        <input class="form-control" type="number" name="price" id="price" value="{{ old('price', $info->price) }}" required min="1" max="9999">   
      </div>
 
      <div class="form-group">
       @foreach ($specializations as $specialization)
           <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="specializations[]" id="specialization-{{ $specialization->id }}" value="{{ $specialization->id }}" @if ($info->specializations->contains($specialization->id)) checked @endif>
+              <input class="form-check-input" type="checkbox" name="specializations[]" id="specialization-{{ $specialization->id }}" value="{{ $specialization->id }}" @if ($info->specializations->contains($specialization->id)) checked @endif required>
               <label for="specialization-{{ $specialization->id }}">
                   {{ $specialization->type }}
               </label>

@@ -13,33 +13,6 @@ use Illuminate\Support\Facades\Storage;
 class InfoController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $infos = Info::where('user_id', Auth::id())
-            ->get();
-
-        return view('admin.infos.index', compact('infos'));
-
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        $specializations = Specialization::all();
-        return view('admin.infos.create', compact('specializations'));
-
-
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -82,6 +55,8 @@ class InfoController extends Controller
     public function show($id)
     {
         $info = Info::find($id);
+
+        $this->errorPages($info);
 
         return view('admin.infos.show', compact('info'));
     }
@@ -185,11 +160,14 @@ class InfoController extends Controller
     // Validation
     private function ruleValidation(){
         return [
-            'name' => 'required',
-            'surname' => 'required',
-            // 'photo' => 'mimes:jpeg,bmp,png,jpg',
-            'address'=> 'required',
-            'specializations' => 'required'
+            'name' => 'required | max:150',
+            'surname' => 'required | max:150',
+            'address'=> 'required | max:30',
+            'CV' => 'required | max:1000',
+            'photo' => 'max:1000',
+            'phone' => 'required | string | min:8 | max:11',
+            'price' => 'required | numeric | min:1 | max:9999',
+            'specializations' => 'required',
         ];
     }
 }

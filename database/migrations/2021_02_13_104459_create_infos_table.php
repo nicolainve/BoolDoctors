@@ -18,12 +18,12 @@ class CreateInfosTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('name', 150);
             $table->string('surname', 150);
-            $table->string('slug', 150)->nullable();
+            $table->string('slug', 150);
             $table->string('address', 30);
-            $table->text('CV')->nullable();
+            $table->text('CV');
             $table->text('photo')->nullable();
-            $table->string('phone')->nullable();
-            $table->float('price', 6, 2)->nullable();
+            $table->string('phone');
+            $table->float('price', 6, 2);
             $table->timestamps();
 
             // Relation One-To-One
