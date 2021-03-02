@@ -1,0 +1,24 @@
+.error-text{
+    p{
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+    a{
+        text-decoration: none;
+    }
+}
+
+/*! MEDIAQUERY SM  <= 768px */
+
+@media screen and (max-width: 767px){
+
+    .error-text{
+        margin-top: 1.5rem;
+        text-align: center;
+        h2 {
+            font-size: 1.5rem;
+        }
+    }
+
+}
+

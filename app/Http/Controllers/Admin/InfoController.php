@@ -146,6 +146,16 @@ class InfoController extends Controller
     }
 
     /**
+     *  Create Function
+     */
+    
+    public function create()
+    {
+        $specializations = Specialization::all();
+        return view('admin.infos.create', compact('specializations'));
+    }
+
+    /**
      * FUNCTIONS
      */
     
