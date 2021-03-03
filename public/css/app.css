@@ -16490,3 +16490,150 @@ footer .social {
     font-size: 1.5rem;
   }
 }
+.create-form {
+  background-color: #fff;
+}
+.create-form .form {
+  width: 500px;
+  margin: 50px 0;
+  border-radius: 30px;
+  background-color: #0577ae57;
+}
+.create-form .form h1 {
+  text-align: center;
+  margin-top: 10px;
+}
+.create-form .form input,
+.create-form .form textarea {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+.create-form .form #name,
+.create-form .form #surname,
+.create-form .form #address,
+.create-form .form #CV,
+.create-form .form #image,
+.create-form .form #phone,
+.create-form .form #price {
+  width: 80%;
+  margin: 0 auto;
+}
+.create-form .form label {
+  margin-left: 50px;
+}
+.create-form .form .form-check input {
+  margin-left: 30px;
+}
+.create-form .form #crea {
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+.create-form .nurse-img img {
+  width: 520px;
+  padding-top: 100px;
+  padding-left: 50px;
+}
+@media screen and (max-width: 992px) {
+  .create-form .container {
+    flex-direction: column;
+  }
+  .create-form .form {
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .create-form .nurse-img {
+    display: none;
+  }
+}
+@media screen and (max-width: 520px) {
+  .create-form .container {
+    flex-direction: column;
+  }
+  .create-form h1 {
+    font-size: 22px;
+  }
+  .create-form .form {
+    width: 280px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .create-form .nurse-img {
+    display: none;
+  }
+}
+
+.create-form {
+  background-color: #fff;
+}
+.create-form .form {
+  width: 500px;
+  margin: 50px 0;
+  border-radius: 30px;
+  background-color: #0577ae57;
+}
+.create-form .form h1 {
+  text-align: center;
+  margin-top: 10px;
+}
+.create-form .form input,
+.create-form .form textarea {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+.create-form .form #name,
+.create-form .form #surname,
+.create-form .form #address,
+.create-form .form #CV,
+.create-form .form #image,
+.create-form .form #phone,
+.create-form .form #price {
+  width: 80%;
+  margin: 0 auto;
+}
+.create-form .form label {
+  margin-left: 50px;
+}
+.create-form .form .form-check input {
+  margin-left: 30px;
+}
+.create-form .form #crea {
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+.create-form .nurse-img img {
+  width: 520px;
+  padding-top: 100px;
+  padding-left: 50px;
+}
+@media screen and (max-width: 992px) {
+  .create-form .container {
+    flex-direction: column;
+  }
+  .create-form .form {
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .create-form .nurse-img {
+    display: none;
+  }
+}
+@media screen and (max-width: 520px) {
+  .create-form .container {
+    flex-direction: column;
+  }
+  .create-form h1 {
+    font-size: 22px;
+  }
+  .create-form .form {
+    width: 280px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .create-form .nurse-img {
+    display: none;
+  }
+}
