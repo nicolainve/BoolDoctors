@@ -16151,6 +16151,10 @@ a {
   text-decoration: none;
 }
 
+.btn {
+  border-radius: 20px;
+}
+
 header {
   background: #124691;
 }
@@ -16351,20 +16355,18 @@ footer .social {
   }
 }
 
-.cont {
-  width: 80%;
-  margin: 10px auto;
-  padding: 20px 0;
-}
-.cont h2 {
+.stats h2 {
   margin: 0.5rem 0;
   text-align: center;
 }
-.cont .container-chart {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 10px;
-  margin-bottom: 15px;
+.stats .container-chart {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.stats .container-chart .canvas-chart {
+  flex-basis: 500px;
+  margin-bottom: 3rem;
 }
 
 .main-profile {

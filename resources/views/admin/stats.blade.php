@@ -11,7 +11,7 @@
 @section('content')
 
 <input type="hidden" value="{{ $info->id }}" id="id">
-<div class="cont">
+<div class="container stats">
     <h2> Recensioni ricevute</h2>
     <div class="container-chart">         
         <div class="canvas-chart">
