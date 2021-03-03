@@ -42,10 +42,10 @@
 
 {{-- Vue --}}
 <div id="app" style="background-color: #00abff57;">
-    <div class="container spec py-4 text-center" >
+    <div class="container spec py-4 text-center " >
         <h1>Cosa stai cercando?</h1>
         {{-- <div class="flex_box d-flex flex-wrap"> --}}
-            <div class="box-spec d-flex flex-wrap ">
+            <div class="box-spec d-flex flex-wrap justify-content-center">
                 {{-- flex-wrap --}}
                 @foreach ($specializations as $specialization)
                 <div class="btn btn-spec btn-primary py-4 m-2" v-on:click="search( '{{$specialization->id}}' )">

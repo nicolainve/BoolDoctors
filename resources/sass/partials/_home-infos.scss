@@ -1,6 +1,43 @@
+.main-profile {
+ 	background-color: $main-bg;
+}
+
 .click {
+    text-align: center;
+    
     button a {
         color: $white;
+        text-decoration: none;
+    }
+    h2 {
+        background-color: white;
+        padding: 1rem;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgb(167, 190, 199);
+    }
+    img {
+        margin: 3rem 0;
+        width: 70%;
+    }
+
+    .premium{
+        background: white;
+        padding: 1rem;
+        border-radius: 5px;
+        font-weight: bold;
+        box-shadow: 0 0 5px rgb(167, 190, 199);
+    }
+}
+
+.message-container{
+    background-color: white;
+    padding: 2rem;
+    border-radius: 5px;
+	box-shadow: 0 0 5px rgb(117, 115, 115);
+
+    img {
+        width: 40%;
+        margin-top: 2rem;
     }
 }
 .messages-received,
@@ -18,4 +55,9 @@
         margin-left: 5px;
         margin-bottom: 20px;
     }
+}
+.message:not(:last-child), 
+.review:not(:last-child) {
+    margin-bottom: 3rem;
+    border-bottom: 1px solid #9b9d9f;
 }

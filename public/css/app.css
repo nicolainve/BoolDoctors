@@ -16367,8 +16367,44 @@ footer .social {
   margin-bottom: 15px;
 }
 
+.main-profile {
+  background-color: #00abff57;
+}
+
+.click {
+  text-align: center;
+}
 .click button a {
   color: #fff;
+  text-decoration: none;
+}
+.click h2 {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #a7bec7;
+}
+.click img {
+  margin: 3rem 0;
+  width: 70%;
+}
+.click .premium {
+  background: white;
+  padding: 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+  box-shadow: 0 0 5px #a7bec7;
+}
+
+.message-container {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #757373;
+}
+.message-container img {
+  width: 40%;
+  margin-top: 2rem;
 }
 
 .messages-received,
@@ -16385,6 +16421,12 @@ footer .social {
   margin-top: 20px;
   margin-left: 5px;
   margin-bottom: 20px;
+}
+
+.message:not(:last-child),
+.review:not(:last-child) {
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #9b9d9f;
 }
 
 .register-main {

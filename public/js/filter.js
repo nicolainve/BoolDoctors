@@ -14503,7 +14503,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/nicola/BoolDoctors/resources/js/filter.js */"./resources/js/filter.js");
+module.exports = __webpack_require__(/*! C:\Booldoctor\resources\js\filter.js */"./resources/js/filter.js");
 
 
 /***/ })

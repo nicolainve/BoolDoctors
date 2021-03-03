@@ -40843,7 +40843,7 @@ getData().then(function (results) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/nicola/BoolDoctors/resources/js/stats.js */"./resources/js/stats.js");
+module.exports = __webpack_require__(/*! C:\Booldoctor\resources\js\stats.js */"./resources/js/stats.js");
 
 
 /***/ })
