@@ -93,22 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var form = document.getElementById('payment-form');
-var clientToken = '{{$clientToken}}';
-braintree.dropin.create({
-  authorization: clientToken,
-  container: '#dropin-container'
-}, function (error, dropinInstance) {
-  if (error) console.error(error);
-  form.addEventListener('submit', function (event) {
-    event.preventDefault();
-    dropinInstance.requestPaymentMethod(function (error, payload) {
-      if (error) console.error(error);
-      document.getElementById('nonce').value = payload.nonce;
-      form.submit();
-    });
-  });
-});
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/home/nicola/BoolDoctors/resources/js/sponsor.js'");
 
 /***/ }),
 

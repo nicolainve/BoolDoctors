@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app-vue')
 @section('title')
 <title>BoolDoctors</title>
 @endsection
