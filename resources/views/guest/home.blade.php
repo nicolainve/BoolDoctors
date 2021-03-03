@@ -41,18 +41,18 @@
 </div>
 
 {{-- Vue --}}
-<div id="app">
-    <div class="container spec py-4">
+<div id="app" style="background-color: #00abff57;">
+    <div class="container spec py-4 text-center" >
         <h1>Cosa stai cercando?</h1>
         {{-- <div class="flex_box d-flex flex-wrap"> --}}
             <div class="box-spec d-flex flex-wrap ">
                 {{-- flex-wrap --}}
                 @foreach ($specializations as $specialization)
-                <div class="btn btn-spec btn-primary py-4" v-on:click="search( '{{$specialization->id}}' )">
+                <div class="btn btn-spec btn-primary py-4 m-2" v-on:click="search( '{{$specialization->id}}' )">
                     <div class="icona my-2">
                         {!! $specialization->fontawesome !!}
                     </div>
-                    <div class="tit_spec mt-3">
+                    <div class="tit_spec mt-2">
                         <h4>{{$specialization->type}}</h4>
                     </div>
                 </div>
@@ -103,13 +103,16 @@
 
 </div>
 
-<div class="container doctors-sponsor p-4">
-    <h2>I dottori Premium di BoolDoctors!</h2>
-    <div class="premium d-flex p-3" style="height: 300px; height: 200px; overflow-y: auto">
+<div class="background" style="background-color: #00abff57;">
+    <div class="container doctors-sponsor p-4 ">
+    <h2 class="text-center">I dottori Premium di BoolDoctors!</h2>
+    <div class="premium d-flex p-3" style=" height: 250px; overflow-y: auto">
         @foreach ($doctors as $doctor)
-            <div class="box border border-danger rounded mx-2 mb-2 px-4 pb-4" style="width: 300px; flex-shrink: 0;">
+            <div class="box border border-danger rounded mx-2 mb-2 px-4 pb-4" style="width: 300px; height: 170px; flex-shrink: 0; cursor :pointer">
                 <div class="text-right text-danger my-2">Account Premium</div>
-                    <h5>Dott. {{ $doctor->name }} {{ $doctor->surname }}</h5> 
+                    <h5>Dott. {{ $doctor->name }} {{ $doctor->surname }}</h5>
+                    <a class="text-danger" href="{{ route('guest.infos.show', $doctor->slug)}}" style="text-decoration: none;">Mostra profilo</a> 
+                    {{-- {{dd($doctor)}}; --}}
                 <div>
                     @foreach ($doctor->specializations as $specialization)
                         <div class="badge badge-primary p-2 my-1">{{ $specialization->type }}</div> 

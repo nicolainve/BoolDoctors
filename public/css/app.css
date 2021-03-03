@@ -16230,14 +16230,10 @@ main .filter input[type=number]::-webkit-outer-spin-button {
 main .filter .fa-star {
   color: gold;
 }
-main .box-spec {
-  display: flex;
-  justify-content: space-between;
-}
 main .box-spec .btn-spec {
-  flex-basis: 175px;
+  flex-basis: 168px;
   flex-shrink: 0;
-  height: 175px;
+  height: 168px;
   border-radius: 30px;
   box-shadow: 0 0 5px black;
 }
@@ -16247,6 +16243,44 @@ main .box-spec .btn-spec .fas {
 }
 main .box-spec .btn-spec:hover {
   background-color: #124691;
+}
+@media screen and (max-width: 767px) {
+  main .spec h1 {
+    font-size: 24px;
+  }
+  main .spec .box-spec .btn-spec {
+    flex-basis: 135px;
+    height: 135px;
+    padding: 5px 5px !important;
+    margin: 5px !important;
+  }
+  main .spec .box-spec .btn-spec .icona {
+    font-size: 45px;
+  }
+  main .spec .box-spec .btn-spec .tit_spec h4 {
+    font-size: 20px;
+  }
+  main .tools .filter select {
+    width: 70px;
+    height: 22px;
+    padding: 2px;
+    text-align: center;
+  }
+  main .tools .filter input {
+    width: 70px;
+    height: 22px;
+    padding: 2px;
+    text-align: center;
+  }
+  main .doctors-sponsor h2 {
+    font-size: 24px;
+  }
+  main .doctors-sponsor .premium {
+    padding-left: 0;
+  }
+  main .doctors-sponsor .premium .box {
+    flex-basis: 100%;
+  }
 }
 
 footer .footer-top {
@@ -16297,12 +16331,16 @@ footer .footer-bottom .social i {
 @media screen and (max-width: 767px) {
   footer .info {
     flex-wrap: wrap;
+    margin-left: 35px;
   }
   footer .logo-footer {
     display: none;
   }
   footer .social {
     flex-direction: column;
+  }
+  footer .create {
+    margin-left: 35px;
   }
 }
 @media screen and (max-width: 375px) {

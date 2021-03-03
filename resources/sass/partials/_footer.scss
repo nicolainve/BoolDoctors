@@ -53,14 +53,21 @@ footer {
     
 
       @media screen and (max-width: 767px) {
+        //   .text-log{
+              
+        //   }
           .info {
              flex-wrap: wrap;
+             margin-left: 35px;
           }
           .logo-footer {
               display: none;
           }
           .social {
               flex-direction: column;
+          }
+          .create{
+            margin-left: 35px;
           }
         }
 

@@ -34,12 +34,12 @@ main {
     }
 
     .box-spec {
-        display: flex;
-        justify-content: space-between;
+        // display: flex;
+        // justify-content: space-between;
         .btn-spec {
-            flex-basis: 175px;
+            flex-basis: 168px;
             flex-shrink: 0;
-            height: 175px;
+            height: 168px;
             border-radius: 30px;
             box-shadow: 0 0 5px black;
             .fas {
@@ -48,6 +48,70 @@ main {
             }
             &:hover {
                 background-color: #124691;
+            }
+        }
+    }
+
+
+    // da qui
+    @media screen and (max-width: 767px){
+        .spec{
+            h1{
+                font-size: 24px;
+            }
+            .box-spec{
+                .btn-spec{
+                    flex-basis: 135px;
+                    height: 135px;
+                    padding: 5px 5px !important;
+                    margin: 5px !important;
+                    .icona{
+                        font-size: 45px;
+                    }
+
+                    .tit_spec{
+                        h4{
+                            font-size: 20px;
+                        }
+                    }
+
+                    // .fas{
+                    //     font-size: 55px;
+                    // }
+                }
+            }
+        }
+
+        .tools{
+            .filter{
+                select{
+                    width: 70px;
+                    height: 22px; 
+                    padding:2px; 
+                    text-align:center;
+                }
+                input{
+                    width: 70px; 
+                    height: 22px; 
+                    padding:2px; 
+                    text-align:center;
+                }
+            }
+        }
+
+        .doctors-sponsor{
+            h2{
+                font-size: 24px;
+                // color: red;
+            }
+            .premium{
+                padding-left: 0;
+                .box{
+                    flex-basis: 100%;
+                //     padding-bottom: 5px !important;
+                //     padding-right: 10px !important;
+                //     padding-left: 10px !important;
+                }
             }
         }
     }

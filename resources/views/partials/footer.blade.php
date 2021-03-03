@@ -1,7 +1,7 @@
 <footer>
     <div class="footer-top">
         <div class="text-log container d-flex flex-column">
-            <div class="info d-flex justify-content-between">
+            <div class="info d-flex ">
                 <div class="mr-5">
                     <ul>
                         <li class="mb-3 font-weight-bold ">
