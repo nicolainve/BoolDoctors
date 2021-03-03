@@ -27,7 +27,7 @@ class DoctorController extends Controller
                             DB::raw('count(info_vote.info_id) as count'))
                     ->where('info_specialization.specialization_id', '=', $spec)
                     ->when($avg, function ($query) use ($avg) {
-                        return $query->having('average', '>=', $avg);
+                        return $query->havingBetween('average', [$avg, $avg + 0.9]);
                     })
                     ->when($count, function ($query) use ($count) {
                         return $query->having('count', '>=', $count);

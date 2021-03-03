@@ -16219,14 +16219,42 @@ main .jumbotron {
   height: 700px;
   border-radius: 0;
 }
+main .filter select, main .filter input {
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  margin-right: 20px;
+  background: lightgrey;
+  outline: none;
+}
+@supports (-webkit-appearance: none) or (-moz-appearance: none) {
+  main .filter select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  main .filter input[type=number] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+  main .filter input[type=number]::-webkit-inner-spin-button,
+main .filter input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
+}
+main .filter .fa-star {
+  color: gold;
+}
 main .box-spec {
   display: flex;
-  gap: 15px;
+  justify-content: space-between;
 }
 main .box-spec .btn-spec {
-  flex-basis: 200px;
-  height: 200px;
+  flex-basis: 175px;
+  flex-shrink: 0;
+  height: 175px;
   border-radius: 30px;
+  box-shadow: 0 0 5px black;
 }
 main .box-spec .btn-spec .fas {
   display: block;

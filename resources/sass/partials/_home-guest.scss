@@ -1,0 +1,56 @@
+main {
+    flex-grow: 2;
+
+    .jumbotron {
+        height: 700px;
+        border-radius: 0;
+    }
+    .filter {
+        select, input {
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            margin-right: 20px;
+            background: lightgrey;
+            outline: none;
+
+        }
+        @supports(-webkit-appearance: none) or (-moz-appearance: none) {
+            select {
+              -webkit-appearance: none;
+              -moz-appearance: none;
+            }
+            input[type="number"] {
+                -webkit-appearance: textfield;
+                   -moz-appearance: textfield;
+                        appearance: textfield;
+              }
+              input[type=number]::-webkit-inner-spin-button, 
+              input[type=number]::-webkit-outer-spin-button { 
+                -webkit-appearance: none;
+              }
+          }
+        .fa-star {
+            color: gold;
+        }
+    }
+
+    .box-spec {
+        display: flex;
+        justify-content: space-between;
+        .btn-spec {
+            flex-basis: 175px;
+            flex-shrink: 0;
+            height: 175px;
+            border-radius: 30px;
+            box-shadow: 0 0 5px black;
+            .fas {
+                display: block;
+                font-size: 4rem;
+            }
+            &:hover {
+                background-color: #124691;
+            }
+        }
+    }
+}

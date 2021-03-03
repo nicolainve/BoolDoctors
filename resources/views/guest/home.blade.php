@@ -24,7 +24,7 @@
               <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner">
-              <div class="carousel-item active">
+              <div class="carousel-item active" data-interval="4000">
                   <div>
                     <img class="d-block w-100" src="{{asset('img/jumbo2-edit.jpg')}}" alt="First slide">
                     {{-- nurse-2019420_1280.jpg --}}
@@ -34,14 +34,14 @@
                         <h3 class="mb-3">Più del 90% dei pazienti consiglia BoolDoctors</h3>
                     </div>
               </div>
-              <div class="carousel-item">
+              <div class="carousel-item" data-interval="4000">
                 <img class="d-block w-100" src="{{asset('img/surgery-1807541_1920-edit.jpg')}}" alt="Second slide">
                 <div class="titles carousel-caption rounded-20 d-none d-md-block" style="background: rgba(0,0, 0, .7)">
                     <h1 class="mt-3">Cerca lo specialista e <br> la prestazione di cui hai bisogno</h1>
                     <h3>Seleziona la modalità a te più comoda</h3>
                 </div>
               </div>
-              <div class="carousel-item">
+              <div class="carousel-item" data-interval="4000">
                 <img class="d-block w-100" src="{{asset('img/analysis-2030266_1920-edit.jpg')}}"  alt="Third slide">
                 <div class="titles carousel-caption rounded-20 d-none d-md-block" style="background: rgba(0,0, 0, .7)">
                     {{-- <h1>Segui i nostri dottori anche sul nostro canale Podcast "DOctorsPod"!</h1> --}}
@@ -49,24 +49,16 @@
                 </div>
               </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon  p-4 rounded-circle" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon   p-4 rounded-circle" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
           </div>
     {{-- </div> --}}
 </div>
 <div class="container spec py-4">
-    <h1>Scegli la tipologia della visita:</h1>
+    <h1>Cosa stai cercando?</h1>
     {{-- <div class="flex_box d-flex flex-wrap"> --}}
         <div class="box-spec d-flex flex-wrap ">
             {{-- flex-wrap --}}
             @foreach ($specializations as $specialization)
-            <div class="btn btn-spec btn-primary py-4" v-on:click="search( '{{$specialization->id}}' )" style="flex-basis: 170px" >
+            <div class="btn btn-spec btn-primary py-4" v-on:click="search( '{{$specialization->id}}' )">
                 <div class="icona my-2">
                     {!! $specialization->fontawesome !!}
                 </div>
@@ -81,15 +73,13 @@
 <div class="container tools py-4 " v-if="tools">
     <div class="filter d-flex flex-wrap justify-content-center">
         <div>
-            <span>Filtra la ricerca per: </span>
-            <label for="avg" class="font-weight-bold">voto</label>
+            <label for="avg" class="font-weight-bold">media voto <i class="fas fa-star"></i></label>
             <select v-on:change="filter" v-model="avg" name="avg" id="avg">
                 <option value="">Scegli</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
+                <option value="4">4 - 5</option>
+                <option value="3">3 - 4</option>
+                <option value="2">2 - 3</option>
+                <option value="1">1 - 2</option>
             </select>
         </div>
         <div>
@@ -114,7 +104,7 @@
             <div class="info">
                 <h5>Dott. @{{ result.name }} @{{  result.surname}}</h5>
                 <a class="text-danger" :href="routing(result.slug)">Mostra profilo</a>
-                <div>Voto @{{ result.average }}</div>
+                <div>Voto medio: @{{ result.average }}</div>
                 <div>Numero di recensioni: @{{ result.count }}</div>
             </div>
         </div>

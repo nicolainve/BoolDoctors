@@ -22,6 +22,9 @@ class InfoController extends Controller
     {
         $data = $request->all();
 
+        $data['name'] = str_replace(' ', '', $data['name']);
+        $data['surname'] = str_replace(' ', '', $data['surname']);
+
         // validazione
         $request->validate($this->ruleValidation());
         //cerchiamo la user_id dell'utente loggato
@@ -89,6 +92,10 @@ class InfoController extends Controller
     {
 
         $data = $request->all();
+        
+        $data['name'] = str_replace(' ', '', $data['name']);
+        $data['surname'] = str_replace(' ', '', $data['surname']);
+
         $info = Info::find($id);
         $request->validate($this->ruleValidation());
 

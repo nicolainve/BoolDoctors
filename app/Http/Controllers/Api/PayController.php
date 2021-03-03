@@ -58,6 +58,6 @@ class PayController extends Controller
             $info->sponsors()->attach($sponsor['sponsor_id'],  ['expired_at' => $expire]);
             
         }
-        return response()->json($result);
+        return redirect()->route('admin.home');
     }
 }
