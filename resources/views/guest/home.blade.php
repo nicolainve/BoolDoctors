@@ -83,13 +83,8 @@
             <div class="box-profile rounded bg-info d-flex justify-content-around flex-wrap py-2 m-2" v-for="result in results" style="width: 320px;">
                 <div class="img mb-1">
                     {{-- Check photo --}}
-                    @if(!empty($info->photo))
-                        <img width="80px" src="{{ asset('storage/' . $info->photo) }}" >
-                        {{-- alt="{{ $info->name }}" --}}
-                    @else
-                        <img width="80px" src="{{ asset('img/no-image.png') }}" >
-                        {{-- alt="{{ $info->name }}" --}}
-                    @endif
+                        <img v-if="result.photo" width="80px" :src="`storage/` + result.photo" >
+                        <img v-else width="80px" src="{{ asset('img/no-image.png') }}" >
                 </div>
                 <div class="info">
                     <h5>Dott. @{{ result.name }} @{{  result.surname}}</h5>
@@ -105,7 +100,7 @@
 
 <div class="background" style="background-color: #00abff57;">
     <div class="container doctors-sponsor p-4 ">
-    <h2 class="text-center">I dottori Premium di BoolDoctors!</h2>
+    <h2 class="text-center">Gli specialisti consigliati da noi</h2>
     <div class="premium d-flex p-3" style=" height: 250px; overflow-y: auto">
         @foreach ($doctors as $doctor)
             <div class="box border border-danger rounded mx-2 mb-2 px-4 pb-4" style="width: 300px; height: 170px; flex-shrink: 0; cursor :pointer">

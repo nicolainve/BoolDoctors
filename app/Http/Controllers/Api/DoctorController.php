@@ -22,7 +22,7 @@ class DoctorController extends Controller
         $doctors = Info::leftJoin('info_vote', 'infos.id', '=', 'info_vote.info_id')
                     ->join('info_specialization', 'infos.id', '=', 'info_specialization.info_id')
                     ->leftJoin('info_sponsor', 'infos.id', '=', 'info_sponsor.info_id')
-                    ->select('infos.id', 'infos.name', 'infos.surname', 'infos.slug',
+                    ->select('infos.id', 'infos.name', 'infos.surname', 'infos.slug', 'infos.photo',
                             DB::raw('round(avg(info_vote.vote_id), 1) as average'),
                             DB::raw('count(info_vote.info_id) as count'))
                     ->where('info_specialization.specialization_id', '=', $spec)
@@ -32,7 +32,7 @@ class DoctorController extends Controller
                     ->when($count, function ($query) use ($count) {
                         return $query->having('count', '>=', $count);
                     })
-                    ->groupBy('infos.id', 'infos.name', 'infos.surname', 'infos.slug','info_sponsor.expired_at')
+                    ->groupBy('infos.id', 'infos.name', 'infos.surname', 'infos.slug','info_sponsor.expired_at', 'infos.photo')
                     ->when('info_sponsor.expired_at' > $now, function ($query) {
                         return $query->orderBy('info_sponsor.expired_at', 'desc');
                     })
