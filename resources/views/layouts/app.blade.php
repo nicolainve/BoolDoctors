@@ -26,7 +26,7 @@
 
 </head>
 <body>
-    <div id="app">
+
         @include('partials.header')
 
         <main>
@@ -34,9 +34,6 @@
         </main>
 
         @include('partials.footer')
-    </div>
-
-    
 
 </body>
 </html>

@@ -3,20 +3,8 @@
 <title>BoolDoctors</title>
 @endsection
 @section('content')
-{{-- <div class="jumbotron">
-    <div class="titles">
-        <h1>Prenota la tua visita online!</h1>
-        <h3 class="mb-3">Più del 90% dei pazienti consiglia BoolDoctor</h3>
-        <h5 class="mt-3">Cerca lo specialista e la prestazione di cui hai bisogno</h5>
-        <h5>Seleziona la modalità a te più comoda</h5>
-        <h5>Gestisci la tua prenotazione in completa autonomia</h5>
-    </div>
-</div> --}}
-{{-- prova jumbo slide --}}
-<div class="jumbotron2" style="background: #005878;">
-    {{-- bg-dark --}}
-    {{-- <div class="container jumbo_con" >  --}}
-        {{-- style="width: 100%; height: 500px;" --}}
+
+<div class="hero" style="background: #005878;">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
               <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -27,7 +15,6 @@
               <div class="carousel-item active" data-interval="4000">
                   <div>
                     <img class="d-block w-100" src="{{asset('img/jumbo2-edit.jpg')}}" alt="First slide">
-                    {{-- nurse-2019420_1280.jpg --}}
                   </div>
                   <div class="titles carousel-caption rounded d-none d-md-block" style="background: rgba(0,0, 0, .7)">
                         <h1>Prenota la tua visita online!</h1>
@@ -52,64 +39,70 @@
           </div>
     {{-- </div> --}}
 </div>
-<div class="container spec py-4">
-    <h1>Cosa stai cercando?</h1>
-    {{-- <div class="flex_box d-flex flex-wrap"> --}}
-        <div class="box-spec d-flex flex-wrap ">
-            {{-- flex-wrap --}}
-            @foreach ($specializations as $specialization)
-            <div class="btn btn-spec btn-primary py-4" v-on:click="search( '{{$specialization->id}}' )">
-                <div class="icona my-2">
-                    {!! $specialization->fontawesome !!}
+
+{{-- Vue --}}
+<div id="app">
+    <div class="container spec py-4">
+        <h1>Cosa stai cercando?</h1>
+        {{-- <div class="flex_box d-flex flex-wrap"> --}}
+            <div class="box-spec d-flex flex-wrap ">
+                {{-- flex-wrap --}}
+                @foreach ($specializations as $specialization)
+                <div class="btn btn-spec btn-primary py-4" v-on:click="search( '{{$specialization->id}}' )">
+                    <div class="icona my-2">
+                        {!! $specialization->fontawesome !!}
+                    </div>
+                    <div class="tit_spec mt-3">
+                        <h4>{{$specialization->type}}</h4>
+                    </div>
                 </div>
-                <div class="tit_spec mt-3">
-                    <h4>{{$specialization->type}}</h4>
+                @endforeach
+            </div>
+        {{-- </div> --}}
+    </div>
+    <div class="container tools py-4 " v-if="tools">
+        <div class="filter d-flex flex-wrap justify-content-center">
+            <div>
+                <label for="avg" class="font-weight-bold">media voto <i class="fas fa-star"></i></label>
+                <select v-on:change="filter" v-model="avg" name="avg" id="avg">
+                    <option value="">Scegli</option>
+                    <option value="4">4 - 5</option>
+                    <option value="3">3 - 4</option>
+                    <option value="2">2 - 3</option>
+                    <option value="1">1 - 2</option>
+                </select>
+            </div>
+            <div>
+                <label for="count" class="font-weight-bold ml-2">numero recensioni</label>
+                <input type="number" name="count" id="count" placeholder="Scegli" v-on:input="filter" v-model="count">
+            </div>
+        </div>
+        {{-- Risultati Ricerca by Specializzazione --}}
+        <h3>Risultato della ricerca:</h3>
+        <div class="result_search d-flex flex-wrap justify-content-center" style="height: 400px; overflow: auto">
+            <div class="box-profile rounded bg-info d-flex justify-content-around flex-wrap py-2 m-2" v-for="result in results" style="width: 320px;">
+                <div class="img mb-1">
+                    {{-- Check photo --}}
+                    @if(!empty($info->photo))
+                        <img width="80px" src="{{ asset('storage/' . $info->photo) }}" >
+                        {{-- alt="{{ $info->name }}" --}}
+                    @else
+                        <img width="80px" src="{{ asset('img/no-image.png') }}" >
+                        {{-- alt="{{ $info->name }}" --}}
+                    @endif
+                </div>
+                <div class="info">
+                    <h5>Dott. @{{ result.name }} @{{  result.surname}}</h5>
+                    <a class="text-danger" :href="routing(result.slug)">Mostra profilo</a>
+                    <div>Voto medio: @{{ result.average }}</div>
+                    <div>Numero di recensioni: @{{ result.count }}</div>
                 </div>
             </div>
-            @endforeach
-        </div>
-    {{-- </div> --}}
-</div>
-<div class="container tools py-4 " v-if="tools">
-    <div class="filter d-flex flex-wrap justify-content-center">
-        <div>
-            <label for="avg" class="font-weight-bold">media voto <i class="fas fa-star"></i></label>
-            <select v-on:change="filter" v-model="avg" name="avg" id="avg">
-                <option value="">Scegli</option>
-                <option value="4">4 - 5</option>
-                <option value="3">3 - 4</option>
-                <option value="2">2 - 3</option>
-                <option value="1">1 - 2</option>
-            </select>
-        </div>
-        <div>
-            <label for="count" class="font-weight-bold ml-2">numero recensioni</label>
-            <input type="number" name="count" id="count" placeholder="Scegli" v-on:input="filter" v-model="count">
         </div>
     </div>
-    {{-- Risultati Ricerca by Specializzazione --}}
-    <h3>Risultato della ricerca:</h3>
-    <div class="result_search d-flex flex-wrap justify-content-center" style="height: 400px; overflow: auto">
-        <div class="box-profile rounded bg-info d-flex justify-content-around flex-wrap py-2 m-2" v-for="result in results" style="width: 320px;">
-            <div class="img mb-1">
-                {{-- Check photo --}}
-                @if(!empty($info->photo))
-                    <img width="80px" src="{{ asset('storage/' . $info->photo) }}" >
-                    {{-- alt="{{ $info->name }}" --}}
-                @else
-                    <img width="80px" src="{{ asset('img/no-image.png') }}" >
-                    {{-- alt="{{ $info->name }}" --}}
-                @endif
-            </div>
-            <div class="info">
-                <h5>Dott. @{{ result.name }} @{{  result.surname}}</h5>
-                <a class="text-danger" :href="routing(result.slug)">Mostra profilo</a>
-                <div>Voto medio: @{{ result.average }}</div>
-                <div>Numero di recensioni: @{{ result.count }}</div>
-            </div>
-        </div>
-    </div>
+
 </div>
+
 <div class="container doctors-sponsor p-4">
     <h2>I dottori Premium di BoolDoctors!</h2>
     <div class="premium d-flex p-3" style="height: 300px; height: 200px; overflow-y: auto">
