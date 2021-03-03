@@ -12,7 +12,7 @@
     @yield('title')
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/filter.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -24,13 +24,15 @@
 </head>
 <body>
 
-        @include('partials.header')
+    @include('partials.header')
 
-        <main>
-            @yield('content')
-        </main>
+    <main>
+        @yield('content')
+    </main>
 
-        @include('partials.footer')
+    @include('partials.footer')
+
+    <script src="{{ asset('js/app.js') }}"></script>
 
 </body>
 </html>
