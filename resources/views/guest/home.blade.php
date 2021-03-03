@@ -79,7 +79,7 @@
         </div>
         {{-- Risultati Ricerca by Specializzazione --}}
         <h3>Risultato della ricerca:</h3>
-        <div class="result_search d-flex flex-wrap justify-content-center" style="height: 400px; overflow: auto">
+        <div class="result_search d-flex flex-wrap justify-content-center" style="overflow: auto">
             <div class="box-profile rounded bg-info d-flex justify-content-around flex-wrap py-2 m-2" v-for="result in results" style="width: 320px;">
                 <div class="img mb-1">
                     {{-- Check photo --}}
