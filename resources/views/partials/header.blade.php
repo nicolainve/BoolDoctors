@@ -26,7 +26,7 @@
                         @endif
                     @else
                         <li class="nav-item dropdown">
-                            <a href="{{ route('admin.home') }}" class="nav-link">Dashboard</a>
+                            <a href="{{ route('admin.home') }}" class="nav-link">Area Riservata</a>
                         </li>
                         
                         @if (!Auth::user()->info)

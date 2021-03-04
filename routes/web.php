@@ -48,4 +48,7 @@ Route::prefix('admin')
 
         //rotte info CRUD
         Route::resource('infos', 'InfoController');
+
+        // Rotta avvenuto pagamento
+        Route::get('/payed', 'HomeController@payed')->name('payed');
     });

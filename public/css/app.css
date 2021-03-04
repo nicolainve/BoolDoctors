@@ -16716,3 +16716,32 @@ footer .social {
 .Curriculum p {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
+
+.payed-box .fas.fa-check {
+  margin-bottom: 3rem;
+  color: green;
+  font-size: 80px;
+  -webkit-animation-name: ciao;
+          animation-name: ciao;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+}
+@-webkit-keyframes ciao {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes ciao {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.payed-box a {
+  display: block;
+}

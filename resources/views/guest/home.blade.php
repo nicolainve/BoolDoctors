@@ -31,22 +31,18 @@
               <div class="carousel-item" data-interval="4000">
                 <img class="d-block w-100" src="{{asset('img/analysis-2030266_1920-edit.jpg')}}"  alt="Third slide">
                 <div class="titles carousel-caption rounded-20 d-none d-md-block" style="background: rgba(0,0, 0, .7)">
-                    {{-- <h1>Segui i nostri dottori anche sul nostro canale Podcast "DOctorsPod"!</h1> --}}
                     <h1>Gestisci la tua prenotazione in completa autonomia</h1>
                 </div>
               </div>
             </div>
           </div>
-    {{-- </div> --}}
 </div>
 
 {{-- Vue --}}
 <div id="app" style="background-color: #00abff57;">
     <div class="container spec py-4 text-center " >
         <h1>Cosa stai cercando?</h1>
-        {{-- <div class="flex_box d-flex flex-wrap"> --}}
             <div class="box-spec d-flex flex-wrap justify-content-center">
-                {{-- flex-wrap --}}
                 @foreach ($specializations as $specialization)
                 <div class="btn btn-spec btn-primary py-4 m-2" v-on:click="search( '{{$specialization->id}}' )">
                     <div class="icona my-2">
@@ -58,7 +54,6 @@
                 </div>
                 @endforeach
             </div>
-        {{-- </div> --}}
     </div>
     <div class="container tools py-4 " v-if="tools">
         <div class="filter d-flex flex-wrap justify-content-center">
@@ -107,9 +102,21 @@
             <div class="box border border-danger rounded mx-2 mb-2 px-4 pb-4" style="width: 300px; height: 170px; flex-shrink: 0">
                 <div class="text-right text-danger my-2">Account Premium</div>
                     <h5>Dott. {{ $doctor->name }} {{ $doctor->surname }}</h5>
-                    <a class="text-danger" href="{{ route('guest.infos.show', $doctor->slug)}}" style="text-decoration: none;">Mostra profilo</a> 
-                    
+                    <a class="text-danger" href="{{ route('guest.infos.show', $doctor->slug)}}" style="text-decoration: none;">Mostra profilo</a>    
                 <div>
+                {{-- PHOTO DOCTOR PREMIUM--}}
+                @if(!empty($doctor->photo))
+
+                    @if(in_array($doctor->photo, $fakeImg))
+                    <img width="80px" src="{{ asset('./' . $doctor->photo) }}" alt="{{ $doctor->name }}">
+                    @else
+                    <img width="80px" src="{{ asset('storage/' . $doctor->photo) }}" alt="{{ $doctor->name }}">
+                @endif
+                
+                @else
+                    <img width="80px" src="{{ asset('img/no-image.png') }}" alt="{{ $doctor->name }}">
+                @endif
+                {{-- Specialization --}}
                     @foreach ($doctor->specializations as $specialization)
                         <div class="badge badge-primary p-2 my-1">{{ $specialization->type }}</div> 
                     @endforeach
@@ -117,5 +124,6 @@
             </div>
         @endforeach
     </div>
+
 </div>
 @endsection

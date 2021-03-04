@@ -56,5 +56,11 @@ class HomeController extends Controller
         //dd($info);
         return view('admin.stats', compact('info'));
     }
+    // Payed 
+    public function payed()
+    {
+        //dd($info);
+        return view('admin.payed');
+    }
 
 }

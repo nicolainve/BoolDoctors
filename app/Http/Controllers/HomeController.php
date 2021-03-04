@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 class HomeController extends Controller
-{
+{   
+
+    
     /**
      * Show the application dashboard.
      *
@@ -19,7 +21,28 @@ class HomeController extends Controller
     public function index()
     {   
         $specializations = Specialization::all();
+        /**
+         * Fake image
+         */
 
+        $fakeImg = [
+            'avatar/1.png',
+            'avatar/2.png',
+            'avatar/4.png',
+            'avatar/5.png',
+            'avatar/6.png',
+            'avatar/7.png',
+            'avatar/8.png',
+            'avatar/9.png',
+            'avatar/10.png',
+            'avatar/11.png',
+            'avatar/12.png',
+            'avatar/13.png',
+            'avatar/14.png',
+            'avatar/15.png',
+            'avatar/16.png',
+            'avatar/17.png',
+        ];
         $now = Carbon::now();
 
         $doctors = Info::whereHas('sponsors')
@@ -28,7 +51,7 @@ class HomeController extends Controller
                     ->whereDate('info_sponsor.expired_at', '>', $now)
                     ->get();
 
-        return view('guest.home', compact('specializations', 'doctors'));
+        return view('guest.home', compact('specializations', 'doctors', 'fakeImg'));
     }
 
     public function show($slug)

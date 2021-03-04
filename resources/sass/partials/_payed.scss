@@ -1,0 +1,16 @@
+.payed-box {
+    .fas.fa-check {
+        margin-bottom: 3rem;
+        color: green;
+        font-size: 80px;
+        animation-name: ciao;
+        animation-duration: 3s;
+    }
+    @keyframes ciao {
+        0% {opacity: 0}
+        100% {opacity: 1}
+    }
+    a {
+        display: block;
+    }
+}
