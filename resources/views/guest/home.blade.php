@@ -5,14 +5,14 @@
 @section('content')
 
 <div class="hero" style="background: #005878;">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-ride="carousel"  data-interval="6000">
             <ol class="carousel-indicators">
               <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner">
-              <div class="carousel-item active" data-interval="4000">
+              <div class="carousel-item active">
                   <div>
                     <img class="d-block w-100" src="{{asset('img/jumbo2-edit.jpg')}}" alt="First slide">
                   </div>
@@ -21,14 +21,14 @@
                         <h3 class="mb-3">Più del 90% dei pazienti consiglia BoolDoctors</h3>
                     </div>
               </div>
-              <div class="carousel-item" data-interval="4000">
+              <div class="carousel-item">
                 <img class="d-block w-100" src="{{asset('img/surgery-1807541_1920-edit.jpg')}}" alt="Second slide">
                 <div class="titles carousel-caption rounded-20 d-none d-md-block" style="background: rgba(0,0, 0, .7)">
                     <h1 class="mt-3">Cerca lo specialista e <br> la prestazione di cui hai bisogno</h1>
                     <h3>Seleziona la modalità a te più comoda</h3>
                 </div>
               </div>
-              <div class="carousel-item" data-interval="4000">
+              <div class="carousel-item">
                 <img class="d-block w-100" src="{{asset('img/analysis-2030266_1920-edit.jpg')}}"  alt="Third slide">
                 <div class="titles carousel-caption rounded-20 d-none d-md-block" style="background: rgba(0,0, 0, .7)">
                     <h1>Gestisci la tua prenotazione in completa autonomia</h1>
