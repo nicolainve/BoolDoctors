@@ -41,7 +41,7 @@
 {{-- Vue --}}
 <div id="app" style="background-color: #00abff57;">
     <div class="container spec py-4 text-center " >
-        <h1>Cosa stai cercando?</h1>
+        <h1 class="font-weight-bold">Cosa stai cercando?</h1>
             <div class="box-spec d-flex flex-wrap justify-content-center">
                 @foreach ($specializations as $specialization)
                 <div class="btn btn-spec btn-primary py-4 m-2" v-on:click="search( '{{$specialization->id}}' )">
@@ -58,9 +58,9 @@
     <div class="container tools py-4 " v-if="tools">
         <div class="filter d-flex flex-wrap justify-content-center">
             <div>
-                <label for="avg" class="font-weight-bold">media voto <i class="fas fa-star"></i></label>
+                <label for="avg" class="font-weight-bold">Media Voto <i class="fas fa-star"></i></label>
                 <select v-on:change="filter" v-model="avg" name="avg" id="avg">
-                    <option value="">Scegli</option>
+                    <option value="">Seleziona</option>
                     <option value="4">4 - 5</option>
                     <option value="3">3 - 4</option>
                     <option value="2">2 - 3</option>
@@ -68,8 +68,8 @@
                 </select>
             </div>
             <div>
-                <label for="count" class="font-weight-bold ml-2">numero recensioni</label>
-                <input type="number" name="count" id="count" placeholder="Scegli" v-on:input="filter" v-model="count">
+                <label for="count" class="font-weight-bold ml-2">Numero Recensioni</label>
+                <input class="font-weight-bold" type="number" name="count" id="count" placeholder="Seleziona" v-on:input="filter" v-model="count">
             </div>
         </div>
         {{-- Risultati Ricerca by Specializzazione --}}
@@ -96,25 +96,25 @@
 {{-- ACCOUNT PREMIUM --}}
 <div class="background" style="background-color: #00abff57;">
     <div class="container doctors-sponsor p-4 ">
-    <h2 class="text-center">Gli specialisti consigliati da noi</h2>
+    <h2 class="text-center font-weight-bold">Gli specialisti consigliati da noi:</h2>
     <div class="premium d-flex p-3" style=" height: 250px; overflow-y: auto">
         @foreach ($doctors as $doctor)
-            <div class="box border border-danger rounded mx-2 mb-2 px-4 pb-4" style="width: 300px; height: 170px; flex-shrink: 0">
-                <div class="text-right text-danger my-2">Account Premium</div>
-                    <h5>Dott. {{ $doctor->name }} {{ $doctor->surname }}</h5>
-                    <a class="text-danger" href="{{ route('guest.infos.show', $doctor->slug)}}" style="text-decoration: none;">Mostra profilo</a>    
+            <div class="box border  rounded mx-2 mb-2 px-4 pb-4" style="width: 400px; height: 190px; flex-shrink: 0">
+                <div class="text-right text-danger my-2 font-weight-bold">Account Premium</div>
+                    <h5 class="font-weight-bold">Dott. {{ $doctor->name }} {{ $doctor->surname }}</h5>
+                    <a class="text-danger font-weight-bold" href="{{ route('guest.infos.show', $doctor->slug)}}" style="text-decoration: none;">Mostra profilo</a>    
                 <div>
                 {{-- PHOTO DOCTOR PREMIUM--}}
                 @if(!empty($doctor->photo))
 
                     @if(in_array($doctor->photo, $fakeImg))
-                    <img width="80px" src="{{ asset('./' . $doctor->photo) }}" alt="{{ $doctor->name }}">
+                    <img  class="mr-3" width="80px" src="{{ asset('./' . $doctor->photo) }}" alt="{{ $doctor->name }}">
                     @else
-                    <img width="80px" src="{{ asset('storage/' . $doctor->photo) }}" alt="{{ $doctor->name }}">
+                    <img  class="mr-3" width="80px" src="{{ asset('storage/' . $doctor->photo) }}" alt="{{ $doctor->name }}">
                 @endif
                 
                 @else
-                    <img width="80px" src="{{ asset('img/no-image.png') }}" alt="{{ $doctor->name }}">
+                    <img  class="mr-3" width="80px" src="{{ asset('img/no-image.png') }}" alt="{{ $doctor->name }}">
                 @endif
                 {{-- Specialization --}}
                     @foreach ($doctor->specializations as $specialization)

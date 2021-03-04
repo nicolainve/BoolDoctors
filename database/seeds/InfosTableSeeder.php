@@ -53,7 +53,7 @@ class InfosTableSeeder extends Seeder
             $newInfo->save();
             //! Specialization
             $specNumber = [];
-            $time = rand(1,3);
+            $time = rand(1,2);
             for ($i = 0; $i < $time; $i++) {
                 $number = rand(1,6);
 
