@@ -1,0 +1,66 @@
+.show-guest {
+    .vote {
+        padding: 10px;
+        border: 2px solid black;
+        border-radius: 30px;
+        background-color: yellow;
+    }
+    .send_message,
+    .reviews {
+        width: 500px;
+        form {
+            box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.2);
+        }
+        input,
+        textarea {
+            box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.4);
+        }
+    }
+    .icona img {
+        width: 300px;
+        margin-top: 110px;
+        margin-left: 100px;
+    }
+    .list {
+        box-shadow: 0 0 10px rgba($color: #124691, $alpha: 0.8);
+        .msg p{
+            max-width: 700px;
+            background-color: rgb(248, 248, 79);
+        }
+    }
+    .recens img {
+        width: 300px;
+        margin-top: 110px;
+        margin-left: 100px;
+    }
+    select {
+        box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.4);
+    }
+    @media screen and (max-width: 992px) {
+        .doc-img,
+        .recens {
+            flex-direction: column;
+            justify-content: center;
+        }
+      }
+      @media screen and (max-width: 560px) {
+        .send_message,
+        .reviews {
+            width: 280px;
+            margin: 0 auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .icona,
+        .image-rec {
+            margin: 0 auto;
+        }
+        .foto img,
+        .icona img,
+        .recens img {
+            width: 150px;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+      }
+}

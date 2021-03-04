@@ -1,10 +1,8 @@
 .main-profile {
- 	background-color: $main-bg;
+    background-color: $main-bg;
 }
-
 .click {
     text-align: center;
-    
     button a {
         color: $white;
         text-decoration: none;
@@ -19,7 +17,6 @@
         margin: 3rem 0;
         width: 70%;
     }
-
     .premium{
         background: white;
         padding: 1rem;
@@ -28,28 +25,25 @@
         box-shadow: 0 0 5px rgb(167, 190, 199);
     }
 }
-
 .message-container{
     background-color: white;
     padding: 2rem;
     border-radius: 5px;
-	box-shadow: 0 0 5px rgb(117, 115, 115);
-
+    box-shadow: 0 0 5px rgb(117, 115, 115);
     img {
         width: 40%;
         margin-top: 2rem;
     }
 }
 .messages-received,
-.reviews-received {
+.reviews-received,
+.mess {
     margin-top: 30px;
     line-height: 40px;
-    
-
+    box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.4);
     h5 {
         margin-bottom: 60px;
     }
-
     textarea {
         margin-top: 20px;
         margin-left: 5px;
@@ -59,5 +53,5 @@
 .message:not(:last-child), 
 .review:not(:last-child) {
     margin-bottom: 3rem;
-    border-bottom: 1px solid #9b9d9f;
+    border-bottom: 1px solid #9B9D9F;
 }

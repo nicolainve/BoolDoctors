@@ -1,16 +1,12 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container p-4">
-
     <a class="btn btn-primary"href="{{ route('admin.infos.edit', Auth::user()->info['id']) }}">Modifica Profilo</a>
     <form class="d-inline" action="{{ route('admin.infos.destroy', Auth::user()->info['id']) }}" method="POST">
         @csrf
         @method('DELETE')
-
         <input class="btn btn-danger" type="submit" value="Cancella Profilo">
     </form>
-
     {{--  Infos Profile --}}
     <div class="profile d-flex flex-wrap p-3 ">
         <div class="photo">
@@ -48,7 +44,7 @@
             </div>  
         </div>
     </div>
-    <div class="Curriculum">
+    <div class="Curriculum font-weight-bold mt-4 mb-3">
         <h3>Il tuo Curriculum Vitae</h3>
         <p class="border border-secondary p-3" style="white-space: pre-line;">{{ $info->CV }}</p>
     </div>

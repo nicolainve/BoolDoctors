@@ -16410,16 +16410,20 @@ footer .social {
 }
 
 .messages-received,
-.reviews-received {
+.reviews-received,
+.mess {
   margin-top: 30px;
   line-height: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 .messages-received h5,
-.reviews-received h5 {
+.reviews-received h5,
+.mess h5 {
   margin-bottom: 60px;
 }
 .messages-received textarea,
-.reviews-received textarea {
+.reviews-received textarea,
+.mess textarea {
   margin-top: 20px;
   margin-left: 5px;
   margin-bottom: 20px;
@@ -16428,7 +16432,7 @@ footer .social {
 .message:not(:last-child),
 .review:not(:last-child) {
   margin-bottom: 3rem;
-  border-bottom: 1px solid #9b9d9f;
+  border-bottom: 1px solid #9B9D9F;
 }
 
 .register-main {
@@ -16636,4 +16640,79 @@ footer .social {
   .create-form .nurse-img {
     display: none;
   }
+}
+
+.show-guest .vote {
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 30px;
+  background-color: yellow;
+}
+.show-guest .send_message,
+.show-guest .reviews {
+  width: 500px;
+}
+.show-guest .send_message form,
+.show-guest .reviews form {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.show-guest .send_message input,
+.show-guest .send_message textarea,
+.show-guest .reviews input,
+.show-guest .reviews textarea {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+.show-guest .icona img {
+  width: 300px;
+  margin-top: 110px;
+  margin-left: 100px;
+}
+.show-guest .list {
+  box-shadow: 0 0 10px rgba(18, 70, 145, 0.8);
+}
+.show-guest .list .msg p {
+  max-width: 700px;
+  background-color: #f8f84f;
+}
+.show-guest .recens img {
+  width: 300px;
+  margin-top: 110px;
+  margin-left: 100px;
+}
+.show-guest select {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+@media screen and (max-width: 992px) {
+  .show-guest .doc-img,
+.show-guest .recens {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 560px) {
+  .show-guest .send_message,
+.show-guest .reviews {
+    width: 280px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .show-guest .icona,
+.show-guest .image-rec {
+    margin: 0 auto;
+  }
+  .show-guest .foto img,
+.show-guest .icona img,
+.show-guest .recens img {
+    width: 150px;
+    margin: 0 auto;
+    margin-top: 30px;
+  }
+}
+
+.Curriculum h3 {
+  text-align: center;
+}
+.Curriculum p {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
