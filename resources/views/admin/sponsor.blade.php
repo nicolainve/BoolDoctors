@@ -41,7 +41,7 @@
                     </div>
                     <div>
                         <div class="mt-5">
-                            <input type="radio" id="tier1" name="amount" value="2.99">
+                            <input type="radio" id="tier1" name="amount" value="2.99" required>
                             <label for="tier1" ><h5>Ottieni la sponsorizzazione</h5></label><br>
                         </div>
                     </div>
