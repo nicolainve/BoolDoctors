@@ -38,6 +38,7 @@ class MessageController extends Controller
     {
         $newMessage = new Message();
         $data = $request->all();
+        $request->validate($this->validationRules());
         $data['info_id'] = (int)$data['info_id'];
         
         $newMessage->fill($data);
@@ -94,5 +95,13 @@ class MessageController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function  validationRules(){
+        return [
+            'author'=> 'required',
+            'mail' => 'required',
+            'body' => 'required'
+        ];
     }
 }

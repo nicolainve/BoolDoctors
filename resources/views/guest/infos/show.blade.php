@@ -10,7 +10,7 @@
         </div>
     @endif
     {{-- Pagina Infos Photo Profile --}}
-    <div class="d-flex flex-wrap justify-content-center">
+    <div class="d-flex flex-wrap justify-content-center mb-3">
         {{-- Infos Photo --}}
         <div class="foto">
             {{-- Check photo --}}
@@ -78,6 +78,16 @@
             </div>
         </div>
     </div>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     {{--  Send Private Message to Doctor --}}
     <div class="doc-img d-flex">
         <div class="send_message d-flex flex-column flex-wrap mt-5 ">
@@ -136,15 +146,6 @@
         </div>
         <div class="reviews mt-5 ">
             <h3 class="font-weight-bold mb-3"><i class="fas fa-comment-medical mr-2"></i>Lascia una recensione</h3>
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
             <form class="border p-4" action="{{ route('reviews.store') }}" method="POST">
                 @csrf
                 @method ('POST')

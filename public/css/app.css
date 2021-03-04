@@ -16167,18 +16167,15 @@ a {
 }
 
 *::-webkit-scrollbar-track {
-  background: orange;
+  background: #3490dc;
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: blue;
+  background-color: #fff;
   border-radius: 20px;
-  border: 3px solid orange;
+  border: 3px solid #3490dc;
 }
 
-header {
-  background: #124691;
-}
 header a {
   text-decoration: none;
   color: #fff;
@@ -16228,7 +16225,18 @@ header button span i {
     text-align: center;
   }
 }
+header .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  background: #124691;
+}
 
+main {
+  margin-top: 90px;
+}
 main .filter select, main .filter input {
   border: none;
   padding: 10px;

@@ -1,5 +1,4 @@
 header {
-    background: #124691;
 
     a{
         text-decoration: none;
@@ -54,4 +53,13 @@ header {
             text-align: center;
         }
       }
+
+      .navbar {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          z-index: 20;
+          background: #124691;
+        }
 }
