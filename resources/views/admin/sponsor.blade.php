@@ -26,7 +26,7 @@
             @csrf
             @method('POST')
             <div class="scegli d-flex flex-wrap justify-content-center text-center mt-5 mb-5">
-                <div class="box p-4 mx-2 d-flex flex-wrap  mt-4 mb-5 rounded " style="flex-basis:300px; background:#cd7f32; box-shadow: 0 0 5px black;">
+                <div class="box_premium p-4 mx-2 d-flex flex-wrap  mt-4 mb-5 rounded bg-warning" style="flex-basis:300px;  box-shadow: 0 0 5px black; background: linear-gradient(225deg, hsla(30, 61%, 50%, 1) 30%, hsla(17, 60%, 52%, 1) 54%);">
                     {{-- height: 350px;  --}}
                     <div>
                         <h1>Bronzo</h1>
@@ -46,7 +46,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="box p-4 mx-2 mb-5 rounded" style="flex-basis:300px; background:#C0C0C0; box-shadow: 0 0 5px black;">
+               <div class="box_premium p-4 mx-2 mb-5 rounded" style="flex-basis:300px; box-shadow: 0 0 5px black; background: linear-gradient(225deg, hsla(0, 73%, 97%, 1) 10%, hsla(0, 73%, 97%, 1) 13%, hsla(0, 0%, 75%, 0.9) 46%);">
                     {{-- height: 380px; --}}
                     <div>
                         <h1>Argento</h1>
@@ -65,7 +65,7 @@
                         <label for="tier2"><h5>Ottieni la sponsorizzazione</h5></label><br>
                     </div>
                 </div>
-                <div class="box p-4 mx-2 mt-4 mb-5 bg-info  rounded" style="flex-basis:300px; box-shadow: 0 0 5px black;">
+                <div class="box_premium p-4 mx-2 mt-4 mb-5 bg-info  rounded" style="flex-basis:300px; box-shadow: 0 0 5px black; background: linear-gradient(225deg, hsla(347, 40%, 70%, 1) 15%, hsla(217, 100%, 50%, 0.9) 71%);">
                     {{-- height: 350px;  --}}
                     <div>
                         <h1>Platino</h1>
