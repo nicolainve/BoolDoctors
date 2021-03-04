@@ -75,7 +75,7 @@
         {{-- Risultati Ricerca by Specializzazione --}}
         <h3>Risultato della ricerca:</h3>
         <div class="result_search d-flex flex-wrap justify-content-center" style="overflow: auto">
-            <div class="box-profile rounded bg-info d-flex justify-content-around flex-wrap py-2 m-2" v-for="result in results">
+            <div class="box-profile rounded bg-info d-flex justify-content-around flex-wrap py-2 m-2" v-for="result in results" style="width: 320px;">
                 <div class="img mb-1">
                     {{-- Check photo --}}
                         <img v-if="fakeImg.includes(result.photo) " width="80px" :src="result.photo" >
@@ -99,27 +99,31 @@
     <h2 class="text-center font-weight-bold">Gli specialisti consigliati da noi:</h2>
     <div class="premium d-flex p-3" style=" height: 250px; overflow-y: auto">
         @foreach ($doctors as $doctor)
-            <div class="box rounded mx-2 mb-2 px-4 pb-4" style="width: 400px; height: 190px; flex-shrink: 0">
-                <div class="text-right text-danger my-2 font-weight-bold">Account Premium</div>
-                    <h5 class="font-weight-bold">Dott. {{ $doctor->name }} {{ $doctor->surname }}</h5>
-                    <a class="text-danger font-weight-bold" href="{{ route('guest.infos.show', $doctor->slug)}}" style="text-decoration: none;">Mostra profilo</a>    
-                <div>
-                {{-- PHOTO DOCTOR PREMIUM--}}
-                @if(!empty($doctor->photo))
-
-                    @if(in_array($doctor->photo, $fakeImg))
-                    <img  class="mr-3" width="80px" src="{{ asset('./' . $doctor->photo) }}" alt="{{ $doctor->name }}">
-                    @else
-                    <img  class="mr-3" width="80px" src="{{ asset('storage/' . $doctor->photo) }}" alt="{{ $doctor->name }}">
-                @endif
-                
-                @else
-                    <img  class="mr-3" width="80px" src="{{ asset('img/no-image.png') }}" alt="{{ $doctor->name }}">
-                @endif
-                {{-- Specialization --}}
-                    @foreach ($doctor->specializations as $specialization)
-                        <div class="badge badge-primary p-2 my-1">{{ $specialization->type }}</div> 
-                    @endforeach
+            <div class="box border-danger rounded mx-2 mb-2 px-4 pb-4" style="width: 300px; height: 170px; flex-shrink: 0">
+                <div class="text-right text-danger my-2">Account Premium</div>
+                <div class="d-flex">
+                    <div>
+                        {{-- PHOTO DOCTOR PREMIUM--}}
+                        @if(!empty($doctor->photo))
+                            @if(in_array($doctor->photo, $fakeImg))
+                            <img width="80px" src="{{ asset('./' . $doctor->photo) }}" alt="{{ $doctor->name }}">
+                            @else
+                            <img width="80px" src="{{ asset('storage/' . $doctor->photo) }}" alt="{{ $doctor->name }}">
+                        @endif
+                        @else
+                            <img width="80px" src="{{ asset('img/no-image.png') }}" alt="{{ $doctor->name }}">
+                        @endif
+                    </div>
+                    <div>
+                        <h5>Dott. {{ $doctor->name }} {{ $doctor->surname }}</h5>
+                        <a class="text-danger" href="{{ route('guest.infos.show', $doctor->slug)}}" style="text-decoration: none;">Mostra profilo</a>    
+                        <div>
+                             {{-- Specialization --}}
+                            @foreach ($doctor->specializations as $specialization)
+                            <div class="badge badge-primary p-1 my-1">{{ $specialization->type }}</div> 
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
             </div>
         @endforeach
