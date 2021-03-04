@@ -75,7 +75,7 @@
         {{-- Risultati Ricerca by Specializzazione --}}
         <h3>Risultato della ricerca:</h3>
         <div class="result_search d-flex flex-wrap justify-content-center" style="overflow: auto">
-            <div class="box-profile rounded bg-info d-flex justify-content-around flex-wrap py-2 m-2" v-for="result in results" style="width: 320px;">
+            <div class="box-profile rounded bg-info d-flex justify-content-around flex-wrap py-2 m-2" v-for="result in results">
                 <div class="img mb-1">
                     {{-- Check photo --}}
                         <img v-if="fakeImg.includes(result.photo) " width="80px" :src="result.photo" >
@@ -99,7 +99,7 @@
     <h2 class="text-center font-weight-bold">Gli specialisti consigliati da noi:</h2>
     <div class="premium d-flex p-3" style=" height: 250px; overflow-y: auto">
         @foreach ($doctors as $doctor)
-            <div class="box border  rounded mx-2 mb-2 px-4 pb-4" style="width: 400px; height: 190px; flex-shrink: 0">
+            <div class="box rounded mx-2 mb-2 px-4 pb-4" style="width: 400px; height: 190px; flex-shrink: 0">
                 <div class="text-right text-danger my-2 font-weight-bold">Account Premium</div>
                     <h5 class="font-weight-bold">Dott. {{ $doctor->name }} {{ $doctor->surname }}</h5>
                     <a class="text-danger font-weight-bold" href="{{ route('guest.infos.show', $doctor->slug)}}" style="text-decoration: none;">Mostra profilo</a>    

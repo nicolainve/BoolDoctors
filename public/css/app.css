@@ -16269,6 +16269,12 @@ main .box-spec .btn-spec .fas {
 main .box-spec .btn-spec:hover {
   background-color: #124691;
 }
+main .box {
+  width: 320px;
+  background: linear-gradient(210deg, white 0%, #008bd6 84%);
+  box-shadow: 0 0 5px #131313;
+  border-color: #131313;
+}
 @media screen and (max-width: 767px) {
   main .spec h1 {
     font-size: 24px;

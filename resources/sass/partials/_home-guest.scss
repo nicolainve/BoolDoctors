@@ -51,7 +51,12 @@ main {
             }
         }
     }
-
+    .box {
+        width: 320px;
+        background: linear-gradient(210deg, hsla(0, 0%, 100%, 1) 0%, hsla(201, 100%, 42%, 1) 84%);
+        box-shadow: 0 0 5px rgb(19, 19, 19);
+        border-color: rgb(19, 19, 19);
+    }
 
     // da qui
     @media screen and (max-width: 767px){
