@@ -17,10 +17,15 @@
             
             {{-- Check photo --}}
             @if(!empty($info->photo))
+                @if($info->photo == 'avatar/a.png' || $info->photo == 'avatar/b.png' || $info->photo == 'avatar/c.png')
+                <img width="300px" src="{{ asset('./' . $info->photo) }}" alt="{{ $info->name }}">
+                @else
                 <img width="300" src="{{ asset('storage/' . $info->photo) }}" alt="{{ $info->name }}">
+                @endif
             @else
                 <img width="300" src="{{ asset('img/no-image.png') }}" alt="{{ $info->name }}">
             @endif
+
         </div>
         <div class="info p-4 ">
             <h2>Dott.{{ $info->name }} {{ $info->surname }}</h2>

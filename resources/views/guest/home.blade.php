@@ -83,8 +83,12 @@
             <div class="box-profile rounded bg-info d-flex justify-content-around flex-wrap py-2 m-2" v-for="result in results" style="width: 320px;">
                 <div class="img mb-1">
                     {{-- Check photo --}}
-                        <img v-if="result.photo" width="80px" :src="`storage/` + result.photo" >
+                        <img v-if="result.photo == 'avatar/a.png' " width="80px" :src="result.photo" >
+                        <img v-else-if="result.photo == 'avatar/b.png' " width="80px" :src="result.photo" >
+                        <img v-else-if="result.photo == 'avatar/c.png' " width="80px" :src="result.photo" >
+                        <img v-else-if="result.photo" width="80px" :src="`storage/` + result.photo" >
                         <img v-else width="80px" src="{{ asset('img/no-image.png') }}" >
+
                 </div>
                 <div class="info">
                     <h5>Dott. @{{ result.name }} @{{  result.surname}}</h5>

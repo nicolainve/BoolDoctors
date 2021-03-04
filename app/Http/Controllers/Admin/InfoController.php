@@ -182,7 +182,7 @@ class InfoController extends Controller
             'address'=> 'required | max:30',
             'CV' => 'required | max:1000',
             'photo' => 'max:1000',
-            'phone' => 'required | string | min:8 | max:13',
+            'phone' => 'required | string | min:8 | max:20',
             'price' => 'required | numeric | min:1 | max:9999',
             'specializations' => 'required',
         ];

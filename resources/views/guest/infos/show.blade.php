@@ -17,10 +17,16 @@
         {{-- Infos Photo --}}
         <div class="foto">
             {{-- Check photo --}}
+
+
             @if(!empty($info->photo))
-                <img width="300px" src="{{ asset('storage/' . $info->photo) }}" alt="{{ $info->name }}">
+                @if($info->photo == 'avatar/a.png' || $info->photo == 'avatar/b.png' || $info->photo == 'avatar/c.png')
+                <img width="300px" src="{{ asset('./' . $info->photo) }}" alt="{{ $info->name }}">
+                @else
+                <img width="300" src="{{ asset('storage/' . $info->photo) }}" alt="{{ $info->name }}">
+                @endif
             @else
-                <img width="300px" src="{{ asset('img/no-image.png') }}" alt="{{ $info->name }}">
+                <img width="300" src="{{ asset('img/no-image.png') }}" alt="{{ $info->name }}">
             @endif
         </div>
         {{-- Infos Profile --}}

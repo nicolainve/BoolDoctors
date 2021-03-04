@@ -39,7 +39,7 @@
               </div>
              <div class="form-group font-weight-bold">
                 <label for="phone font-weight-bold">Numero di telefono</label>
-                <input class="form-control" type="text" name="phone" id="phone" value="{{ old('phone') }}" required minlength="8" maxlength="13">   
+                <input class="form-control" type="text" name="phone" id="phone" value="{{ old('phone') }}" required minlength="8" maxlength="20">   
              </div>
              <div class="form-group font-weight-bold">
                 <label for="price">Prezzo</label>

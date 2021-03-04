@@ -29,6 +29,7 @@ class InfosTableSeeder extends Seeder
             $newInfo->CV = $faker->text(100);
             $newInfo->phone = $faker->unique()->phoneNumber;
             $newInfo->price = $faker->randomFloat(2, 10, 100);
+            $newInfo->photo = $faker->randomElement(['avatar/a.png', 'avatar/b.png', 'avatar/c.png']);
             // Save
             $newInfo->save();
             //! Specialization
