@@ -83,12 +83,9 @@
             <div class="box-profile rounded bg-info d-flex justify-content-around flex-wrap py-2 m-2" v-for="result in results" style="width: 320px;">
                 <div class="img mb-1">
                     {{-- Check photo --}}
-                        <img v-if="result.photo == 'avatar/a.png' " width="80px" :src="result.photo" >
-                        <img v-else-if="result.photo == 'avatar/b.png' " width="80px" :src="result.photo" >
-                        <img v-else-if="result.photo == 'avatar/c.png' " width="80px" :src="result.photo" >
+                        <img v-if="fakeImg.includes(result.photo) " width="80px" :src="result.photo" >
                         <img v-else-if="result.photo" width="80px" :src="`storage/` + result.photo" >
                         <img v-else width="80px" src="{{ asset('img/no-image.png') }}" >
-
                 </div>
                 <div class="info">
                     <h5>Dott. @{{ result.name }} @{{  result.surname}}</h5>
@@ -101,17 +98,17 @@
     </div>
 
 </div>
-
+{{-- ACCOUNT PREMIUM --}}
 <div class="background" style="background-color: #00abff57;">
     <div class="container doctors-sponsor p-4 ">
     <h2 class="text-center">Gli specialisti consigliati da noi</h2>
     <div class="premium d-flex p-3" style=" height: 250px; overflow-y: auto">
         @foreach ($doctors as $doctor)
-            <div class="box border border-danger rounded mx-2 mb-2 px-4 pb-4" style="width: 300px; height: 170px; flex-shrink: 0; cursor :pointer">
+            <div class="box border border-danger rounded mx-2 mb-2 px-4 pb-4" style="width: 300px; height: 170px; flex-shrink: 0">
                 <div class="text-right text-danger my-2">Account Premium</div>
                     <h5>Dott. {{ $doctor->name }} {{ $doctor->surname }}</h5>
                     <a class="text-danger" href="{{ route('guest.infos.show', $doctor->slug)}}" style="text-decoration: none;">Mostra profilo</a> 
-                    {{-- {{dd($doctor)}}; --}}
+                    
                 <div>
                     @foreach ($doctor->specializations as $specialization)
                         <div class="badge badge-primary p-2 my-1">{{ $specialization->type }}</div> 

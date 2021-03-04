@@ -16,6 +16,24 @@ class InfosTableSeeder extends Seeder
     public function run(Faker $faker)
     {   
         $users = User::all();
+        $fakeAvatar = [
+            'avatar/1.png',
+            'avatar/2.png',
+            'avatar/4.png',
+            'avatar/5.png',
+            'avatar/6.png',
+            'avatar/7.png',
+            'avatar/8.png',
+            'avatar/9.png',
+            'avatar/10.png',
+            'avatar/11.png',
+            'avatar/12.png',
+            'avatar/13.png',
+            'avatar/14.png',
+            'avatar/15.png',
+            'avatar/16.png',
+            'avatar/17.png',
+        ];
 
         foreach ($users as $user) { 
             $newInfo = new Info();
@@ -29,7 +47,8 @@ class InfosTableSeeder extends Seeder
             $newInfo->CV = $faker->text(100);
             $newInfo->phone = $faker->unique()->phoneNumber;
             $newInfo->price = $faker->randomFloat(2, 10, 100);
-            $newInfo->photo = $faker->randomElement(['avatar/a.png', 'avatar/b.png', 'avatar/c.png']);
+            // $newInfo->photo = $faker->randomElement(['avatar/a.png', 'avatar/b.png', 'avatar/c.png']);
+            $newInfo->photo = $faker->randomElement($fakeAvatar);
             // Save
             $newInfo->save();
             //! Specialization

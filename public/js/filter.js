@@ -14453,7 +14453,8 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     tools: false,
     specialization: '',
     avg: '',
-    count: ''
+    count: '',
+    fakeImg: ['avatar/1.png', 'avatar/2.png', 'avatar/4.png', 'avatar/5.png', 'avatar/6.png', 'avatar/7.png', 'avatar/8.png', 'avatar/9.png', 'avatar/10.png', 'avatar/11.png', 'avatar/12.png', 'avatar/13.png', 'avatar/14.png', 'avatar/15.png', 'avatar/16.png', 'avatar/17.png']
   },
   // metodi
   methods: {

@@ -17,7 +17,8 @@
 
 
             @if(!empty($info->photo))
-                @if($info->photo == 'avatar/a.png' || $info->photo == 'avatar/b.png' || $info->photo == 'avatar/c.png')
+                {{-- @if($info->photo == 'avatar/a.png' || $info->photo == 'avatar/b.png' || $info->photo == 'avatar/c.png') --}}
+                @if(in_array($info->photo, $fakeImg))
                 <img width="300px" src="{{ asset('./' . $info->photo) }}" alt="{{ $info->name }}">
                 @else
                 <img width="300" src="{{ asset('storage/' . $info->photo) }}" alt="{{ $info->name }}">
