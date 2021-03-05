@@ -31,7 +31,7 @@
          <div class="doc_profile p-4">
             <div class="name_vote d-flex">
                 <h2 class="font-weight-bold"> Dott.{{ $info->name }} {{ $info->surname }}</h2>
-                <div class="vote ml-4 font-weight-bold">Voto: {{ $info->average }}</div> 
+                <div class="vote ml-4 font-weight-bold text-center">Voto Medio: {{ $info->average }}</div> 
             </div>
             {{-- Dott.{{ $info->name }} {{ $info->surname }} <span>Media Voti: {{ $info->average }}</span> --}}
             <div class="specializzazione mt-3">

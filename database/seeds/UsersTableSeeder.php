@@ -14,7 +14,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        factory(App\User::class, 100)->create();
+        factory(App\User::class, 50)->create();
         // for ($i=0; $i < 10; $i++) { 
         //     $newUser = new User();
         //     $newUser->email = $faker->email();
