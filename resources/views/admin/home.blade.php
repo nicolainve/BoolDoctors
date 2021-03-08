@@ -7,6 +7,8 @@
     <div class="container">
         {{-- Options for profile --}}
         <div class="container click">
+
+            @if (!sizeof(DB::table('info_sponsor')->where('info_sponsor.info_id', Auth::user()->info['id'])->where('info_sponsor.expired_at', '>', \Carbon\Carbon::now())->get()))
             <div class="spons-prof mt-4 mb-5">
                 {{--  Request Sponsor --}}
                 <h2 class="font-weight-bold">Vuoi avere più visibilità su BoolDoctors?</h2>
@@ -21,6 +23,9 @@
                     </a>
                 </div>
             </div>
+            @endif
+
+
             <div class="statistiche">
                 {{-- Check reviews&message stats --}}
                 <div class="stat">
