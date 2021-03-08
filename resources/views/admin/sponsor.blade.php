@@ -87,7 +87,7 @@
             </div>
             <div class="boh">
                 <div id="dropin-container"></div>
-                <input type="submit" />
+                <input type="submit" value="Paga"/>
                 <input type="hidden" id="nonce" name="payment_method_nonce"/>
                 <input hidden type="number" name="info_id" value="{{Auth::user()->info['id'] }}">
             </div>
@@ -107,7 +107,8 @@
 
     braintree.dropin.create({
     authorization: clientToken,
-    container: '#dropin-container'
+    container: '#dropin-container',
+    locale: 'it_IT'
     }, (error, dropinInstance) => {
     if (error) console.error(error);
 
