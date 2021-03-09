@@ -48,7 +48,7 @@
         </div>
     </div>
     <div class="Curriculum font-weight-bold mt-4 mb-3">
-        <h3>Il tuo Curriculum Vitae</h3>
+        <h3 class="mb-4">Il tuo Curriculum Vitae</h3>
         <p class="border border-secondary p-3" style="white-space: pre-line;">{{ $info->CV }}</p>
     </div>
 </div>

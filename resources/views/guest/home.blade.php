@@ -40,8 +40,8 @@
 
 {{-- Vue --}}
 <div id="app" style="background-color: #00abff57;">
-    <div class="container spec py-4 text-center " >
-        <h1 class="font-weight-bold">Cosa stai cercando?</h1>
+    <div class="container spec py-4 text-center py-5" >
+        <h1 class="font-weight-bold mb-5">Cosa stai cercando?</h1>
             <div class="box-spec d-flex flex-wrap justify-content-center">
                 @foreach ($specializations as $specialization)
                 <div class="btn btn-spec btn-primary py-4 m-2" v-on:click="search( '{{$specialization->id}}' )">
@@ -73,7 +73,7 @@
             </div>
         </div>
         {{-- Risultati Ricerca by Specializzazione --}}
-        <h3>Risultato della ricerca:</h3>
+        <h3 class="my-3">Risultato della ricerca:</h3>
         <div class="result_search d-flex flex-wrap justify-content-center" style="overflow: auto; height: 400px;">
             <div class="box-profile rounded bg-info d-flex justify-content-around flex-wrap py-2 m-2" v-for="result in results" style="width: 320px; height: 135px;">
                 <div class="img mb-1">
@@ -96,7 +96,7 @@
 {{-- ACCOUNT PREMIUM --}}
 <div class="background" style="background-color: #00abff57;">
     <div class="container doctors-sponsor p-4 ">
-    <h2 class="text-center font-weight-bold">Gli specialisti consigliati da noi:</h2>
+    <h2 class="text-center font-weight-bold my-5">Gli specialisti consigliati da noi:</h2>
     <div class="premium d-flex p-3" style=" height: 250px; overflow-y: auto">
         @foreach ($doctors as $doctor)
             <div class="box border-danger rounded mx-2 mb-2 px-4 pb-4" style="width: 300px; height: 170px; flex-shrink: 0">
