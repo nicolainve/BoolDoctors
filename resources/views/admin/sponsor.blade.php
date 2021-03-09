@@ -46,7 +46,7 @@
                         </div>
                     </div>
                 </div>
-               <div class="box_premium p-4 mx-2 mb-5 rounded" style="flex-basis:300px; box-shadow: 0 0 5px black; background: linear-gradient(225deg, hsla(0, 73%, 97%, 1) 10%, hsla(0, 73%, 97%, 1) 13%, hsla(0, 0%, 75%, 0.9) 46%);">
+               <div class="box_premium p-4 mx-2 mb-5 rounded" style="flex-basis:300px;height: 390px; box-shadow: 0 0 5px black; background: linear-gradient(225deg, hsla(0, 73%, 97%, 1) 10%, hsla(0, 73%, 97%, 1) 13%, hsla(0, 0%, 75%, 0.9) 46%);">
                     {{-- height: 380px; --}}
                     <div>
                         <h1>Argento</h1>
