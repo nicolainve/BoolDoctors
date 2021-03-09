@@ -85,9 +85,9 @@
                     </div>
                 </div>
             </div>
-            <div class="boh">
-                <div id="dropin-container"></div>
-                <input type="submit" value="Paga"/>
+            <div class="pay-form text-center">
+                <div class="text-left" style="width: 700px; margin: 0 auto;" id="dropin-container"></div>
+                <input class="btn btn-primary btn-md mb-2" style="padding: 5px 30px; font-size: 18px;" type="submit" value="Paga"/>
                 <input type="hidden" id="nonce" name="payment_method_nonce"/>
                 <input hidden type="number" name="info_id" value="{{Auth::user()->info['id'] }}">
             </div>
