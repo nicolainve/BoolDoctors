@@ -16,7 +16,7 @@
             <form action="{{ route('admin.infos.update', $info->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
-            <h1 class="font-weight-bold">Modifica il tuo profilo su BoolDoctors:</h1>
+            <h1 class="font-weight-bold mt-5">Modifica il tuo profilo su BoolDoctors:</h1>
             <div class="form-group font-weight-bold">
                <label for="name">Nome</label>
                <input class="form-control" type="text" name="name" id="name" value="{{ old('name', $info->name) }}" required maxlength="150">
@@ -55,7 +55,8 @@
                   </div>
               @endforeach
               </div>
-              <input id="crea" class="btn btn-primary" value="Modifica le tue info" type="submit">
+              <small class="ml-5 text-danger">I campi contrassegnati * sono obbligatori</small>
+              <input id="crea" class="btn btn-primary mt-5 mb-5" value="Modifica le tue info" type="submit">
             </form>
           </div>
           <div class="nurse-img">
